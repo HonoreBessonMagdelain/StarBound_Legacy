@@ -9,9 +9,11 @@
     <Grid>
         <Rectangle HorizontalAlignment="Center" Height="450" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF321DC7"/>
         <Rectangle Height="96" Margin="0,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="546" Fill="#FFFFD200" HorizontalAlignment="Center"/>
-        <Rectangle HorizontalAlignment="Center" Height="63" Stroke="Black" VerticalAlignment="Top" Width="166" Fill="#FF00FBDE" Margin="0,162,0,0"/>
-        <Rectangle HorizontalAlignment="Center" Height="63" Margin="0,246,0,0" Stroke="Black" VerticalAlignment="Top" Width="166" Fill="#FFF90505"/>
-        <Rectangle HorizontalAlignment="Center" Height="60" Margin="0,314,0,0" Stroke="Black" VerticalAlignment="Top" Width="166" Fill="#FF676767"/>
+        <Button x:Name="btGarage" Content="Garage" HorizontalAlignment="Center" Height="45" Margin="0,225,0,0" VerticalAlignment="Top" Width="128" Background="#FFE23131" Click="Button_Click_1"/>
+        <Button x:Name="btJouer" Content="Button" HorizontalAlignment="Center" Height="48" Margin="0,157,0,0" VerticalAlignment="Top" Width="128" Background="#FF00FFD6"/>
+        <Button x:Name="btReglages" Content="Button" HorizontalAlignment="Center" Height="45" Margin="0,294,0,0" VerticalAlignment="Top" Width="128"/>
+        <Button x:Name="btCredits" Content="Button" HorizontalAlignment="Center" Height="47" Margin="0,363,0,0" VerticalAlignment="Top" Width="128" Background="#FF689E1F"/>
+        <Button Content="Quitter" HorizontalAlignment="Left" Height="70" Margin="564,316,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click"/>
 
     </Grid>
 </Window>

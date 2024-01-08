@@ -23,6 +23,8 @@ namespace StarBound_Legacy
         public MainWindow()
         {
             InitializeComponent();
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.ShowDialog();
         }
     }
 }
