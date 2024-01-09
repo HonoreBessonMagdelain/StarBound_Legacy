@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace StarBound_Legacy
 {
@@ -19,9 +21,60 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class Garage : Window
     {
+        const int MAX_VIE = 10;
+
+        public int vieJoueur = 3;
+        private DispatcherTimer minuterie;
+        ImageBrush imgCoeur = new ImageBrush();
+
+
+        public Rectangle[] vie = new Rectangle[MAX_VIE];
         public Garage()
         {
+            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
             InitializeComponent();
+            CreerBarVie();
+            minuterie = new DispatcherTimer();
+            minuterie.Interval = TimeSpan.FromMilliseconds(16);
+            minuterie.Tick += GameEngine;
+            minuterie.Start();
+        }
+
+        private void GameEngine(object sender, EventArgs e)
+        {
+            AfficheVie();
+        }
+
+        private void AcheterVie(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void AfficheVie()
+        {
+            for (int i = 0; i < MAX_VIE; i++)
+            {
+                if (i < vieJoueur)
+                {
+                    vie[i].Opacity = 100;
+                }
+                else
+                {
+                    vie[i].Opacity = 0;
+                }
+            }
+        }
+
+        private void CreerBarVie()
+        {
+            for (int i = 0;i < MAX_VIE; i++)
+            {
+                Rectangle coeur = new Rectangle();
+                coeur.Fill = imgCoeur;
+                Canvas.SetTop(coeur, this.ActualHeight-20);
+                Canvas.SetLeft(coeur, 50 + 40 * i);
+                vie[i] = coeur;
+            }
         }
     }
 }
