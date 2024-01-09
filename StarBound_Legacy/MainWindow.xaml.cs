@@ -58,11 +58,20 @@ namespace StarBound_Legacy
             throw new NotImplementedException();
         }
 
-        public void OuvertureGarage()
+        public static void OuvertureGarage()
         {
             Garage garage = new Garage();
-            garage.Owner = this;
             garage.ShowDialog();
+        }
+        public static void OuvertureCredits()
+        {
+            Credits credits = new Credits();
+            credits.ShowDialog();
+        }
+        public static void OuvertureMenuPrincipal()
+        {
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.ShowDialog();
         }
     }
 }
