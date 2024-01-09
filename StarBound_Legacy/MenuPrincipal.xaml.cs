@@ -26,8 +26,14 @@ namespace StarBound_Legacy
 
         private void Garage(object sender, RoutedEventArgs e)
         {
-            Garage garage = new Garage();
-            garage.ShowDialog();
+            this.Close();
+            MainWindow.OuvertureGarage();
+            
+        }
+
+        private void Quitter(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
