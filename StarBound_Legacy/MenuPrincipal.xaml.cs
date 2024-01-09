@@ -43,8 +43,8 @@ namespace StarBound_Legacy
         private void Credits(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
-            this.Close();
-            MainWindow.OuvertureGarage();
+            
+            MainWindow.OuvertureCredits();
         }
     }
 }

@@ -27,7 +27,7 @@
         <Rectangle Grid.RowSpan="5" Stroke="Black" Fill="#FFA09696" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
         <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Crédits" TextAlignment="Center" FontSize="30" Grid.ColumnSpan="3" FontWeight="Bold" Grid.Column="1"/>
         <TextBlock Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="Machin" FontSize="20" TextAlignment="Center" Grid.RowSpan="2"/>
-        <Button Grid.Column="5" Content="Retour" Grid.RowSpan="3" Grid.Row="4" Margin="20,20,20,20"/>
+        <Button x:Name="btRetour" Grid.Column="5" Content="Retour" Grid.RowSpan="3" Grid.Row="4" Margin="20,20,20,20" Click="btRetourMenu"/>
 
     </Grid>
 </Window>

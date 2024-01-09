@@ -23,5 +23,12 @@ namespace StarBound_Legacy
         {
             InitializeComponent();
         }
+
+        private void btRetourMenu(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
+            MainWindow.OuvertureMenuPrincipal();
+        }
     }
 }
