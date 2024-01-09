@@ -34,6 +34,8 @@ namespace StarBound_Legacy
         {
             InitializeComponent(); 
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
+            canvGarage.Height = SystemParameters.PrimaryScreenHeight;
+            canvGarage.Width = SystemParameters.PrimaryScreenWidth;
             CreerBarVie();
             minuterie = new DispatcherTimer();
             minuterie.Interval = TimeSpan.FromMilliseconds(16);
