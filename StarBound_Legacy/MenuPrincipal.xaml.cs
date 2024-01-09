@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +22,9 @@ namespace StarBound_Legacy
     {
         public MenuPrincipal()
         {
+            
             InitializeComponent();
+            
         }
 
         private void Garage(object sender, RoutedEventArgs e)
@@ -35,6 +38,11 @@ namespace StarBound_Legacy
         private void Quitter(object sender, RoutedEventArgs e)
         {
             this.DialogResult= false;
+        }
+
+        private void Credits(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

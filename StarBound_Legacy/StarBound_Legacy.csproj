@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <Folder Include="img\" />
+    <Folder Include="Musiques\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="img\coeur.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Musiques\MusiqueAccueil.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

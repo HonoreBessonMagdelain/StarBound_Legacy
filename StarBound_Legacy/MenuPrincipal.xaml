@@ -8,28 +8,30 @@
         Title="Starbound Legacy" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="136*"/>
-            <ColumnDefinition Width="139*"/>
-            <ColumnDefinition Width="302*"/>
-            <ColumnDefinition Width="275*"/>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="258*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="138*"/>
-            <RowDefinition Height="70*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="101*"/>
+
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="76*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle x:Name="rectFondMenuPrincipal" Stroke="Black" Fill="#FF321DC7" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
-        <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,0" Stroke="Black" Fill="#FFFFD200" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="4"/>
-        <Button x:Name="btGarage" Content="Garage" Margin="79,5,94,5" Background="#FFE23131" Click="Garage" Grid.Row="3" Grid.Column="2"/>
-        <Button x:Name="btJouer" Content="Jouer" Background="#FF00FFD6" Margin="0,30,0,15" Grid.Row="2" Grid.Column="2"/>
-        <Button x:Name="btReglages" Content="Réglages" Margin="79,5,94,5" Grid.Row="4" Grid.RowSpan="2" Grid.Column="2"/>
-        <Button x:Name="btCredits" Content="Crédits" Background="#FF689E1F" Grid.Row="6" Margin="79,5,94,10" RenderTransformOrigin="0.486,0.559" Grid.Column="2"/>
-        <Button x:Name="btQuitter" Content="Quitter" Click="Quitter" Grid.Row="5" MinWidth="116" MinHeight="50" Margin="20,20,20,20" Grid.RowSpan="2"/>
+        <Rectangle x:Name="rectFondMenuPrincipal" Stroke="Black" Fill="#FF321DC7" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
+        <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,1" Stroke="Black" Fill="#FFFFD200" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="5"/>
+        <Button x:Name="btGarage" Content="Garage" Margin="20,20,20,20" Background="#FFE23131" Click="Garage" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="btJouer" Content="Jouer" Background="#FF00FFD6" Margin="20,20,20,20" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="btReglages" Content="Réglages" Margin="20,9,20,20" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2"/>
+        <Button x:Name="btCredits" Content="Crédits" Background="#FF689E1F" Grid.Row="5" Margin="20,9,20,20" RenderTransformOrigin="0.486,0.559" Grid.Column="2" Grid.RowSpan="2" Click="Credits"/>
+        <Button x:Name="btQuitter" Content="Quitter" Click="Quitter" Grid.Row="6" MinWidth="116" MinHeight="50" Margin="20,20,20,20"/>
 
     </Grid>
 </Window>
