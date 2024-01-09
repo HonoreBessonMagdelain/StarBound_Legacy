@@ -25,7 +25,14 @@ namespace StarBound_Legacy
             InitializeComponent();
             MenuPrincipal menuPrincipal = new MenuPrincipal();
             menuPrincipal.ShowDialog();
+
+            if (menuPrincipal.DialogResult == false)
+                Application.Current.Shutdown();
         }
-        
+        public static void OuvertureGarage()
+        {
+            Garage garage = new Garage();
+            garage.ShowDialog();
+        }
     }
 }
