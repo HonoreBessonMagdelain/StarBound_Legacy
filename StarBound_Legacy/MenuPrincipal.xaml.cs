@@ -26,25 +26,39 @@ namespace StarBound_Legacy
             InitializeComponent();
             
         }
-
+        
         private void Garage(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
             this.Close();
-            MainWindow.OuvertureGarage();
-            
+            MainWindow.FenetreAOuvrir = "garage";
         }
+        
+
 
         private void Quitter(object sender, RoutedEventArgs e)
         {
             this.DialogResult= false;
+
         }
 
         private void Credits(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
-            
-            MainWindow.OuvertureCredits();
+            this.Close();
+            MainWindow.FenetreAOuvrir = "credits";
+        }
+        private void Reglages(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
+            MainWindow.FenetreAOuvrir = "reglages";
+        }
+        private void Jouer(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
+            MainWindow.FenetreAOuvrir = "jouer";
         }
     }
 }
