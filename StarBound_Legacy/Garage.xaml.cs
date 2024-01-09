@@ -25,10 +25,13 @@ namespace StarBound_Legacy
 
         public int vieJoueur = 3;
         private DispatcherTimer minuterie;
+        ImageBrush imgCoeur = new ImageBrush();
+
 
         public Rectangle[] vie = new Rectangle[MAX_VIE];
         public Garage()
         {
+            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
             InitializeComponent();
             CreerBarVie();
             minuterie = new DispatcherTimer();
@@ -40,7 +43,6 @@ namespace StarBound_Legacy
         private void GameEngine(object sender, EventArgs e)
         {
             AfficheVie();
-
         }
 
         private void AcheterVie(object sender, RoutedEventArgs e)
@@ -68,6 +70,7 @@ namespace StarBound_Legacy
             for (int i = 0;i < MAX_VIE; i++)
             {
                 Rectangle coeur = new Rectangle();
+                coeur.Fill = imgCoeur;
                 Canvas.SetTop(coeur, this.ActualHeight-20);
                 Canvas.SetLeft(coeur, 50 + 40 * i);
                 vie[i] = coeur;
