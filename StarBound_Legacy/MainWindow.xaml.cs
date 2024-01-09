@@ -26,5 +26,6 @@ namespace StarBound_Legacy
             MenuPrincipal menuPrincipal = new MenuPrincipal();
             menuPrincipal.ShowDialog();
         }
+        
     }
 }

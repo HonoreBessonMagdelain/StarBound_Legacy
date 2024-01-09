@@ -24,7 +24,7 @@ namespace StarBound_Legacy
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Garage(object sender, RoutedEventArgs e)
         {
             Garage garage = new Garage();
             garage.ShowDialog();
