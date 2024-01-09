@@ -26,6 +26,7 @@ namespace StarBound_Legacy
 
         private void Garage(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = true;
             this.Close();
             MainWindow.OuvertureGarage();
             
@@ -33,7 +34,7 @@ namespace StarBound_Legacy
 
         private void Quitter(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult= false;
         }
     }
 }
