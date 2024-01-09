@@ -21,10 +21,7 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class Garage : Window
     {
-        const int MAX_VIE = 10;
         const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_BAR_VIE = 30;
-
-        public int vieJoueur = 3;
         private DispatcherTimer minuterie;
         ImageBrush imgCoeur = new ImageBrush();
 
