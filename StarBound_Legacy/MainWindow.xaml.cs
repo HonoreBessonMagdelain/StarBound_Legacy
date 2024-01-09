@@ -25,18 +25,7 @@ namespace StarBound_Legacy
     public partial class MainWindow : Window
     {
         public const int MAX_VIE = 10;
-        private int vieJoueur;
-
-        public int VieJoueur
-        {
-            get { return vieJoueur; }
-            set { 
-                if (value > MAX_VIE)
-                {
-                    throw new ArgumentOutOfRangeException("La vie a depasser le maximum possible !!!");
-                }
-                vieJoueur = value;}
-        }
+        public int vieJoueur = 3;
 
 
 
