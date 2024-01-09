@@ -4,6 +4,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,11 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class MainWindow : Window
     {
+        public const int MAX_VIE = 10;
+        public int vieJoueur = 3;
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,9 +50,10 @@ namespace StarBound_Legacy
             throw new NotImplementedException();
         }
 
-        public static void OuvertureGarage()
+        public void OuvertureGarage()
         {
             Garage garage = new Garage();
+            garage.Owner = this;
             garage.ShowDialog();
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +23,10 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class Garage : Window
     {
-        const int MAX_VIE = 10;
-        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_BAR_VIE = 30;
 
         public int vieJoueur = 3;
+        const int MAX_VIE = MainWindow.MAX_VIE;
+        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_BAR_VIE = 30;
         private DispatcherTimer minuterie;
         ImageBrush imgCoeur = new ImageBrush();
 
