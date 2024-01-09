@@ -13,21 +13,50 @@
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Canvas>
+    <Canvas Background="#FF1320DE">
         <Rectangle
-            Width="800"
-            Height="450"
-            Fill="#FF051882" />
-        <Rectangle
-            Canvas.Left="25"
-            Canvas.Top="21"
-            Width="200"
+            x:Name="rectFondPoint"
+            Canvas.Left="20"
+            Canvas.Top="10"
             Height="30"
+            MinWidth="200"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Fill="#FFC12121"
+            RadiusX="15"
+            RadiusY="16"
             RenderTransformOrigin="0.5,0.5"
             Stroke="Black" />
+        <Label
+            x:Name="lbPoint"
+            Canvas.Left="25"
+            Canvas.Top="8"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Points :"
+            FontSize="18"
+            RenderTransformOrigin="0.5,0.5" />
+        <TextBlock
+            Canvas.Left="100"
+            Canvas.Top="13"
+            FontSize="18"
+            Text="000000000"
+            TextWrapping="Wrap" />
+        <Rectangle
+            Canvas.Left="45"
+            Canvas.Top="156"
+            Height="150"
+            MinWidth="300"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="#FF01A512" />
+        <Button
+            x:Name="butAcheterVie"
+            Width="30"
+            Height="30"
+            Margin="10,410,360,10"
+            Click="AcheterVie"
+            Content="+" />
 
     </Canvas>
 </Window>
