@@ -22,6 +22,7 @@ namespace StarBound_Legacy
     public partial class Garage : Window
     {
         const int MAX_VIE = 10;
+        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_BAR_VIE = 30;
 
         public int vieJoueur = 3;
         private DispatcherTimer minuterie;
@@ -31,8 +32,8 @@ namespace StarBound_Legacy
         public Rectangle[] vie = new Rectangle[MAX_VIE];
         public Garage()
         {
+            InitializeComponent(); 
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
-            InitializeComponent();
             CreerBarVie();
             minuterie = new DispatcherTimer();
             minuterie.Interval = TimeSpan.FromMilliseconds(16);
@@ -47,7 +48,10 @@ namespace StarBound_Legacy
 
         private void AcheterVie(object sender, RoutedEventArgs e)
         {
-            
+            if (vieJoueur < MAX_VIE)
+            {
+                vieJoueur++;
+            }
         }
 
         private void AfficheVie()
@@ -69,10 +73,15 @@ namespace StarBound_Legacy
         {
             for (int i = 0;i < MAX_VIE; i++)
             {
-                Rectangle coeur = new Rectangle();
+                Rectangle coeur = new Rectangle()
+                {
+                    Width = 30,
+                    Height = 30,
+                };
                 coeur.Fill = imgCoeur;
-                Canvas.SetTop(coeur, this.ActualHeight-20);
-                Canvas.SetLeft(coeur, 50 + 40 * i);
+                canvGarage.Children.Add(coeur);
+                Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_BAR_VIE);
+                Canvas.SetLeft(coeur, POINT_DEPART_BAR_VIE + ECART_ENTRE_COEUR * i);
                 vie[i] = coeur;
             }
         }

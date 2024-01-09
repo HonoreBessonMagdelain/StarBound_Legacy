@@ -13,7 +13,7 @@
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Canvas Background="#FF1320DE">
+    <Canvas x:Name="canvGarage" Background="#FF1320DE">
         <Rectangle
             x:Name="rectFondPoint"
             Canvas.Left="20"
