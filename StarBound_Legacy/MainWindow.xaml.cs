@@ -33,7 +33,7 @@ namespace StarBound_Legacy
             get { return fenetreAOuvrir; }
             set
             {
-                if (value != "Garage" && value != "jouer" && value != "credits" && value != "reglages" && value != "menuPrincipal")
+                if (value != "garage" && value != "jouer" && value != "credits" && value != "reglages" && value != "menuPrincipal" && value != "quitter")
                     throw new ArgumentException("Il faut rentrer un nom de fenetre coorect");
                 fenetreAOuvrir = value;
             }
@@ -54,22 +54,22 @@ namespace StarBound_Legacy
                     case "menuPrincipal":
                         {
                             MenuPrincipal menuPrincipal = new MenuPrincipal();
+                            menuPrincipal.Fenetre = this;
                             menuPrincipal.ShowDialog();
-                            menuPrincipal.Owner = this;
                             break;
                         }
                     case "garage":
                         {
                             Garage garage = new Garage();
+                            garage.Fenetre = this;
                             garage.ShowDialog();
-                            garage.Owner = this;
                             break;
                         }
                     case "credits":
                         {
                             Credits credits = new Credits();
+                            credits.Fenetre = this;
                             credits.ShowDialog();
-                            credits.Owner = this;
                             break;
                         }
                     case "quitter":
@@ -80,34 +80,16 @@ namespace StarBound_Legacy
  //                   case "reglages":
  //                       {
  //                           Reglages reglages = new Reglages();
+ //                           reglages.Fenetre = this;
  //                           reglages.ShowDialog();
- //                           reglages.Owner = this;
  //                           break;
  //                       }
                 }
             }
         }
-        
-
         private void Media_Ended(object? sender, EventArgs e)
         {
             throw new NotImplementedException();
-        }
-
-        public void OuvertureGarage()
-        {
-            Garage garage = new Garage();
-            garage.ShowDialog();
-        }
-        public void OuvertureCredits()
-        {
-            Credits credits = new Credits();
-            credits.ShowDialog();
-        }
-        public void OuvertureMenuPrincipal()
-        {
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.ShowDialog();
         }
     }
 }

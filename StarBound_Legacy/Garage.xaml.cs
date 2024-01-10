@@ -32,6 +32,14 @@ namespace StarBound_Legacy
         private DispatcherTimer minuterie;
         ImageBrush imgCoeur = new ImageBrush();
 
+        private MainWindow fenetre;
+
+        public MainWindow Fenetre
+        {
+            get { return fenetre; }
+            set { fenetre = value; }
+        }
+
 
         public Rectangle[] vie = new Rectangle[MAX_VIE];
         public Garage()

@@ -23,6 +23,13 @@ namespace StarBound_Legacy
         {
             InitializeComponent();
         }
+        private MainWindow fenetre;
+
+        public MainWindow Fenetre
+        {
+            get { return fenetre; }
+            set { fenetre = value; }
+        }
 
         private void btRetourMenu(object sender, RoutedEventArgs e)
         {

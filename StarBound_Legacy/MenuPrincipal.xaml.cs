@@ -26,9 +26,9 @@ namespace StarBound_Legacy
             InitializeComponent();
             
         }
-        private String fenetre;
+        private MainWindow fenetre;
 
-        public String Fenetre
+        public MainWindow Fenetre
         {
             get { return fenetre; }
             set { fenetre = value; }
@@ -37,7 +37,7 @@ namespace StarBound_Legacy
 
         private void Garage(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).FenetreAOuvrir = this.btGarage.Content.ToString();
+            this.Fenetre.FenetreAOuvrir = "garage";
             this.DialogResult = true;
         }
         
