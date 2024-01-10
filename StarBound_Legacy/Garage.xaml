@@ -56,9 +56,12 @@
             Fill="#FF01A512" />
         <Button
             x:Name="btAcheterVie"
+            Canvas.Left="10"
+            Canvas.Top="405"
             Width="30"
             Height="30"
-            Margin="10,410,360,10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             Click="AcheterVie"
             Content="+" />
         <Button
@@ -71,14 +74,15 @@
             VerticalAlignment="Center"
             Click="RetourMenu"
             Content="Retour au menu" />
-        <Button
+        <Button x:Name="btRejouer"
             Canvas.Left="570"
             Canvas.Top="410"
             Width="100"
             Height="30"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Content="retour au combat" Click="Rejouer" />
+            Click="Rejouer"
+            Content="retour au combat" />
 
     </Canvas>
 </Window>

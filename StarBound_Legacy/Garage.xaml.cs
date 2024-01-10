@@ -28,7 +28,7 @@ namespace StarBound_Legacy
         
         public int vieJoueur = 3;
         const int MAX_VIE = MainWindow.MAX_VIE;
-        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_BAR_VIE = 30;
+        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_ELEMENT_BAS = 50;
         private DispatcherTimer minuterie;
         ImageBrush imgCoeur = new ImageBrush();
 
@@ -39,16 +39,24 @@ namespace StarBound_Legacy
             get { return fenetre; }
             set { fenetre = value; }
         }
-
+        private double hauteurFenetre;
+        private double largeurFenetre;
 
         public Rectangle[] vie = new Rectangle[MAX_VIE];
         public Garage()
         {
             InitializeComponent();
-            Canvas.SetTop(btAcheterVie, canvGarage.Height - HAUTEUR_BAR_VIE);
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
             canvGarage.Height = SystemParameters.PrimaryScreenHeight;
             canvGarage.Width = SystemParameters.PrimaryScreenWidth;
+            hauteurFenetre = canvGarage.Height;
+            largeurFenetre = canvGarage.Width;
+            Canvas.SetTop(btAcheterVie, hauteurFenetre - HAUTEUR_ELEMENT_BAS);
+            Canvas.SetLeft(btAcheterVie, POINT_DEPART_BAR_VIE - 40);
+            Canvas.SetTop(btRetour, hauteurFenetre - HAUTEUR_ELEMENT_BAS);
+            Canvas.SetLeft(btRetour, largeurFenetre - 250);
+            Canvas.SetTop(btRejouer, hauteurFenetre - HAUTEUR_ELEMENT_BAS);
+            Canvas.SetLeft(btRejouer, largeurFenetre - 120);
             CreerBarVie();
             minuterie = new DispatcherTimer();
             minuterie.Interval = TimeSpan.FromMilliseconds(16);
@@ -107,7 +115,7 @@ namespace StarBound_Legacy
                 };
                 coeur.Fill = imgCoeur;
                 canvGarage.Children.Add(coeur);
-                Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_BAR_VIE);
+                Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_ELEMENT_BAS);
                 Canvas.SetLeft(coeur, POINT_DEPART_BAR_VIE + ECART_ENTRE_COEUR * i);
                 vie[i] = coeur;
             }
