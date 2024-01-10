@@ -28,7 +28,7 @@ namespace StarBound_Legacy
         {
             this.DialogResult = true;
             this.Close();
-            MainWindow.OuvertureMenuPrincipal();
+            MainWindow.FenetreAOuvrir = "menuPrincipal";
         }
     }
 }

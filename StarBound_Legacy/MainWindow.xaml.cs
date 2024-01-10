@@ -26,8 +26,18 @@ namespace StarBound_Legacy
     {
         public const int MAX_VIE = 10;
         public int vieJoueur = 3;
+        private String fenetreAOuvrir;
 
-
+        public String FenetreAOuvrir
+        {
+            get { return fenetreAOuvrir; }
+            set
+            {
+                if (value != "garage" && value != "jouer" && value != "credits" && value != "reglages")
+                    throw new ArgumentException("Il faut rentrer un nom de fenetre coorect");
+                fenetreAOuvrir = value;
+            }
+        }
 
 
         public MainWindow()
@@ -38,6 +48,7 @@ namespace StarBound_Legacy
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
             MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.Owner = this;
             menuPrincipal.ShowDialog();
             
 
@@ -45,23 +56,24 @@ namespace StarBound_Legacy
             if (menuPrincipal.DialogResult == false)
                 Application.Current.Shutdown();
         }
+        
 
         private void Media_Ended(object? sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public static void OuvertureGarage()
+        public void OuvertureGarage()
         {
             Garage garage = new Garage();
             garage.ShowDialog();
         }
-        public static void OuvertureCredits()
+        public void OuvertureCredits()
         {
             Credits credits = new Credits();
             credits.ShowDialog();
         }
-        public static void OuvertureMenuPrincipal()
+        public void OuvertureMenuPrincipal()
         {
             MenuPrincipal menuPrincipal = new MenuPrincipal();
             menuPrincipal.ShowDialog();
