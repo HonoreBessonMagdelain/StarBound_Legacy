@@ -13,7 +13,11 @@
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Canvas x:Name="canvGarage" Background="#FF1320DE" Width="800" Height="450">
+    <Canvas
+        x:Name="canvGarage"
+        Width="800"
+        Height="450"
+        Background="#FF1320DE">
         <Rectangle
             x:Name="rectFondPoint"
             Canvas.Left="20"
@@ -57,6 +61,23 @@
             Margin="10,410,360,10"
             Click="AcheterVie"
             Content="+" />
+        <Button
+            x:Name="btRetour"
+            Canvas.Left="680"
+            Canvas.Top="410"
+            Width="100"
+            Height="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Retour au menu" />
+        <Button
+            Canvas.Left="570"
+            Canvas.Top="410"
+            Width="100"
+            Height="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="retour au combat" />
 
     </Canvas>
 </Window>
