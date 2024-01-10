@@ -45,24 +45,24 @@ namespace StarBound_Legacy
 
         private void Quitter(object sender, RoutedEventArgs e)
         {
-            this.DialogResult= false;
+            this.DialogResult = false;
         }
 
         private void Credits(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).FenetreAOuvrir = "";
+            this.Fenetre.FenetreAOuvrir = "credits";
             this.DialogResult = true;
             
             
         }
         private void Reglages(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).FenetreAOuvrir = "reglages";
+            this.Fenetre.FenetreAOuvrir = "reglages";
             this.DialogResult = true;
         }
         private void Jouer(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).FenetreAOuvrir = "jouer";
+            this.Fenetre.FenetreAOuvrir = "jouer";
             this.DialogResult = true;
         }
     }

@@ -49,6 +49,7 @@ namespace StarBound_Legacy
             
             while(true)
             {
+                
                 switch (FenetreAOuvrir)
                 {
                     case "menuPrincipal":
@@ -56,6 +57,8 @@ namespace StarBound_Legacy
                             MenuPrincipal menuPrincipal = new MenuPrincipal();
                             menuPrincipal.Fenetre = this;
                             menuPrincipal.ShowDialog();
+                            if (menuPrincipal.DialogResult == false)
+                                Application.Current.Shutdown();
                             break;
                         }
                     case "garage":

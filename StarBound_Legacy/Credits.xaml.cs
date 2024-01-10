@@ -33,6 +33,7 @@ namespace StarBound_Legacy
 
         private void btRetourMenu(object sender, RoutedEventArgs e)
         {
+            this.Fenetre.FenetreAOuvrir = "garage";
             this.DialogResult = true;
         }
     }
