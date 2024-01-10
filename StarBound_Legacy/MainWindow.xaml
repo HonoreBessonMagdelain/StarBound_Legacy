@@ -13,5 +13,8 @@
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Grid />
+    <Canvas>
+        <Rectangle Height="30" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="30"/>
+
+    </Canvas>
 </Window>
