@@ -26,12 +26,19 @@ namespace StarBound_Legacy
             InitializeComponent();
             
         }
-        
+        private String fenetre;
+
+        public String Fenetre
+        {
+            get { return fenetre; }
+            set { fenetre = value; }
+        }
+
+
         private void Garage(object sender, RoutedEventArgs e)
         {
+            ((MainWindow)this.Owner).FenetreAOuvrir = "garage";
             this.DialogResult = true;
-            this.Close();
-            MainWindow.FenetreAOuvrir = "garage";
         }
         
 
@@ -39,26 +46,24 @@ namespace StarBound_Legacy
         private void Quitter(object sender, RoutedEventArgs e)
         {
             this.DialogResult= false;
-
         }
 
         private void Credits(object sender, RoutedEventArgs e)
         {
+            ((MainWindow)this.Owner).FenetreAOuvrir = "credits";
             this.DialogResult = true;
-            this.Close();
-            MainWindow.FenetreAOuvrir = "credits";
+            
+            
         }
         private void Reglages(object sender, RoutedEventArgs e)
         {
+            ((MainWindow)this.Owner).FenetreAOuvrir = "reglages";
             this.DialogResult = true;
-            this.Close();
-            MainWindow.FenetreAOuvrir = "reglages";
         }
         private void Jouer(object sender, RoutedEventArgs e)
         {
+            ((MainWindow)this.Owner).FenetreAOuvrir = "jouer";
             this.DialogResult = true;
-            this.Close();
-            MainWindow.FenetreAOuvrir = "jouer";
         }
     }
 }

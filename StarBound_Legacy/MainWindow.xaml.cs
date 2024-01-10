@@ -38,8 +38,6 @@ namespace StarBound_Legacy
                 fenetreAOuvrir = value;
             }
         }
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -47,14 +45,39 @@ namespace StarBound_Legacy
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.Owner = this;
-            menuPrincipal.ShowDialog();
             
-
-
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.ShowDialog();
+            menuPrincipal.Owner = this;
             if (menuPrincipal.DialogResult == false)
                 Application.Current.Shutdown();
+            while(FenetreAOuvrir != "jouer")
+            {
+                switch (FenetreAOuvrir)
+                {
+                    case "garage":
+                        {
+                            Garage garage = new Garage();
+                            garage.ShowDialog();
+                            garage.Owner = this;
+                            break;
+                        }
+                    case "credits":
+                        {
+                            Credits credits = new Credits();
+                            credits.ShowDialog();
+                            credits.Owner = this;
+                            break;
+                        }
+ //                   case "reglages":
+ //                       {
+ //                           Reglages reglages = new Reglages();
+ //                           reglages.ShowDialog();
+ //                           reglages.Owner = this;
+ //                           break;
+ //                       }
+                }
+            }
         }
         
 

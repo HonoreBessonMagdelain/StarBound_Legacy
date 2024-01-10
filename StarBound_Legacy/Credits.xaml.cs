@@ -27,8 +27,6 @@ namespace StarBound_Legacy
         private void btRetourMenu(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
-            this.Close();
-            MainWindow.FenetreAOuvrir = "menuPrincipal";
         }
     }
 }
