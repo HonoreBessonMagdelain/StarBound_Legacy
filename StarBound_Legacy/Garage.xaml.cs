@@ -25,7 +25,7 @@ namespace StarBound_Legacy
     {
 
        
-
+        
         public int vieJoueur = 3;
         const int MAX_VIE = MainWindow.MAX_VIE;
         const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_BAR_VIE = 30;

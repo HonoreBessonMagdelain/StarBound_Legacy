@@ -26,13 +26,6 @@ namespace StarBound_Legacy
     {
         public const int MAX_VIE = 10;
         public int vieJoueur = 3;
-        private int vieJ;
-
-        public int VieJ
-        {
-            get { return vieJ; }
-            set { vieJ = value; }
-        }
 
 
 
