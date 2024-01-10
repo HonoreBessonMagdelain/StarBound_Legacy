@@ -40,6 +40,10 @@ namespace StarBound_Legacy
         }
         public MainWindow()
         {
+            #if DEBUG
+            Console.WriteLine("Debug version");
+            #endif
+
             InitializeComponent();
             bool quitter = false;
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
