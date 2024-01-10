@@ -37,7 +37,7 @@ namespace StarBound_Legacy
 
         private void Garage(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).FenetreAOuvrir = "garage";
+            ((MainWindow)this.Owner).FenetreAOuvrir = this.btGarage.Content.ToString();
             this.DialogResult = true;
         }
         
@@ -50,7 +50,7 @@ namespace StarBound_Legacy
 
         private void Credits(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).FenetreAOuvrir = "credits";
+            ((MainWindow)this.Owner).FenetreAOuvrir = "";
             this.DialogResult = true;
             
             

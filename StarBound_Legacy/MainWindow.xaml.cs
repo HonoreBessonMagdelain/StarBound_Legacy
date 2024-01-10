@@ -33,7 +33,7 @@ namespace StarBound_Legacy
             get { return fenetreAOuvrir; }
             set
             {
-                if (value != "garage" && value != "jouer" && value != "credits" && value != "reglages")
+                if (value != "Garage" && value != "jouer" && value != "credits" && value != "reglages" && value != "menuPrincipal")
                     throw new ArgumentException("Il faut rentrer un nom de fenetre coorect");
                 fenetreAOuvrir = value;
             }
@@ -45,16 +45,19 @@ namespace StarBound_Legacy
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
+            this.FenetreAOuvrir = "menuPrincipal";
             
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.ShowDialog();
-            menuPrincipal.Owner = this;
-            if (menuPrincipal.DialogResult == false)
-                Application.Current.Shutdown();
-            while(FenetreAOuvrir != "jouer")
+            while(true)
             {
                 switch (FenetreAOuvrir)
                 {
+                    case "menuPrincipal":
+                        {
+                            MenuPrincipal menuPrincipal = new MenuPrincipal();
+                            menuPrincipal.ShowDialog();
+                            menuPrincipal.Owner = this;
+                            break;
+                        }
                     case "garage":
                         {
                             Garage garage = new Garage();
@@ -67,6 +70,11 @@ namespace StarBound_Legacy
                             Credits credits = new Credits();
                             credits.ShowDialog();
                             credits.Owner = this;
+                            break;
+                        }
+                    case "quitter":
+                        {
+                            Application.Current.Shutdown();
                             break;
                         }
  //                   case "reglages":
