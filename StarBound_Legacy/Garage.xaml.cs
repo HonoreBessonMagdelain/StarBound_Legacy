@@ -44,7 +44,8 @@ namespace StarBound_Legacy
         public Rectangle[] vie = new Rectangle[MAX_VIE];
         public Garage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            Canvas.SetTop(btAcheterVie, canvGarage.Height - HAUTEUR_BAR_VIE);
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
             canvGarage.Height = SystemParameters.PrimaryScreenHeight;
             canvGarage.Width = SystemParameters.PrimaryScreenWidth;
@@ -66,6 +67,18 @@ namespace StarBound_Legacy
             {
                 vieJoueur++;
             }
+        }
+
+        private void RetourMenu(object sender, RoutedEventArgs e)
+        {
+            this.Fenetre.FenetreAOuvrir = "menuPrincipal";
+            this.DialogResult = true;
+        }
+
+        private void Rejouer(object sender, RoutedEventArgs e)
+        {
+            this.Fenetre.FenetreAOuvrir = "jouer";
+            this.DialogResult = true;
         }
 
         private void AfficheVie()
@@ -99,5 +112,9 @@ namespace StarBound_Legacy
                 vie[i] = coeur;
             }
         }
+
+
+
+
     }
 }
