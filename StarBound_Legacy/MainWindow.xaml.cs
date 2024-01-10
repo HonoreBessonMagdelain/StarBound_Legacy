@@ -41,13 +41,14 @@ namespace StarBound_Legacy
         public MainWindow()
         {
             InitializeComponent();
+            bool quitter = false;
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
             this.FenetreAOuvrir = "menuPrincipal";
             
-            while(true)
+            while(!quitter)
             {
                 
                 switch (FenetreAOuvrir)
@@ -57,8 +58,7 @@ namespace StarBound_Legacy
                             MenuPrincipal menuPrincipal = new MenuPrincipal();
                             menuPrincipal.Fenetre = this;
                             menuPrincipal.ShowDialog();
-                            if (menuPrincipal.DialogResult == false)
-                                Application.Current.Shutdown();
+                            
                             break;
                         }
                     case "garage":
@@ -77,7 +77,7 @@ namespace StarBound_Legacy
                         }
                     case "quitter":
                         {
-                            Application.Current.Shutdown();
+                            quitter = true;
                             break;
                         }
  //                   case "reglages":
@@ -89,6 +89,8 @@ namespace StarBound_Legacy
  //                       }
                 }
             }
+            if ( quitter )
+                Application.Current.Shutdown();
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
