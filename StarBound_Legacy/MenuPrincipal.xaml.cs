@@ -45,7 +45,8 @@ namespace StarBound_Legacy
 
         private void Quitter(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            this.Fenetre.FenetreAOuvrir = "quitter";
+            this.DialogResult = true;
         }
 
         private void Credits(object sender, RoutedEventArgs e)
