@@ -83,6 +83,7 @@
             VerticalAlignment="Center"
             Click="Rejouer"
             Content="retour au combat" />
+        <Rectangle Height="380" Canvas.Left="451" Canvas.Top="25" Width="329" Fill="#FF7D7D7D"/>
 
     </Canvas>
 </Window>

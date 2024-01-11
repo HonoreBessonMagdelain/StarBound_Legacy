@@ -25,6 +25,7 @@ namespace StarBound_Legacy
     public partial class MainWindow : Window
     {
         public const int MAX_VIE = 10;
+        public int vieJoueurDebutPartie = 3;
         public int vieJoueur = 3;
         private String fenetreAOuvrir;
 

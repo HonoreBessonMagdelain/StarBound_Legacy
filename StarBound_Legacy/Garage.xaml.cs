@@ -24,14 +24,6 @@ namespace StarBound_Legacy
     public partial class Garage : Window
     {
 
-       
-        
-        public int vieJoueur = 3;
-        const int MAX_VIE = MainWindow.MAX_VIE;
-        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_ELEMENT_BAS = 50;
-        private DispatcherTimer minuterie;
-        ImageBrush imgCoeur = new ImageBrush();
-
         private MainWindow fenetre;
 
         public MainWindow Fenetre
@@ -39,10 +31,16 @@ namespace StarBound_Legacy
             get { return fenetre; }
             set { fenetre = value; }
         }
+
+        const int MAX_VIE = MainWindow.MAX_VIE;
+        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_ELEMENT_BAS = 50;
+        private DispatcherTimer minuterie;
+        ImageBrush imgCoeur = new ImageBrush();
+
         private double hauteurFenetre;
         private double largeurFenetre;
 
-        public Rectangle[] vie = new Rectangle[MAX_VIE];
+        public Rectangle[] barVie = new Rectangle[MAX_VIE];
         public Garage()
         {
             InitializeComponent();
@@ -71,9 +69,9 @@ namespace StarBound_Legacy
 
         private void AcheterVie(object sender, RoutedEventArgs e)
         {
-            if (vieJoueur < MAX_VIE)
+            if (this.Fenetre.vieJoueurDebutPartie < MAX_VIE)
             {
-                vieJoueur++;
+                this.Fenetre.vieJoueurDebutPartie++;
             }
         }
 
@@ -93,13 +91,13 @@ namespace StarBound_Legacy
         {
             for (int i = 0; i < MAX_VIE; i++)
             {
-                if (i < vieJoueur)
+                if (i < this.Fenetre.vieJoueurDebutPartie)
                 {
-                    vie[i].Opacity = 100;
+                    barVie[i].Opacity = 100;
                 }
                 else
                 {
-                    vie[i].Opacity = 0;
+                    barVie[i].Opacity = 0;
                 }
             }
         }
@@ -117,7 +115,7 @@ namespace StarBound_Legacy
                 canvGarage.Children.Add(coeur);
                 Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_ELEMENT_BAS);
                 Canvas.SetLeft(coeur, POINT_DEPART_BAR_VIE + ECART_ENTRE_COEUR * i);
-                vie[i] = coeur;
+                barVie[i] = coeur;
             }
         }
 
