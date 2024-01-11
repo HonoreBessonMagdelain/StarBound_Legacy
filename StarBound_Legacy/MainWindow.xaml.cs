@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StarBound_Legacy
 {
@@ -27,6 +30,16 @@ namespace StarBound_Legacy
         public const int MAX_VIE = 10;
         public int vieJoueur = 3;
         private String fenetreAOuvrir;
+        // création variable minuterie
+        private DispatcherTimer minuterie;
+        // booléens pour gauche droite haut bas
+        private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
+        // liste des éléments rectangles
+        private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
+        // entier nous permettant de charger les images des ennemis
+        private int ImagesEnnemis = 0;
+
+
 
         public String FenetreAOuvrir
         {
@@ -94,11 +107,26 @@ namespace StarBound_Legacy
                 }
             }
             if ( quitter )
-                Application.Current.Shutdown();
+                System.Windows.Application.Current.Shutdown();
+            minuterie.Tick += MoteurJeu;
+            minuterie.Interval = TimeSpan.FromMilliseconds(16);
+            minuterie.Start();
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+        private void MoteurJeu(object sender, EventArgs e)
+        {
+            
+        }
+        private void ToucheEnfoncee(object sender, KeyEventArgs e)
+        {
+
+        }
+        private void Toucherelachee(object sender, KeyEventArgs e)
+        {
+        
         }
     }
 }

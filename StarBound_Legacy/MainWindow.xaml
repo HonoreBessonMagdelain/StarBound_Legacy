@@ -14,7 +14,11 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Canvas>
-        <Rectangle Height="30" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="30"/>
+        <Rectangle Height="30" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
+        <Rectangle Height="30" Canvas.Left="56" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
+        <Rectangle Height="30" Canvas.Left="100" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
+        <TextBlock Canvas.Left="1098" TextWrapping="Wrap" Text="26300" Canvas.Top="13" Height="22" Width="172" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"/>
+        <Rectangle Height="46" Canvas.Left="71" Stroke="Black" Canvas.Top="212" Width="59" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="#FF2A6AD2"/>
 
     </Canvas>
 </Window>
