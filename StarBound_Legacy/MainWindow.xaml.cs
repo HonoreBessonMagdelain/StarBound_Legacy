@@ -109,15 +109,16 @@ namespace StarBound_Legacy
                     case "jouer":
                         {
                             jouer = true;
+                            minuterie.Tick += MoteurJeu;
+                            minuterie.Interval = TimeSpan.FromMilliseconds(16);
+                            minuterie.Start();
                             break;
                         }
                 }
             }
             if ( quitter )
                 System.Windows.Application.Current.Shutdown();
-            minuterie.Tick += MoteurJeu;
-            minuterie.Interval = TimeSpan.FromMilliseconds(16);
-            minuterie.Start();
+            
         }
         private void Media_Ended(object? sender, EventArgs e)
         {

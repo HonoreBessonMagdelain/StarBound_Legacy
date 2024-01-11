@@ -97,7 +97,7 @@ namespace StarBound_Legacy
                 }
                 else
                 {
-                    barVie[i].Opacity = 0;
+                    barVie[i].Opacity = 0.5;
                 }
             }
         }
