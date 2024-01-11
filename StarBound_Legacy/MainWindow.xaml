@@ -14,11 +14,35 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/pixil-frame-0.png"/>
+        </Canvas.Background>
+        <Rectangle x:Name="rectFond1" Height="450" Stroke="Black" Width="800">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/pixil-frame-0 (3).png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectFond2" Height="450" Stroke="Black" Width="800">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/pixil-frame-0 (4).png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectFond1ACote" Height="450" Stroke="Black" Width="800" HorizontalAlignment="Left" Canvas.Left="800" VerticalAlignment="Center">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/pixil-frame-0 (3).png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectFond2ACote" Height="450" Stroke="Black" Width="800" HorizontalAlignment="Left" Canvas.Left="800" VerticalAlignment="Center">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/pixil-frame-0 (4).png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle Height="30" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
         <Rectangle Height="30" Canvas.Left="56" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
         <Rectangle Height="30" Canvas.Left="100" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
         <TextBlock Canvas.Left="1098" TextWrapping="Wrap" Text="26300" Canvas.Top="13" Height="22" Width="172" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"/>
         <Rectangle Height="46" Canvas.Left="71" Stroke="Black" Canvas.Top="212" Width="59" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="#FF2A6AD2"/>
+        
 
     </Canvas>
 </Window>

@@ -60,13 +60,14 @@ namespace StarBound_Legacy
 
             InitializeComponent();
             bool quitter = false;
+            bool jouer = false;
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
             this.FenetreAOuvrir = "menuPrincipal";
             
-            while(!quitter)
+            while(!quitter && !jouer)
             {
                 
                 switch (FenetreAOuvrir)
@@ -98,13 +99,18 @@ namespace StarBound_Legacy
                             quitter = true;
                             break;
                         }
- //                   case "reglages":
- //                       {
- //                           Reglages reglages = new Reglages();
- //                           reglages.Fenetre = this;
- //                           reglages.ShowDialog();
- //                           break;
- //                       }
+                    //                   case "reglages":
+                    //                       {
+                    //                           Reglages reglages = new Reglages();
+                    //                           reglages.Fenetre = this;
+                    //                           reglages.ShowDialog();
+                    //                           break;
+                    //                       }
+                    case "jouer":
+                        {
+                            jouer = true;
+                            break;
+                        }
                 }
             }
             if ( quitter )
