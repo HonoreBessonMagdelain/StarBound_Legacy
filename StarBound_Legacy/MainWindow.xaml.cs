@@ -117,6 +117,9 @@ namespace StarBound_Legacy
                     case "jouer":
                         {
                             jouer = true;
+                            minuterie.Tick += MoteurJeu;
+                            minuterie.Interval = TimeSpan.FromMilliseconds(16);
+                            minuterie.Start();
                             break;
                         }
                 }
@@ -125,9 +128,7 @@ namespace StarBound_Legacy
 
             if ( quitter )
                 System.Windows.Application.Current.Shutdown();
-            minuterie.Tick += MoteurJeu;
-            minuterie.Interval = TimeSpan.FromMilliseconds(16);
-            minuterie.Start();
+            
         }
         public void initialisationAstres()
         {
