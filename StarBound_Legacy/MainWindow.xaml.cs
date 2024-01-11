@@ -15,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -32,13 +33,19 @@ namespace StarBound_Legacy
         public int vieJoueur = 3;
         private String fenetreAOuvrir;
         // création variable minuterie
-        private DispatcherTimer minuterie;
+        private DispatcherTimer minuterie = new DispatcherTimer();
         // booléens pour gauche droite haut bas
         private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
         // liste des éléments rectangles
         private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
         // entier nous permettant de charger les images des ennemis
         private int ImagesEnnemis = 0;
+        // entier nous permettant de charger les images des etoiles
+        private int ImagesEtoiles = 0;
+        // nombre de petites etoiles qui existent
+        private int nombrePetitesEtoiles = 5;
+        Random aleatoire = new Random();
+
 
 
 
@@ -125,7 +132,8 @@ namespace StarBound_Legacy
         }
         private void MoteurJeu(object sender, EventArgs e)
         {
-            
+            Console.WriteLine("");
+
         }
         private void ToucheEnfoncee(object sender, KeyEventArgs e)
         {
@@ -134,6 +142,24 @@ namespace StarBound_Legacy
         private void Toucherelachee(object sender, KeyEventArgs e)
         {
         
+        }
+        private void CreationPetitesEtoiles(int limite)
+        {
+            int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles+1);
+            int right = 0;
+            ImageBrush etoileApparence = new ImageBrush();
+            Rectangle nouvelleEtoile = new Rectangle
+            {
+                Tag = "petiteEtoile",
+                Height = 45,
+                Width = 45,
+                Fill = etoileApparence,
+            };
+            Canvas.SetTop(nouvelleEtoile, aleatoire.Next(0, (int)this.Canva.Height));
+            Canvas.SetRight(nouvelleEtoile, right);
+            Canva.Children.Add(nouvelleEtoile);
+            right -= 60;
+            etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/petiteEtoile" + numeroEtoile + ".png"));
         }
     }
 }
