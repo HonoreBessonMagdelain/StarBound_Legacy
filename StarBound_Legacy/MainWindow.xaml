@@ -17,7 +17,8 @@
     <Canvas
         Name="Canva"
         Width="auto"
-        Height="auto">
+        Height="auto" Focusable="True" KeyDown="ToucheEnfoncee" KeyUp="ToucheRelachee">
+
         <Canvas.Background>
             <ImageBrush ImageSource="/pixil-frame-0.png" />
         </Canvas.Background>
@@ -53,15 +54,13 @@
             FontSize="24"
             Text="26300"
             TextWrapping="Wrap" />
-        <Rectangle
+        <Rectangle x:Name="rectJoueur"
             Canvas.Left="71"
-            Canvas.Top="212"
-            Width="59"
-            Height="46"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="#FF2A6AD2"
-            Stroke="Black" />
+            Canvas.Top="201"
+            Width="136"
+            Height="48"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" Fill="#FF2A6AD2"  />
 
 
     </Canvas>

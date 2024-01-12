@@ -31,7 +31,7 @@ namespace StarBound_Legacy
         public const int MAX_VIE = 10;
         public int vieJoueurDebutPartie = 3;
         public int vieJoueur = 3;
-        private String fenetreAOuvrir;
+        
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
         // booléens pour gauche droite haut bas
@@ -44,10 +44,14 @@ namespace StarBound_Legacy
         private int ImagesEtoiles = 0;
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
+        // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
+        private ImageBrush apparenceJoueur = new ImageBrush();
+        // vitesse du joueur
+        private int vitesseJoueur = 10;
         Random aleatoire = new Random();
 
 
-
+        private String fenetreAOuvrir;
 
         public String FenetreAOuvrir
         {
@@ -68,10 +72,12 @@ namespace StarBound_Legacy
             InitializeComponent();
             bool quitter = false;
             bool jouer = false;
+
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
+
             this.FenetreAOuvrir = "menuPrincipal";
             
             
@@ -120,6 +126,10 @@ namespace StarBound_Legacy
                             minuterie.Tick += MoteurJeu;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Start();
+                            // chargement de l’image du joueur 
+                            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/VaisseauHD.png"));
+                            // assignement de skin du joueur au rectangle associé
+                            rectJoueur.Fill = apparenceJoueur;
                             break;
                         }
                 }
@@ -132,7 +142,7 @@ namespace StarBound_Legacy
         }
         public void initialisationAstres()
         {
-            CreationPetitesEtoiles(5000); 
+            CreationPetitesEtoiles(15); 
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -140,16 +150,23 @@ namespace StarBound_Legacy
         }
         private void MoteurJeu(object sender, EventArgs e)
         {
+
+            // création d’un rectangle joueur pour la détection de collision
+            Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
+            rectJoueur.Width, rectJoueur.Height);
+            // déplacement à gauche et droite de vitessePlayer avec vérification des 
             
-        }
-        private void ToucheEnfoncee(object sender, KeyEventArgs e)
-        {
+            if (vaAGauche )
+            {
+                Canvas.SetLeft(rectJoueur, Canvas.GetLeft(rectJoueur) - vitesseJoueur);
+            }
+            else if (vaADroite )
+            {
+                Canvas.SetLeft(rectJoueur, Canvas.GetLeft(rectJoueur) + vitesseJoueur);
+            }
 
         }
-        private void Toucherelachee(object sender, KeyEventArgs e)
-        {
-        
-        }
+
         private void CreationPetitesEtoiles(int limite)
         {
             for(int i = 0; i<limite; i++)
@@ -172,5 +189,30 @@ namespace StarBound_Legacy
             }
 
         }
+        private void ToucheEnfoncee(object sender, KeyEventArgs e)
+        {
+            // on gère les booléens gauche et droite en fonction de l’appui de la touche
+            if (e.Key == Key.Left)
+            {
+                vaAGauche = true;
+            }
+            if (e.Key == Key.Right)
+            {
+                vaADroite = true;
+            }
+        }
+        private void ToucheRelachee(object sender, KeyEventArgs e)
+        {
+            // on gère les booléens gauche et droite en fonction du relâchement de la touche
+            if (e.Key == Key.Left)
+            {
+                vaAGauche = false;
+            }
+            if (e.Key == Key.Right)
+            {
+                vaADroite = false;
+            }
+        }
+
     }
 }
