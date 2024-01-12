@@ -19,7 +19,7 @@
         Width="auto"
         Height="auto">
         <Canvas.Background>
-            <ImageBrush ImageSource="/pixil-frame-0.png" />
+            <ImageBrush ImageSource="/Degrade.png"/>
         </Canvas.Background>
 
         <Rectangle
@@ -53,7 +53,7 @@
             FontSize="24"
             Text="26300"
             TextWrapping="Wrap" />
-        <Rectangle
+        <Rectangle x:Name="rectJoueur"
             Canvas.Left="71"
             Canvas.Top="212"
             Width="59"

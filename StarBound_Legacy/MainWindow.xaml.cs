@@ -42,8 +42,10 @@ namespace StarBound_Legacy
         private int ImagesEnnemis = 0;
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
-        // nombre de petites etoiles qui existent
+        // nombre de petites etoiles differentes qui existent
         private int nombrePetitesEtoiles = 5;
+        // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
+        private ImageBrush apparenceJoueur = new ImageBrush();
         Random aleatoire = new Random();
 
 
@@ -120,6 +122,12 @@ namespace StarBound_Legacy
                             minuterie.Tick += MoteurJeu;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Start();
+
+                            
+                            // chargement de l’image du joueur 
+                            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/VaisseauHD.png"));
+                            // assignement de skin du joueur au rectangle associé
+                            rectJoueur.Fill = apparenceJoueur;
                             break;
                         }
                 }
@@ -132,7 +140,7 @@ namespace StarBound_Legacy
         }
         public void initialisationAstres()
         {
-            CreationPetitesEtoiles(5000); 
+            CreationPetitesEtoiles(2); 
         }
         private void Media_Ended(object? sender, EventArgs e)
         {

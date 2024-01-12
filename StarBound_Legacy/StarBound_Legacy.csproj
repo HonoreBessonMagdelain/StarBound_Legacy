@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Degrade.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Degrade.png" />
     <Resource Include="pixil-frame-0 (3).png" />
     <Resource Include="pixil-frame-0 (4).png" />
     <Resource Include="pixil-frame-0.png" />
@@ -27,6 +29,9 @@
   <ItemGroup>
     <None Update="img\coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Degrade.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -51,6 +56,9 @@
     </None>
     <None Update="img\vaisseau2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\VaisseauHD.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Musiques\MusiqueAccueil.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
