@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="LOGO.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="LOGO.png" />
     <Resource Include="pixil-frame-0 (3).png" />
     <Resource Include="pixil-frame-0 (4).png" />
     <Resource Include="pixil-frame-0.png" />

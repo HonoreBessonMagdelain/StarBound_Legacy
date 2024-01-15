@@ -26,7 +26,11 @@
         </Grid.RowDefinitions>
 
         <Rectangle x:Name="rectFondMenuPrincipal" Stroke="Black" Fill="#FF321DC7" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
-        <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,1" Stroke="Black" Fill="#FFFFD200" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="5"/>
+        <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,1" Stroke="Black" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/LOGO.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Button x:Name="btGarage" Content="Garage" Margin="20,20,20,20" Background="#FFE23131" Click="Garage" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
         <Button x:Name="btJouer" Content="Jouer" Background="#FF00FFD6" Margin="20,20,20,20" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Click="Jouer"/>
         <Button x:Name="btReglages" Content="Réglages" Margin="20,9,20,20" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2" Click="Reglages"/>
