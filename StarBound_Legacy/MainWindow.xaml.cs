@@ -44,6 +44,7 @@ namespace StarBound_Legacy
         private int ImagesEnnemis = 0;
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
+        private int vitesseEtoile = 2;
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
         // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
@@ -165,7 +166,8 @@ namespace StarBound_Legacy
             rectJoueur.Width, rectJoueur.Height);
             // déplacement à gauche et droite de vitessePlayer avec vérification des 
             
-            if (vaAGauche && Canvas.GetLeft(rectJoueur) > 0)
+            Console.WriteLine(Canvas.GetLeft(rectJoueur));
+            if (vaAGauche && Canvas.GetLeft(rectJoueur) > -50)
             {
                 Canvas.SetLeft(rectJoueur, Canvas.GetLeft(rectJoueur) - vitesseJoueur);
             }
@@ -192,6 +194,15 @@ namespace StarBound_Legacy
                         ElementsASupprimer.Add(x);
                     }
                 }
+                if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > 0)
+                {
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile);
+                }
+                else if (x is Rectangle && (string)x.Tag == "etoile")
+                {
+                    Canvas.SetLeft(x, Canva.Width);
+                    Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
+                }
             }
             foreach (Rectangle x in ElementsASupprimer)
             {
@@ -214,10 +225,12 @@ namespace StarBound_Legacy
                 {
                     Height = aleatoire.Next(20, 45),
                     Width = aleatoire.Next(20, 45),
-                    Fill = etoileApparence
+                    Fill = etoileApparence,
+                    Tag = "etoile"
                 };
                 Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
                 Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
+                Canvas.SetZIndex(nouvelleEtoile, 2);
                 Canva.Children.Add(nouvelleEtoile);
             }
 
@@ -258,7 +271,7 @@ namespace StarBound_Legacy
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
-#endif
+                #endif
                 // on vide la liste des items
                 ElementsASupprimer.Clear();
                 balletirer = 0;
@@ -266,6 +279,7 @@ namespace StarBound_Legacy
                 {
                     if (x is Rectangle && (string)x.Tag == "balleJoueur")
                     {
+                        // increment le nombre de balle tirer afficher sur l'ecran
                         balletirer += 1;
                     }
                 }
@@ -274,7 +288,6 @@ namespace StarBound_Legacy
                     #if DEBUG
                         Console.WriteLine(balletirer);
                     #endif
-                    balletirer++;
                     // création un nouveau tir
                     Rectangle newBullet = new Rectangle
                     {
@@ -286,7 +299,7 @@ namespace StarBound_Legacy
                         Stroke = Brushes.Red
                     };
                     // on place le tir à l’endroit du joueur
-                    Canvas.SetTop(newBullet, Canvas.GetTop(rectJoueur) - newBullet.Height);
+                    Canvas.SetTop(newBullet, Canvas.GetTop(rectJoueur) + rectJoueur.Height - rectJoueur.Height / 4);
                     Canvas.SetLeft(newBullet, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
                     Canva.Children.Add(newBullet);
