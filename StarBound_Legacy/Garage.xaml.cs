@@ -45,16 +45,8 @@ namespace StarBound_Legacy
         {
             InitializeComponent();
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            canvGarage.Height = SystemParameters.PrimaryScreenHeight;
-            canvGarage.Width = SystemParameters.PrimaryScreenWidth;
-            hauteurFenetre = canvGarage.Height;
-            largeurFenetre = canvGarage.Width;
-            Canvas.SetTop(btAcheterVie, hauteurFenetre - HAUTEUR_ELEMENT_BAS);
-            Canvas.SetLeft(btAcheterVie, POINT_DEPART_BAR_VIE - 40);
-            Canvas.SetTop(btRetour, hauteurFenetre - HAUTEUR_ELEMENT_BAS);
-            Canvas.SetLeft(btRetour, largeurFenetre - 250);
-            Canvas.SetTop(btRejouer, hauteurFenetre - HAUTEUR_ELEMENT_BAS);
-            Canvas.SetLeft(btRejouer, largeurFenetre - 120);
+            ///canvGarage.Height = SystemParameters.PrimaryScreenHeight;
+            
             CreerBarVie();
             minuterie = new DispatcherTimer();
             minuterie.Interval = TimeSpan.FromMilliseconds(16);
@@ -75,15 +67,17 @@ namespace StarBound_Legacy
             }
         }
 
-        private void RetourMenu(object sender, RoutedEventArgs e)
-        {
-            this.Fenetre.FenetreAOuvrir = "menuPrincipal";
-            this.DialogResult = true;
-        }
+        
 
         private void Rejouer(object sender, RoutedEventArgs e)
         {
             this.Fenetre.FenetreAOuvrir = "jouer";
+            this.DialogResult = true;
+        }
+
+        private void Retour(object sender, RoutedEventArgs e)
+        {
+            this.Fenetre.FenetreAOuvrir = "menuPrincipal";
             this.DialogResult = true;
         }
 
@@ -112,8 +106,8 @@ namespace StarBound_Legacy
                     Height = 30,
                 };
                 coeur.Fill = imgCoeur;
-                canvGarage.Children.Add(coeur);
-                Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_ELEMENT_BAS);
+                //canvGarage.Children.Add(coeur);
+                //Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_ELEMENT_BAS);
                 Canvas.SetLeft(coeur, POINT_DEPART_BAR_VIE + ECART_ENTRE_COEUR * i);
                 barVie[i] = coeur;
             }

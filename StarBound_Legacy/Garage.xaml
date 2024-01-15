@@ -29,6 +29,17 @@
             <RowDefinition Height="87*"/>
             <RowDefinition Height="92*"/>
         </Grid.RowDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="53,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="88,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="123,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="158,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="193,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="228,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="263,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="298,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="333,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Center" Width="48" Fill="#FF888888"/>
+        <Button Grid.Column="3" Content="Retour" Margin="30,30,30,30" Grid.Row="3" Click="Retour"/>
 
     </Grid>
 </Window>
