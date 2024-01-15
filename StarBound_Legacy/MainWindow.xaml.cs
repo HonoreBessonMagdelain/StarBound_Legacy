@@ -42,8 +42,10 @@ namespace StarBound_Legacy
         private int ImagesEnnemis = 0;
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
-        // nombre de petites etoiles qui existent
+        // nombre de petites etoiles differentes qui existent
         private int nombrePetitesEtoiles = 5;
+        // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
+        private ImageBrush apparenceJoueur = new ImageBrush();
         Random aleatoire = new Random();
 
 
@@ -73,6 +75,7 @@ namespace StarBound_Legacy
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
             this.FenetreAOuvrir = "menuPrincipal";
+            
             
             while(!quitter && !jouer)
             {
@@ -119,13 +122,25 @@ namespace StarBound_Legacy
                             minuterie.Tick += MoteurJeu;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Start();
+
+                            
+                            // chargement de l’image du joueur 
+                            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/VaisseauHD.png"));
+                            // assignement de skin du joueur au rectangle associé
+                            rectJoueur.Fill = apparenceJoueur;
                             break;
                         }
                 }
             }
+            initialisationAstres();
+
             if ( quitter )
                 System.Windows.Application.Current.Shutdown();
             
+        }
+        public void initialisationAstres()
+        {
+            CreationPetitesEtoiles(2); 
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -133,8 +148,7 @@ namespace StarBound_Legacy
         }
         private void MoteurJeu(object sender, EventArgs e)
         {
-            Console.WriteLine("");
-
+            
         }
         private void ToucheEnfoncee(object sender, KeyEventArgs e)
         {
@@ -146,21 +160,25 @@ namespace StarBound_Legacy
         }
         private void CreationPetitesEtoiles(int limite)
         {
-            int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles+1);
-            int right = 0;
-            ImageBrush etoileApparence = new ImageBrush();
-            Rectangle nouvelleEtoile = new Rectangle
+            for(int i = 0; i<limite; i++)
             {
-                Tag = "petiteEtoile",
-                Height = 45,
-                Width = 45,
-                Fill = etoileApparence,
-            };
-            Canvas.SetTop(nouvelleEtoile, aleatoire.Next(0, (int)this.Canva.Height));
-            Canvas.SetRight(nouvelleEtoile, right);
-            Canva.Children.Add(nouvelleEtoile);
-            right -= 60;
-            etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/petiteEtoile" + numeroEtoile + ".png"));
+                int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
+                //int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
+
+                ImageBrush etoileApparence = new ImageBrush();
+                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/petiteEtoile" + numeroEtoile + ".png"));
+
+                Rectangle nouvelleEtoile = new Rectangle
+                {
+                    Height = aleatoire.Next(20, 45),
+                    Width = aleatoire.Next(20, 45),
+                    Fill = etoileApparence
+                };
+                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)this.Fenetre.Height - (int)nouvelleEtoile.Height));
+                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)this.Fenetre.Width - (int)nouvelleEtoile.Width));
+                Canva.Children.Add(nouvelleEtoile);
+            }
+
         }
     }
 }

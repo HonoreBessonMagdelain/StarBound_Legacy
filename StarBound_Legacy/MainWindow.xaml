@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:StarBound_Legacy"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="Fenetre"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -12,18 +13,55 @@
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     WindowStyle="None"
-    mc:Ignorable="d">
+    mc:Ignorable="d" MinWidth="800" MinHeight="450">
     <Canvas
-        Name="Canva">
+        Name="Canva"
+        Width="auto"
+        Height="auto">
         <Canvas.Background>
-            <ImageBrush ImageSource="/pixil-frame-0.png"/>
+            <ImageBrush ImageSource="/Degrade.png"/>
         </Canvas.Background>
-        
-        <Rectangle Height="30" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
-        <Rectangle Height="30" Canvas.Left="56" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
-        <Rectangle Height="30" Canvas.Left="100" Stroke="Black" Canvas.Top="10" Width="30" Fill="Red"/>
-        <TextBlock Canvas.Left="618" TextWrapping="Wrap" Text="26300" Canvas.Top="8" Height="22" Width="172" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24"/>
-        <Rectangle Height="46" Canvas.Left="71" Stroke="Black" Canvas.Top="212" Width="59" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="#FF2A6AD2"/>
+
+        <Rectangle
+            Canvas.Left="10"
+            Canvas.Top="10"
+            Width="30"
+            Height="30"
+            Fill="Red"
+            Stroke="Black" />
+        <Rectangle
+            Canvas.Left="56"
+            Canvas.Top="10"
+            Width="30"
+            Height="30"
+            Fill="Red"
+            Stroke="Black" />
+        <Rectangle
+            Canvas.Left="100"
+            Canvas.Top="10"
+            Width="30"
+            Height="30"
+            Fill="Red"
+            Stroke="Black" />
+        <TextBlock
+            Canvas.Left="618"
+            Canvas.Top="8"
+            Width="auto"
+            Height="auto"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            Text="26300"
+            TextWrapping="Wrap" />
+        <Rectangle x:Name="rectJoueur"
+            Canvas.Left="71"
+            Canvas.Top="212"
+            Width="59"
+            Height="46"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Fill="#FF2A6AD2"
+            Stroke="Black" />
 
 
     </Canvas>
