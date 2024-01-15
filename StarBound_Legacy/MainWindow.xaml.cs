@@ -59,7 +59,7 @@ namespace StarBound_Legacy
         private int vitesseEtoile1 = 1;
         private int vitesseEtoile2 = 2;
         private int vitesseEtoile3 = 3;
-        private int vitessePieuvre = 10;
+        private int vitessePieuvre = 2;
 
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
@@ -69,9 +69,15 @@ namespace StarBound_Legacy
         private int vitesseJoueur = 10;
         private int vitesseBalle = 20;
         //limite le nombre de balle tirer par le joueur
-        private const int LIMITE_BALLE_JOUEUR = 30;
+        private const int LIMITE_BALLE_JOUEUR = 50;
         private int balletirer = 0;
         Random aleatoire = new Random();
+
+        // timer tir et animation bateux
+        private int timerTir = 0;
+        private int timerTirMax = 2;
+        private int animeVaisseau = 6;
+        private int animeVaisseauMax = 6;
 
 
         private String fenetreAOuvrir;
@@ -194,6 +200,13 @@ namespace StarBound_Legacy
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
             rectJoueur.Width, rectJoueur.Height);
+
+            //animation bateaux
+            timerTir--;
+            animeVaisseau++;
+            if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
+            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon1.png"));
+
             // déplacement à gauche et droite de vitessePlayer avec vérification des positions
             if (vaAGauche && Canvas.GetLeft(rectJoueur) > -50)
             {
@@ -222,7 +235,7 @@ namespace StarBound_Legacy
                         ElementsASupprimer.Add(x);
                     }
                 }
-                if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > 0)
+                if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > -x.Width)
                 {
                     int vitesseEtoile = 0;
                     if ((int)x.Width == TAILLE_GRANDE_ETOILE)
@@ -244,7 +257,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(x, Canva.Width);
                     Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
                 }
-                if (x is Rectangle && (string)x.Tag == "pieuvre" && Canvas.GetLeft(x) > 0)
+                if (x is Rectangle && (string)x.Tag == "pieuvre" && Canvas.GetLeft(x) > -x.Width)
                 {
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitessePieuvre);
                 }
@@ -342,11 +355,12 @@ namespace StarBound_Legacy
                 vaEnBas = true;
             }
 
-            if (e.Key == Key.Space)
+            if (e.Key == Key.Space && timerTir < 1)
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
-                #endif
+#endif
+                timerTir = timerTirMax;
                 // on vide la liste des items
                 ElementsASupprimer.Clear();
                 balletirer = 0;
