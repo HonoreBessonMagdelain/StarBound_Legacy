@@ -33,6 +33,14 @@ namespace StarBound_Legacy
 			get { return canon; }
 			set { canon = value; }
 		}
+		private int nbBouclier;
+
+		public int NbBouclier
+		{
+			get { return nbBouclier; }
+			set { nbBouclier = value; }
+		}
+
 
 
 
