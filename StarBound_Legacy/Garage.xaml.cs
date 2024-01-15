@@ -32,15 +32,11 @@ namespace StarBound_Legacy
             set { fenetre = value; }
         }
 
-        const int MAX_VIE = MainWindow.MAX_VIE;
-        const int POINT_DEPART_BAR_VIE = 50, ECART_ENTRE_COEUR = 40, HAUTEUR_ELEMENT_BAS = 50;
-        private DispatcherTimer minuterie;
+        
         ImageBrush imgCoeur = new ImageBrush();
 
-        private double hauteurFenetre;
-        private double largeurFenetre;
+        
 
-        public Rectangle[] barVie = new Rectangle[MAX_VIE];
 
         public Garage()
         {
@@ -48,12 +44,8 @@ namespace StarBound_Legacy
             //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             ///canvGarage.Height = SystemParameters.PrimaryScreenHeight;
+            for(int i = 0; i < this.Fenetre.VieJoueur)
             
-            CreerBarVie();
-            minuterie = new DispatcherTimer();
-            minuterie.Interval = TimeSpan.FromMilliseconds(16);
-            minuterie.Tick += GameEngine;
-            minuterie.Start();
         }
 
         private void GameEngine(object sender, EventArgs e)

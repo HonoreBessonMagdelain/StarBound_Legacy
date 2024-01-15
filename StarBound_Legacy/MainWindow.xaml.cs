@@ -29,9 +29,9 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class MainWindow : Window
     {
-        public const int MAX_VIE = 10;
+        public readonly int MAX_VIE = 10;
+        public readonly int MIN_VIE = 3;
         public int vieJoueurDebutPartie = 3;
-        public int vieJoueur = 3;
         private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
         private const int NB_PETITE_ETOILE = 20, NB_MOY_ETOILE = 15, NB_GRANDE_ETOILE = 10;
         
@@ -76,12 +76,23 @@ namespace StarBound_Legacy
                 fenetreAOuvrir = value;
             }
         }
+        private int vieJoueur;
+
+        public int VieJoueur
+        {
+            get { return vieJoueur; }
+            set {
+                if (value < MIN_VIE || value > MAX_VIE)
+                    throw new ArgumentOutOfRangeException("la vie doit être entre 3 et 10");
+                vieJoueur = value; }
+        }
+
         public MainWindow()
         {
             #if DEBUG
             Console.WriteLine("Debug version");
-            #endif
-
+#endif
+            vieJoueur = MIN_VIE;
             InitializeComponent();
             bool quitter = false;
             bool jouer = false;
