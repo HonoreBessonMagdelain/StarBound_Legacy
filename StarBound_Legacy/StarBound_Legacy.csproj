@@ -28,6 +28,12 @@
     <None Update="img\coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="img\Coeurs\coeur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Coeurs\demi-coeur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -40,6 +46,9 @@
     <None Update="img\GrandeEtoiles\grosseEtoileViolette.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="img\Logo\marque.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="img\MoyennesEtoiles\moyenneEtoile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -47,6 +56,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="img\MoyennesEtoiles\moyenneEtoileViolette.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetFond\pieuvre.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="img\petiteEtoile1.png">
@@ -87,6 +99,12 @@
     </None>
     <None Update="img\VaisseauHD.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Musiques\MusiqueAccueil.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

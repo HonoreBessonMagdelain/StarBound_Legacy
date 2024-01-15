@@ -14,14 +14,13 @@
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d" MinWidth="800" MinHeight="450">
+    <Window.Background>
+        <ImageBrush ImageSource="/img/Fond/Fond.png"/>
+    </Window.Background>
     <Canvas
         Name="Canva"
         Width="auto"
         Height="auto" Focusable="True" KeyDown="ToucheEnfoncee" KeyUp="ToucheRelachee">
-
-        <Canvas.Background>
-            <ImageBrush ImageSource="/Fond.png" />
-        </Canvas.Background>
 
         <Rectangle
             Canvas.Left="10"
