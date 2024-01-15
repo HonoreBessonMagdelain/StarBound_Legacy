@@ -44,7 +44,7 @@ namespace StarBound_Legacy
         public Garage()
         {
             InitializeComponent();
-            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/coeur.png"));
+            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             canvGarage.Height = SystemParameters.PrimaryScreenHeight;
             canvGarage.Width = SystemParameters.PrimaryScreenWidth;
             hauteurFenetre = canvGarage.Height;
