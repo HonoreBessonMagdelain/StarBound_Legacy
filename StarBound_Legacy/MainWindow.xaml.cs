@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -32,6 +33,7 @@ namespace StarBound_Legacy
         public int vieJoueurDebutPartie = 3;
         public int vieJoueur = 3;
         private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
+        private const int NB_PETITE_ETOILE = 20, NB_MOY_ETOILE = 15, NB_GRANDE_ETOILE = 10;
         
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
@@ -156,9 +158,9 @@ namespace StarBound_Legacy
         }
         public void initialisationAstres()
         {
-            CreationPetitesEtoiles(10); 
-            CreationMoyenneEtoiles(10);
-            CreationGrandeEtoiles(10);
+            CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE); 
+            CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE);
+            CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE);
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -202,18 +204,20 @@ namespace StarBound_Legacy
                 }
                 if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > 0)
                 {
+                    int vitesseEtoile = 0;
                     if ((int)x.Width == TAILLE_GRANDE_ETOILE)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile3);
+                        vitesseEtoile = vitesseEtoile3;
                     }
                     if ((int)x.Width == TAILLE_MOY_ETOILE)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile2);
+                        vitesseEtoile = vitesseEtoile2;
                     }
                     if ((int)x.Width == TAILLE_PETITE_ETOILE)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile1);
+                        vitesseEtoile = vitesseEtoile1;
                     }
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile);
                 }
                 else if (x is Rectangle && (string)x.Tag == "etoile")
                 {
@@ -227,31 +231,7 @@ namespace StarBound_Legacy
             }
 
         }
-
-        private void CreationPetitesEtoiles(int limite)
-        {
-            for(int i = 0; i<limite; i++)
-            {
-                int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
-
-                ImageBrush etoileApparence = new ImageBrush();
-                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
-
-                Rectangle nouvelleEtoile = new Rectangle
-                {
-                    Height = TAILLE_PETITE_ETOILE,
-                    Width = TAILLE_PETITE_ETOILE,
-                    Fill = etoileApparence,
-                    Tag = "etoile"
-                };
-                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
-                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
-                Canvas.SetZIndex(nouvelleEtoile, 3);
-                Canva.Children.Add(nouvelleEtoile);
-            }
-
-        }
-        private void CreationMoyenneEtoiles(int limite)
+        private void CreationEtoiles(int limite, int taille)
         {
             for (int i = 0; i < limite; i++)
             {
@@ -262,31 +242,8 @@ namespace StarBound_Legacy
 
                 Rectangle nouvelleEtoile = new Rectangle
                 {
-                    Height = TAILLE_MOY_ETOILE,
-                    Width = TAILLE_MOY_ETOILE,
-                    Fill = etoileApparence,
-                    Tag = "etoile"
-                };
-                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
-                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
-                Canvas.SetZIndex(nouvelleEtoile, 3);
-                Canva.Children.Add(nouvelleEtoile);
-            }
-
-        }
-        private void CreationGrandeEtoiles(int limite)
-        {
-            for (int i = 0; i < limite; i++)
-            {
-                int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
-
-                ImageBrush etoileApparence = new ImageBrush();
-                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
-
-                Rectangle nouvelleEtoile = new Rectangle
-                {
-                    Height = TAILLE_GRANDE_ETOILE,
-                    Width = TAILLE_GRANDE_ETOILE,
+                    Height = taille,
+                    Width = taille,
                     Fill = etoileApparence,
                     Tag = "etoile"
                 };
