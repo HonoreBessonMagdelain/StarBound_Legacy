@@ -183,8 +183,8 @@ namespace StarBound_Legacy
                     Width = aleatoire.Next(20, 45),
                     Fill = etoileApparence
                 };
-                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)this.Fenetre.Height - (int)nouvelleEtoile.Height));
-                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)this.Fenetre.Width - (int)nouvelleEtoile.Width));
+                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)this.fenetreJeu.Height - (int)nouvelleEtoile.Height));
+                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)this.fenetreJeu.Width - (int)nouvelleEtoile.Width));
                 Canva.Children.Add(nouvelleEtoile);
             }
 
