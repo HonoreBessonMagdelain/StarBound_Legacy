@@ -15,7 +15,7 @@
     WindowStyle="None"
     mc:Ignorable="d" MinWidth="800" MinHeight="450">
     <Window.Background>
-        <ImageBrush ImageSource="/img/Fond/Fond.png"/>
+        <ImageBrush ImageSource="/Fond.png"/>
     </Window.Background>
     <Canvas
         Name="Canva"

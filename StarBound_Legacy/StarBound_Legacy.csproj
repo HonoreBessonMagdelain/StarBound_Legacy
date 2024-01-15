@@ -8,17 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fond.png" />
+    <None Remove="marque.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="img\" />
     <Folder Include="Musiques\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fond.png" />
+    <Resource Include="marque.png" />
     <Resource Include="pixil-frame-0 (3).png" />
     <Resource Include="pixil-frame-0 (4).png" />
     <Resource Include="pixil-frame-0.png" />
@@ -35,6 +38,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="img\demi-coeur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Fond\Fond.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="img\GrandeEtoiles\grandeEtoile.png">
