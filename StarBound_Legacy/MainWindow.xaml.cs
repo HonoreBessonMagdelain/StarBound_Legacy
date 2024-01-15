@@ -72,7 +72,7 @@ namespace StarBound_Legacy
             InitializeComponent();
             bool quitter = false;
             bool jouer = false;
-
+            
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player

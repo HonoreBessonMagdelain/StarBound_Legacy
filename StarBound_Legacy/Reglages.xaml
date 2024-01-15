@@ -40,7 +40,7 @@
         <TextBlock Height="26" Margin="90,0,90,10" TextWrapping="Wrap" Text="SFX" VerticalAlignment="Bottom" TextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" FontWeight="Bold" FontSize="16" Grid.Row="2"/>
         <TextBlock Height="26" Margin="90,0,90,10" TextWrapping="Wrap" Text="Musique" VerticalAlignment="Bottom" TextAlignment="Center" Grid.Column="3" FontSize="16" FontWeight="Bold" Grid.Row="2"/>
         <Button Grid.Column="5" Content="Retour" Grid.Row="5" Click="Retour" FontSize="22"/>
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" TextWrapping="Wrap" Text="Réglages" FontWeight="Bold" FontSize="40" TextAlignment="Center" Margin="0,20,0,20" VerticalAlignment="Center"/>
+        <TextBlock  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" TextWrapping="Wrap" Text="Réglages" FontWeight="Bold" FontSize="40" TextAlignment="Center" Margin="0,20,0,20" VerticalAlignment="Center"/>
 
     </Grid>
 </Window>
