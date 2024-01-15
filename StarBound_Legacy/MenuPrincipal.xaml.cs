@@ -21,8 +21,7 @@ namespace StarBound_Legacy
     public partial class MenuPrincipal : Window
     {
         public MenuPrincipal()
-        {
-            
+        {            
             InitializeComponent();
             
         }

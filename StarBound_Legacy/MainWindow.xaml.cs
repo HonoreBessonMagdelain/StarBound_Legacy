@@ -59,7 +59,7 @@ namespace StarBound_Legacy
         private int vitesseJoueur = 10;
         private int vitesseBalle = 20;
         //limite le nombre de balle tirer par le joueur
-        private const int LIMITE_BALLE_JOUEUR = 50;
+        private const int LIMITE_BALLE_JOUEUR = 30;
         private int balletirer = 0;
         Random aleatoire = new Random();
 
@@ -239,6 +239,14 @@ namespace StarBound_Legacy
                 Canva.Children.Remove(x);
             }
 
+        }
+
+        private void CreationEnemie(int limite)
+        {
+            for (int i = 0; i < limite; i++)
+            {
+                Console.WriteLine("tomme");
+            }
         }
         private void CreationEtoiles(int limite, int taille, int profondeur)
         {
