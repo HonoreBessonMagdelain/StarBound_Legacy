@@ -52,7 +52,7 @@ namespace StarBound_Legacy
         private int vitesseJoueur = 10;
         private int vitesseBalle = 20;
         //limite le nombre de balle tirer par le joueur
-        private int limiteBalle = 50;
+        private const int LIMITE_BALLE_JOUEUR = 50;
         private int balletirer = 0;
         Random aleatoire = new Random();
 
@@ -82,10 +82,10 @@ namespace StarBound_Legacy
             Canva.Width = SystemParameters.PrimaryScreenWidth;
             Canva.Focus();
 
-            MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
-            var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
-            playMedia.Open(uri); // inserting the URI to the media player
-            playMedia.Play(); // playing the media file from the media player class
+            MediaPlayer playMedia = new MediaPlayer(); // instancie le Mediaplayer pour ajouter de la musique
+            var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // chemin d'acces pour la musique
+            playMedia.Open(uri);
+            playMedia.Play(); // joue le fichier de la musique
 
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
@@ -269,7 +269,7 @@ namespace StarBound_Legacy
                         balletirer += 1;
                     }
                 }
-                if (balletirer <= limiteBalle)
+                if (balletirer <= LIMITE_BALLE_JOUEUR)
                 {
                     #if DEBUG
                         Console.WriteLine(balletirer);
