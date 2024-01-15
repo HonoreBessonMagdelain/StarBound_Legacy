@@ -36,6 +36,8 @@ namespace StarBound_Legacy
         private DispatcherTimer minuterie = new DispatcherTimer();
         // booléens pour gauche droite haut bas
         private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
+        // booléens pour detecter le tir du joueur
+        private bool tirer = false;
         // liste des éléments rectangles
         private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
         // entier nous permettant de charger les images des ennemis
@@ -48,6 +50,10 @@ namespace StarBound_Legacy
         private ImageBrush apparenceJoueur = new ImageBrush();
         // vitesse du joueur
         private int vitesseJoueur = 10;
+        private int vitesseBalle = 20;
+        //limite le nombre de balle tirer par le joueur
+        private int limiteBalle = 50;
+        private int balletirer = 0;
         Random aleatoire = new Random();
 
 
@@ -72,16 +78,20 @@ namespace StarBound_Legacy
             InitializeComponent();
             bool quitter = false;
             bool jouer = false;
-            
+            Canva.Height = SystemParameters.PrimaryScreenHeight;
+            Canva.Width = SystemParameters.PrimaryScreenWidth;
+            Canva.Focus();
+
             MediaPlayer playMedia = new MediaPlayer(); // making a new instance of the media player
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // browsing to the sound folder and then the WAV file location
             playMedia.Open(uri); // inserting the URI to the media player
             playMedia.Play(); // playing the media file from the media player class
 
             this.FenetreAOuvrir = "menuPrincipal";
-            
-            
-            while(!quitter && !jouer)
+            // chargement de l’image du joueur 
+            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/VaisseauHD.png"));
+
+            while (!quitter && !jouer)
             {
                 
                 switch (FenetreAOuvrir)
@@ -123,11 +133,10 @@ namespace StarBound_Legacy
                     case "jouer":
                         {
                             jouer = true;
-                            minuterie.Tick += MoteurJeu;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
+                            minuterie.Tick += MoteurJeu;
                             minuterie.Start();
-                            // chargement de l’image du joueur 
-                            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/VaisseauHD.png"));
+                            
                             // assignement de skin du joueur au rectangle associé
                             rectJoueur.Fill = apparenceJoueur;
                             break;
@@ -156,13 +165,37 @@ namespace StarBound_Legacy
             rectJoueur.Width, rectJoueur.Height);
             // déplacement à gauche et droite de vitessePlayer avec vérification des 
             
-            if (vaAGauche )
+            if (vaAGauche && Canvas.GetLeft(rectJoueur) > 0)
             {
                 Canvas.SetLeft(rectJoueur, Canvas.GetLeft(rectJoueur) - vitesseJoueur);
             }
-            else if (vaADroite )
+            else if (vaADroite && Canvas.GetLeft(rectJoueur) + rectJoueur.Width < Canva.Width)
             {
                 Canvas.SetLeft(rectJoueur, Canvas.GetLeft(rectJoueur) + vitesseJoueur);
+            }
+            if (vaEnHaut && Canvas.GetTop(rectJoueur) > 0)
+            {
+                Canvas.SetTop(rectJoueur, Canvas.GetTop(rectJoueur) - vitesseJoueur);
+            }
+            else if (vaEnBas && Canvas.GetTop(rectJoueur) + rectJoueur.Height < Canva.Height)
+            {
+                Canvas.SetTop(rectJoueur, Canvas.GetTop(rectJoueur) + vitesseJoueur);
+            }
+            foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
+            {
+                if (x is Rectangle && (string)x.Tag == "balleJoueur")
+                {
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseBalle);
+                    Rect balle = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    if (Canvas.GetLeft(x) > Canva.Width)
+                    {
+                        ElementsASupprimer.Add(x);
+                    }
+                }
+            }
+            foreach (Rectangle x in ElementsASupprimer)
+            {
+                Canva.Children.Remove(x);
             }
 
         }
@@ -183,8 +216,8 @@ namespace StarBound_Legacy
                     Width = aleatoire.Next(20, 45),
                     Fill = etoileApparence
                 };
-                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)this.fenetreJeu.Height - (int)nouvelleEtoile.Height));
-                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)this.fenetreJeu.Width - (int)nouvelleEtoile.Width));
+                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
+                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
                 Canva.Children.Add(nouvelleEtoile);
             }
 
@@ -194,11 +227,70 @@ namespace StarBound_Legacy
             // on gère les booléens gauche et droite en fonction de l’appui de la touche
             if (e.Key == Key.Left)
             {
+                #if DEBUG
+                    Console.WriteLine("touche gauche appuyer !");
+                #endif  
                 vaAGauche = true;
             }
             if (e.Key == Key.Right)
             {
+                #if DEBUG
+                    Console.WriteLine("touche droite appuyer !");
+                #endif
                 vaADroite = true;
+            }
+            if (e.Key == Key.Up)
+            {
+                #if DEBUG
+                    Console.WriteLine("touche haut appuyer !");
+                #endif
+                vaEnHaut = true;
+            }
+            if (e.Key == Key.Down)
+            {
+                #if DEBUG
+                    Console.WriteLine("touche bas appuyer !");
+                #endif
+                vaEnBas = true;
+            }
+
+            if (e.Key == Key.Space)
+            {
+                #if DEBUG
+                    Console.WriteLine("touche de tir appuyer !");
+#endif
+                // on vide la liste des items
+                ElementsASupprimer.Clear();
+                balletirer = 0;
+                foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
+                {
+                    if (x is Rectangle && (string)x.Tag == "balleJoueur")
+                    {
+                        balletirer += 1;
+                    }
+                }
+                if (balletirer <= limiteBalle)
+                {
+                    #if DEBUG
+                        Console.WriteLine(balletirer);
+                    #endif
+                    balletirer++;
+                    // création un nouveau tir
+                    Rectangle newBullet = new Rectangle
+                    {
+                        Tag = "balleJoueur"
+                    , //permet de tagger les rectangles
+                        Height = 5,
+                        Width = 20,
+                        Fill = Brushes.White,
+                        Stroke = Brushes.Red
+                    };
+                    // on place le tir à l’endroit du joueur
+                    Canvas.SetTop(newBullet, Canvas.GetTop(rectJoueur) - newBullet.Height);
+                    Canvas.SetLeft(newBullet, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
+                    // on place le tir dans le canvas
+                    Canva.Children.Add(newBullet);
+                }
             }
         }
         private void ToucheRelachee(object sender, KeyEventArgs e)
@@ -211,6 +303,18 @@ namespace StarBound_Legacy
             if (e.Key == Key.Right)
             {
                 vaADroite = false;
+            }
+            if (e.Key == Key.Up)
+            {
+                vaEnHaut = false;
+            }
+            if (e.Key == Key.Down)
+            {
+                vaEnBas = false;
+            }
+            if (e.Key == Key.Space)
+            {
+                tirer = false;
             }
         }
 
