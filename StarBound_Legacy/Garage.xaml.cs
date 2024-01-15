@@ -44,20 +44,23 @@ namespace StarBound_Legacy
             //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             ///canvGarage.Height = SystemParameters.PrimaryScreenHeight;
-            for(int i = 0; i < this.Fenetre.VieJoueur)
+            for (int i = 0; i < this.Fenetre.VieJoueur; i++)
+            {
+                break;
+            }
             
         }
 
         private void GameEngine(object sender, EventArgs e)
         {
-            AfficheVie();
+            
         }
 
         private void AcheterVie(object sender, RoutedEventArgs e)
         {
-            if (this.Fenetre.vieJoueurDebutPartie < MAX_VIE)
+            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE)
             {
-                this.Fenetre.vieJoueurDebutPartie++;
+                this.Fenetre.VieJoueurDebutPartie++;
             }
         }
 
@@ -87,37 +90,7 @@ namespace StarBound_Legacy
 
         }
 
-        private void AfficheVie()
-        {
-            for (int i = 0; i < MAX_VIE; i++)
-            {
-                if (i < this.Fenetre.vieJoueurDebutPartie)
-                {
-                    barVie[i].Opacity = 100;
-                }
-                else
-                {
-                    barVie[i].Opacity = 0.5;
-                }
-            }
-        }
-
-        private void CreerBarVie()
-        {
-            for (int i = 0;i < MAX_VIE; i++)
-            {
-                Rectangle coeur = new Rectangle()
-                {
-                    Width = 30,
-                    Height = 30,
-                };
-                coeur.Fill = imgCoeur;
-                //canvGarage.Children.Add(coeur);
-                //Canvas.SetTop(coeur, canvGarage.Height - HAUTEUR_ELEMENT_BAS);
-                Canvas.SetLeft(coeur, POINT_DEPART_BAR_VIE + ECART_ENTRE_COEUR * i);
-                barVie[i] = coeur;
-            }
-        }
+        
 
 
 

@@ -31,7 +31,16 @@ namespace StarBound_Legacy
     {
         public readonly int MAX_VIE = 10;
         public readonly int MIN_VIE = 3;
-        public int vieJoueurDebutPartie = 3;
+        private int vieJoueurDebutPartie;
+
+        public int VieJoueurDebutPartie
+        {
+            get { return vieJoueurDebutPartie; }
+            set { vieJoueurDebutPartie = value; }
+        }
+
+
+
         private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
         private const int NB_PETITE_ETOILE = 20, NB_MOY_ETOILE = 15, NB_GRANDE_ETOILE = 10;
         
@@ -50,6 +59,7 @@ namespace StarBound_Legacy
         private int vitesseEtoile1 = 1;
         private int vitesseEtoile2 = 2;
         private int vitesseEtoile3 = 3;
+        private int vitessePieuvre = 10;
 
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
@@ -91,7 +101,7 @@ namespace StarBound_Legacy
         {
             #if DEBUG
             Console.WriteLine("Debug version");
-#endif
+            #endif
             vieJoueur = MIN_VIE;
             InitializeComponent();
             bool quitter = false;
@@ -172,6 +182,7 @@ namespace StarBound_Legacy
             CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE, 1); 
             CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
             CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
+            CreationPieuvre(100);
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -233,6 +244,15 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(x, Canva.Width);
                     Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
                 }
+                if (x is Rectangle && (string)x.Tag == "pieuvre" && Canvas.GetLeft(x) > 0)
+                {
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitessePieuvre);
+                }
+                else if (x is Rectangle && (string)x.Tag == "pieuvre")
+                {
+                    Canvas.SetLeft(x, Canva.Width * 2);
+                    Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
+                }
             }
             foreach (Rectangle x in ElementsASupprimer)
             {
@@ -273,7 +293,7 @@ namespace StarBound_Legacy
         private void CreationPieuvre(int taille)
         {
             ImageBrush pieuvreApparence = new ImageBrush();
-            pieuvreApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjFond/pieuvre.png"));
+            pieuvreApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetFond/pieuvre.png"));
 
             Rectangle nouvellePieuvre = new Rectangle
             {
@@ -283,7 +303,7 @@ namespace StarBound_Legacy
                 Tag = "pieuvre"
             };
             Canvas.SetTop(nouvellePieuvre, aleatoire.Next((int)Canva.Height - (int)nouvellePieuvre.Height));
-            Canvas.SetLeft(nouvellePieuvre, aleatoire.Next((int)Canva.Width - (int)nouvellePieuvre.Width));
+            Canvas.SetLeft(nouvellePieuvre, Canva.Width*2);
             Canvas.SetZIndex(nouvellePieuvre, 3);
             Canva.Children.Add(nouvellePieuvre);
         }
