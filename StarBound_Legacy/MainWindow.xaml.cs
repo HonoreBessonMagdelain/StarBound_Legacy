@@ -47,9 +47,9 @@ namespace StarBound_Legacy
         private int ImagesEnnemis = 0;
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
-        private int vitesseEtoile1 = 2;
-        private int vitesseEtoile2 = 4;
-        private int vitesseEtoile3 = 6;
+        private int vitesseEtoile1 = 1;
+        private int vitesseEtoile2 = 2;
+        private int vitesseEtoile3 = 3;
 
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;

@@ -41,9 +41,11 @@ namespace StarBound_Legacy
         private double largeurFenetre;
 
         public Rectangle[] barVie = new Rectangle[MAX_VIE];
+
         public Garage()
         {
             InitializeComponent();
+            //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             ///canvGarage.Height = SystemParameters.PrimaryScreenHeight;
             

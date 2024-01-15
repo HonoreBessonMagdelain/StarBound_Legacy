@@ -64,7 +64,7 @@
         <Rectangle Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2" Grid.Row="1" Stroke="Black" Fill="#FF00FFD6" Margin="30,30,30,30"/>
         <Button Grid.Column="14" Content="Partir au combat" Margin="30,30,30,30" Grid.Row="4" Click="Jouer" />
         <Rectangle Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3" Stroke="Black" Fill="#FF864F4F"/>
-        <TextBlock Grid.Column="14" Grid.ColumnSpan="2" Height="50" TextWrapping="Wrap" Text="Points : 6540610" Background="#FF71FF00" Margin="30,0,30,0"/>
+        <TextBlock Grid.Column="14" Grid.ColumnSpan="2" Height="50" TextWrapping="Wrap" Text="Points : 6540610" Background="#FF71FF00" Margin="30,0,30,0" FontSize="24"/>
 
     </Grid>
 </Window>
