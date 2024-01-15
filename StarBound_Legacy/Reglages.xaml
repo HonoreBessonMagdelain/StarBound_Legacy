@@ -29,7 +29,7 @@
 
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Fond.png"/>
+            <ImageBrush ImageSource="img/Fond/Fond.png"/>
         </Grid.Background>
 
         <Rectangle Stroke="Black" Grid.ColumnSpan="3" Fill="#FFB7B7B7" Grid.RowSpan="5" Grid.Column="1" Grid.Row="1"/>

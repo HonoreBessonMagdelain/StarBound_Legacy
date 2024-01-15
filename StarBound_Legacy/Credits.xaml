@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Crédits" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
     <Window.Background>
-        <ImageBrush ImageSource="/Fond.png"/>
+        <ImageBrush ImageSource="img/Fond/Fond.png"/>
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
