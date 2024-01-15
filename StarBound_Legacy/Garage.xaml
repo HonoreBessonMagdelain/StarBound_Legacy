@@ -14,9 +14,21 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Window.Background>
-        <ImageBrush/>
+        <ImageBrush ImageSource="/Fond.png"/>
     </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="346*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="230*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="92*"/>
+        </Grid.RowDefinitions>
+
     </Grid>
 </Window>

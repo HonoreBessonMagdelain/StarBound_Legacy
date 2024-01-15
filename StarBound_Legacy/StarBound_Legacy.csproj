@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fond.png" />
     <None Remove="LOGO.png" />
     <None Remove="marque.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
@@ -21,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fond.png" />
     <Resource Include="LOGO.png" />
     <Resource Include="marque.png" />
     <Resource Include="pixil-frame-0 (3).png" />
@@ -40,6 +42,9 @@
     </None>
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Fond\Fond.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\GrandeEtoiles\grandeEtoile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
