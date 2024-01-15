@@ -31,7 +31,6 @@ namespace StarBound_Legacy
             get { return fenetre; }
             set { fenetre = value; }
         }
-        //private Rectangle[] barreVie = new Rectangle[rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4];
         ImageBrush imgCoeur = new ImageBrush();
 
         
@@ -40,24 +39,23 @@ namespace StarBound_Legacy
         public Garage()
         {
             InitializeComponent();
-            //Rectangle[] barreVie = new Rectangle[rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4];
+            Rectangle[] barreVie = new Rectangle[rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10];
+
             //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            ///canvGarage.Height = SystemParameters.PrimaryScreenHeight;
-            //for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
-            //{
-            //    rectCoeur1.Fill = imgCoeur;
-            //}
-            rectCoeur1.Fill = imgCoeur;
+            for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
+            {
+                rectCoeur6.Fill = imgCoeur;
+            }
         }
 
         
 
         private void AcheterVie(object sender, RoutedEventArgs e)
         {
-            if (this.Fenetre.vieJoueurDebutPartie < this.Fenetre.MAX_VIE)
+            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE)
             {
-                this.Fenetre.vieJoueurDebutPartie++;
+                this.Fenetre.VieJoueurDebutPartie++;
             }
         }
 
