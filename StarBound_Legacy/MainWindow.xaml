@@ -60,7 +60,7 @@
             Width="136"
             Height="48"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top" Fill="#FF2A6AD2"  />
+            VerticalAlignment="Top" Fill="#FF2A6AD2" Panel.ZIndex="5"  />
 
 
     </Canvas>
