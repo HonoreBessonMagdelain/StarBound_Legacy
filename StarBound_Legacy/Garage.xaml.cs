@@ -39,7 +39,7 @@ namespace StarBound_Legacy
         public Garage()
         {
             InitializeComponent();
-            Rectangle[] barreVie = new Rectangle[rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10];
+            //Rectangle[] barreVie = new Rectangle[rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10];
 
             //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
