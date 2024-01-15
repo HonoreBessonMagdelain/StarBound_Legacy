@@ -40,8 +40,6 @@ namespace StarBound_Legacy
             this.Fenetre.FenetreAOuvrir = "garage";
             this.DialogResult = true;
         }
-        
-
 
         private void Quitter(object sender, RoutedEventArgs e)
         {

@@ -81,6 +81,11 @@ namespace StarBound_Legacy
             this.DialogResult = true;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void AfficheVie()
         {
             for (int i = 0; i < MAX_VIE; i++)

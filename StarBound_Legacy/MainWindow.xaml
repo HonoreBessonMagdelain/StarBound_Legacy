@@ -20,7 +20,7 @@
         Height="auto" Focusable="True" KeyDown="ToucheEnfoncee" KeyUp="ToucheRelachee">
 
         <Canvas.Background>
-            <ImageBrush ImageSource="/pixil-frame-0.png" />
+            <ImageBrush ImageSource="/Fond.png" />
         </Canvas.Background>
 
         <Rectangle
