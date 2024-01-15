@@ -13,77 +13,33 @@
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Canvas
-        x:Name="canvGarage"
-        Width="800"
-        Height="450"
-        Background="#FF1320DE">
-        <Rectangle
-            x:Name="rectFondPoint"
-            Canvas.Left="20"
-            Canvas.Top="10"
-            Height="30"
-            MinWidth="200"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="#FFC12121"
-            RadiusX="15"
-            RadiusY="16"
-            RenderTransformOrigin="0.5,0.5"
-            Stroke="Black" />
-        <Label
-            x:Name="lbPoint"
-            Canvas.Left="25"
-            Canvas.Top="8"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Points :"
-            FontSize="18"
-            RenderTransformOrigin="0.5,0.5" />
-        <TextBlock
-            Canvas.Left="100"
-            Canvas.Top="13"
-            FontSize="18"
-            Text="000000000"
-            TextWrapping="Wrap" />
-        <Rectangle
-            Canvas.Left="45"
-            Canvas.Top="156"
-            Height="150"
-            MinWidth="300"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="#FF01A512" />
-        <Button
-            x:Name="btAcheterVie"
-            Canvas.Left="10"
-            Canvas.Top="405"
-            Width="30"
-            Height="30"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="AcheterVie"
-            Content="+" />
-        <Button
-            x:Name="btRetour"
-            Canvas.Left="680"
-            Canvas.Top="410"
-            Width="100"
-            Height="30"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="RetourMenu"
-            Content="Retour au menu" />
-        <Button x:Name="btRejouer"
-            Canvas.Left="570"
-            Canvas.Top="410"
-            Width="100"
-            Height="30"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="Rejouer"
-            Content="retour au combat" />
-        <Rectangle Height="380" Canvas.Left="451" Canvas.Top="25" Width="329" Fill="#FF7D7D7D"/>
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="346*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="230*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="92*"/>
+        </Grid.RowDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="53,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="88,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="123,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="158,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="193,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="228,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="263,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="298,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="333,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="30" Fill="Red" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Center" Width="48" Fill="#FF888888"/>
+        <Button Grid.Column="3" Content="Retour" Margin="30,30,30,30" Grid.Row="3" Click="Retour"/>
 
-    </Canvas>
+    </Grid>
 </Window>

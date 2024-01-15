@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:StarBound_Legacy"
         mc:Ignorable="d"
         Title="Starbound Legacy" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="128*"/>
@@ -25,7 +28,11 @@
             <RowDefinition Height="76*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle x:Name="rectFondMenuPrincipal" Stroke="Black" Fill="#FF321DC7" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
+        <Rectangle x:Name="rectFondMenuPrincipal" Stroke="Black" Grid.RowSpan="7" Grid.ColumnSpan="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Fond.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,1" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="5">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/marque.png"/>

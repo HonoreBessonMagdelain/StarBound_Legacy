@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:StarBound_Legacy"
         mc:Ignorable="d"
         Title="Crédits" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="174*"/>
