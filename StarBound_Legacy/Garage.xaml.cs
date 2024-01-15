@@ -55,9 +55,9 @@ namespace StarBound_Legacy
 
         private void AcheterVie(object sender, RoutedEventArgs e)
         {
-            if (this.Fenetre.vieJoueurDebutPartie < this.Fenetre.MAX_VIE)
+            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE)
             {
-                this.Fenetre.vieJoueurDebutPartie++;
+                this.Fenetre.VieJoueurDebutPartie++;
             }
         }
 
