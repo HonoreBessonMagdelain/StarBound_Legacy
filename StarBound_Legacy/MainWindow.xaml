@@ -29,21 +29,21 @@
             Width="30"
             Height="30"
             Fill="Red"
-            Stroke="Black" />
+            Stroke="Black" Panel.ZIndex="5" />
         <Rectangle
             Canvas.Left="56"
             Canvas.Top="10"
             Width="30"
             Height="30"
             Fill="Red"
-            Stroke="Black" />
+            Stroke="Black" Panel.ZIndex="5" />
         <Rectangle
             Canvas.Left="100"
             Canvas.Top="10"
             Width="30"
             Height="30"
             Fill="Red"
-            Stroke="Black" />
+            Stroke="Black" Panel.ZIndex="5" />
         <TextBlock
             Canvas.Left="618"
             Canvas.Top="8"
@@ -53,14 +53,14 @@
             VerticalAlignment="Top"
             FontSize="24"
             Text="26300"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" Panel.ZIndex="5" />
         <Rectangle x:Name="rectJoueur"
             Canvas.Left="71"
             Canvas.Top="201"
             Width="136"
             Height="48"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top" Fill="#FF2A6AD2" Panel.ZIndex="5"  />
+            VerticalAlignment="Top" Fill="#FF2A6AD2" Panel.ZIndex="4"  />
 
 
     </Canvas>

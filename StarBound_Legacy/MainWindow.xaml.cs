@@ -31,6 +31,7 @@ namespace StarBound_Legacy
         public const int MAX_VIE = 10;
         public int vieJoueurDebutPartie = 3;
         public int vieJoueur = 3;
+        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
         
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
@@ -44,7 +45,10 @@ namespace StarBound_Legacy
         private int ImagesEnnemis = 0;
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
-        private int vitesseEtoile = 2;
+        private int vitesseEtoile1 = 2;
+        private int vitesseEtoile2 = 4;
+        private int vitesseEtoile3 = 6;
+
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
         // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
@@ -90,7 +94,7 @@ namespace StarBound_Legacy
 
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
-            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1"));
+            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1.png"));
 
             while (!quitter && !jouer)
             {
@@ -152,7 +156,9 @@ namespace StarBound_Legacy
         }
         public void initialisationAstres()
         {
-            CreationPetitesEtoiles(15); 
+            CreationPetitesEtoiles(10); 
+            CreationMoyenneEtoiles(10);
+            CreationGrandeEtoiles(10);
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -196,7 +202,18 @@ namespace StarBound_Legacy
                 }
                 if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > 0)
                 {
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile);
+                    if ((int)x.Width == TAILLE_GRANDE_ETOILE)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile3);
+                    }
+                    if ((int)x.Width == TAILLE_MOY_ETOILE)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile2);
+                    }
+                    if ((int)x.Width == TAILLE_PETITE_ETOILE)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEtoile1);
+                    }
                 }
                 else if (x is Rectangle && (string)x.Tag == "etoile")
                 {
@@ -216,25 +233,71 @@ namespace StarBound_Legacy
             for(int i = 0; i<limite; i++)
             {
                 int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
-                //int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
 
                 ImageBrush etoileApparence = new ImageBrush();
                 etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
 
                 Rectangle nouvelleEtoile = new Rectangle
                 {
-                    Height = aleatoire.Next(20, 45),
-                    Width = aleatoire.Next(20, 45),
+                    Height = TAILLE_PETITE_ETOILE,
+                    Width = TAILLE_PETITE_ETOILE,
                     Fill = etoileApparence,
                     Tag = "etoile"
                 };
                 Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
                 Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
-                Canvas.SetZIndex(nouvelleEtoile, 2);
+                Canvas.SetZIndex(nouvelleEtoile, 3);
                 Canva.Children.Add(nouvelleEtoile);
             }
 
         }
+        private void CreationMoyenneEtoiles(int limite)
+        {
+            for (int i = 0; i < limite; i++)
+            {
+                int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
+
+                ImageBrush etoileApparence = new ImageBrush();
+                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
+
+                Rectangle nouvelleEtoile = new Rectangle
+                {
+                    Height = TAILLE_MOY_ETOILE,
+                    Width = TAILLE_MOY_ETOILE,
+                    Fill = etoileApparence,
+                    Tag = "etoile"
+                };
+                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
+                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
+                Canvas.SetZIndex(nouvelleEtoile, 3);
+                Canva.Children.Add(nouvelleEtoile);
+            }
+
+        }
+        private void CreationGrandeEtoiles(int limite)
+        {
+            for (int i = 0; i < limite; i++)
+            {
+                int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
+
+                ImageBrush etoileApparence = new ImageBrush();
+                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
+
+                Rectangle nouvelleEtoile = new Rectangle
+                {
+                    Height = TAILLE_GRANDE_ETOILE,
+                    Width = TAILLE_GRANDE_ETOILE,
+                    Fill = etoileApparence,
+                    Tag = "etoile"
+                };
+                Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
+                Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
+                Canvas.SetZIndex(nouvelleEtoile, 3);
+                Canva.Children.Add(nouvelleEtoile);
+            }
+
+        }
+
         private void ToucheEnfoncee(object sender, KeyEventArgs e)
         {
             // on gère les booléens gauche et droite en fonction de l’appui de la touche
@@ -289,7 +352,7 @@ namespace StarBound_Legacy
                         Console.WriteLine(balletirer);
                     #endif
                     // création un nouveau tir
-                    Rectangle newBullet = new Rectangle
+                    Rectangle nouvelleBalle = new Rectangle
                     {
                         Tag = "balleJoueur"
                     , //permet de tagger les rectangles
@@ -298,11 +361,12 @@ namespace StarBound_Legacy
                         Fill = Brushes.White,
                         Stroke = Brushes.Red
                     };
+                    Canvas.SetZIndex(nouvelleBalle, 4);
                     // on place le tir à l’endroit du joueur
-                    Canvas.SetTop(newBullet, Canvas.GetTop(rectJoueur) + rectJoueur.Height - rectJoueur.Height / 4);
-                    Canvas.SetLeft(newBullet, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
+                    Canvas.SetTop(nouvelleBalle, Canvas.GetTop(rectJoueur) + rectJoueur.Height - rectJoueur.Height / 4);
+                    Canvas.SetLeft(nouvelleBalle, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
-                    Canva.Children.Add(newBullet);
+                    Canva.Children.Add(nouvelleBalle);
                 }
             }
         }
