@@ -158,9 +158,9 @@ namespace StarBound_Legacy
         }
         public void initialisationAstres()
         {
-            CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE); 
-            CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE);
-            CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE);
+            CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE, 1); 
+            CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
+            CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -172,9 +172,7 @@ namespace StarBound_Legacy
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
             rectJoueur.Width, rectJoueur.Height);
-            // déplacement à gauche et droite de vitessePlayer avec vérification des 
-            
-            Console.WriteLine(Canvas.GetLeft(rectJoueur));
+            // déplacement à gauche et droite de vitessePlayer avec vérification des positions
             if (vaAGauche && Canvas.GetLeft(rectJoueur) > -50)
             {
                 Canvas.SetLeft(rectJoueur, Canvas.GetLeft(rectJoueur) - vitesseJoueur);
@@ -231,12 +229,11 @@ namespace StarBound_Legacy
             }
 
         }
-        private void CreationEtoiles(int limite, int taille)
+        private void CreationEtoiles(int limite, int taille, int profondeur)
         {
             for (int i = 0; i < limite; i++)
             {
                 int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
-
                 ImageBrush etoileApparence = new ImageBrush();
                 etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
 
@@ -249,11 +246,30 @@ namespace StarBound_Legacy
                 };
                 Canvas.SetTop(nouvelleEtoile, aleatoire.Next((int)Canva.Height - (int)nouvelleEtoile.Height));
                 Canvas.SetLeft(nouvelleEtoile, aleatoire.Next((int)Canva.Width - (int)nouvelleEtoile.Width));
-                Canvas.SetZIndex(nouvelleEtoile, 3);
+                Canvas.SetZIndex(nouvelleEtoile, profondeur);
                 Canva.Children.Add(nouvelleEtoile);
             }
 
         }
+        private void CreationPieuvre(int taille)
+        {
+            ImageBrush pieuvreApparence = new ImageBrush();
+            pieuvreApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjFond/pieuvre.png"));
+
+            Rectangle nouvellePieuvre = new Rectangle
+            {
+                Height = taille,
+                Width = taille,
+                Fill = pieuvreApparence,
+                Tag = "pieuvre"
+            };
+            Canvas.SetTop(nouvellePieuvre, aleatoire.Next((int)Canva.Height - (int)nouvellePieuvre.Height));
+            Canvas.SetLeft(nouvellePieuvre, aleatoire.Next((int)Canva.Width - (int)nouvellePieuvre.Width));
+            Canvas.SetZIndex(nouvellePieuvre, 3);
+            Canva.Children.Add(nouvellePieuvre);
+        }
+
+
 
         private void ToucheEnfoncee(object sender, KeyEventArgs e)
         {
