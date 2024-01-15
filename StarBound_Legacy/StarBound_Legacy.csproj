@@ -33,6 +33,9 @@
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="img\LOGO.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\petiteEtoile1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
