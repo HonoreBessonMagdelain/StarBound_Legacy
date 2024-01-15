@@ -113,13 +113,13 @@ namespace StarBound_Legacy
                             quitter = true;
                             break;
                         }
-                    //                   case "reglages":
-                    //                       {
-                    //                           Reglages reglages = new Reglages();
-                    //                           reglages.Fenetre = this;
-                    //                           reglages.ShowDialog();
-                    //                           break;
-                    //                       }
+                    case "reglages":
+                        {
+                            Reglages reglages = new Reglages();
+                            reglages.Fenetre = this;
+                            reglages.ShowDialog();
+                            break;
+                        }
                     case "jouer":
                         {
                             jouer = true;
