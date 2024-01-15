@@ -19,8 +19,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32*"/>
-            <ColumnDefinition Width="60*"/>
-            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="73*"/>
             <ColumnDefinition Width="29*"/>
             <ColumnDefinition Width="29*"/>
             <ColumnDefinition Width="29*"/>
@@ -42,9 +42,18 @@
             <RowDefinition Height="92*"/>
         </Grid.RowDefinitions>
         <Button Grid.Column="15" Content="Retour" Margin="30,30,30,30" Grid.Row="3" Click="Retour"/>
-        <Button Grid.Column="1" Content="+" HorizontalAlignment="Right" Width="50" Height="50" VerticalAlignment="Center" Click="Button_Click" FontSize="24" FontWeight="Bold" Margin="10,0,0,0"/>
+        <Button Grid.Column="1" Content="+" HorizontalAlignment="Right" Width="50" Height="50" VerticalAlignment="Center" Click="Button_Click" FontSize="24" FontWeight="Bold" Margin="35,0,0,0"/>
         <Button Grid.Column="2" Content="200 pts" HorizontalAlignment="Left" Width="100" VerticalAlignment="Center" Height="50" FontSize="24" FontWeight="Bold"/>
-        <Rectangle Grid.Column="3" Margin="7,28,14,3" Stroke="Black" Fill="Red" Grid.ColumnSpan="2"/>
+        <Rectangle Grid.Column="3" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="4" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="5" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="6" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="7" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="8" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="9" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="10" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="11" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="12" Stroke="Black" Fill="Red" Width="50" Height="50"/>
 
     </Grid>
 </Window>
