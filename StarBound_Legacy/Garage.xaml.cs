@@ -81,6 +81,13 @@ namespace StarBound_Legacy
             this.DialogResult = true;
         }
 
+        
+
+        private void Jouer(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

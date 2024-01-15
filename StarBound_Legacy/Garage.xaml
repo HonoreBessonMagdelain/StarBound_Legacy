@@ -42,25 +42,29 @@
             <RowDefinition Height="120*"/>
             <RowDefinition Height="127*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="15" Content="Retour" Margin="30,30,30,30" Grid.Row="4" Click="Retour"/>
+        <Button Grid.Column="15" Content="Retour au menu" Margin="30,30,30,30" Grid.Row="4" Click="Retour"/>
         <Button Grid.Column="1" Content="+" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Center" Click="Button_Click" FontSize="24" FontWeight="Bold" Margin="44,0,0,0"/>
         <Button Grid.Column="1" Content="200 pts" HorizontalAlignment="Left" Width="100" VerticalAlignment="Center" Height="50" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="3" Margin="94,0,0,0"/>
-        <Rectangle Grid.Column="2" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="73,3,8,3"/>
-        <Rectangle Grid.Column="3" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,8,3"/>
-        <Rectangle Grid.Column="4" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,8,3"/>
-        <Rectangle Grid.Column="5" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,8,3"/>
-        <Rectangle Grid.Column="6" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,8,3"/>
-        <Rectangle Grid.Column="7" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,8,3"/>
-        <Rectangle Grid.Column="8" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,6,3"/>
-        <Rectangle Grid.Column="9" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,6,3"/>
-        <Rectangle Grid.Column="10" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="27,3,8,3"/>
-        <Rectangle Grid.Column="11" Stroke="Black" Fill="Red" Width="50" Height="50" Grid.ColumnSpan="3" Margin="29,3,184,3"/>
+        <Rectangle Grid.Column="12" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="4" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="5" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="6" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="7" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="8" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="9" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="10" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="11" Stroke="Black" Fill="Red" Width="50" Height="50"/>
+        <Rectangle Grid.Column="3" Stroke="Black" Fill="Red" Width="50" Height="50"/>
         <Rectangle Grid.Column="13" Grid.Row="1" Stroke="Black" Fill="#FF8C8C8C" Margin="30,30,30,30"/>
         <Rectangle Grid.Column="14" Margin="30,30,30,30" Grid.Row="1" Stroke="Black" Fill="#FF8C8C8C"/>
         <Rectangle Grid.Column="15" Margin="30,30,30,30" Grid.Row="1" Stroke="Black" Fill="#FF8C8C8C"/>
         <Rectangle Grid.Column="15" Margin="30,30,30,30" Grid.Row="2" Stroke="Black" Fill="#FF8C8C8C"/>
         <Rectangle Grid.Column="14" Margin="30,30,30,30" Grid.Row="2" Stroke="Black" Fill="#FF8C8C8C"/>
         <Rectangle Grid.Column="13" Margin="30,30,30,30" Grid.Row="2" Stroke="Black" Fill="#FF8C8C8C"/>
+        <Rectangle Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2" Grid.Row="1" Stroke="Black" Fill="#FF00FFD6" Margin="30,30,30,30"/>
+        <Button Grid.Column="14" Content="Partir au combat" Margin="30,30,30,30" Grid.Row="4" Click="Jouer" />
+        <Rectangle Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3" Stroke="Black" Fill="#FF864F4F"/>
+        <TextBlock Grid.Column="14" Grid.ColumnSpan="2" Height="50" TextWrapping="Wrap" Text="Points : 6540610" Background="#FF71FF00" Margin="30,0,30,0"/>
 
     </Grid>
 </Window>
