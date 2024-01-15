@@ -89,7 +89,7 @@ namespace StarBound_Legacy
 
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
-            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/VaisseauHD.png"));
+            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1"));
 
             while (!quitter && !jouer)
             {
@@ -208,7 +208,7 @@ namespace StarBound_Legacy
                 //int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
 
                 ImageBrush etoileApparence = new ImageBrush();
-                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/petiteEtoile" + numeroEtoile + ".png"));
+                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
 
                 Rectangle nouvelleEtoile = new Rectangle
                 {
