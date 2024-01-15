@@ -14,7 +14,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Window.Background>
-        <ImageBrush ImageSource="img/Fond/Fond.png"/>
+        <ImageBrush ImageSource="/Fond.png"/>
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>

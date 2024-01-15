@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:StarBound_Legacy"
         mc:Ignorable="d"
         Title="Reglages" ResizeMode="NoResize" WindowState="Maximized" ShowInTaskbar="False" WindowStyle="None" MinWidth="800" MinHeight="450" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png"/>
+    </Window.Background>
     <Grid MinWidth="800" MinHeight="450">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
@@ -25,12 +28,6 @@
             <ColumnDefinition Width="67*"/>
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
-
-
-
-        <Grid.Background>
-            <ImageBrush ImageSource="img/Fond/Fond.png"/>
-        </Grid.Background>
 
         <Rectangle Stroke="Black" Grid.ColumnSpan="3" Fill="#FFB7B7B7" Grid.RowSpan="5" Grid.Column="1" Grid.Row="1"/>
 
