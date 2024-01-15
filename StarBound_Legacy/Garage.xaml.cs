@@ -41,9 +41,11 @@ namespace StarBound_Legacy
         private double largeurFenetre;
 
         public Rectangle[] barVie = new Rectangle[MAX_VIE];
+
         public Garage()
         {
             InitializeComponent();
+            //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             ///canvGarage.Height = SystemParameters.PrimaryScreenHeight;
             
@@ -79,6 +81,13 @@ namespace StarBound_Legacy
         {
             this.Fenetre.FenetreAOuvrir = "menuPrincipal";
             this.DialogResult = true;
+        }
+
+        
+
+        private void Jouer(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
