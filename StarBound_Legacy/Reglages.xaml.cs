@@ -35,5 +35,16 @@ namespace StarBound_Legacy
             this.Fenetre.FenetreAOuvrir = "menuPrincipal";
             this.DialogResult = true;
         }
+
+        private void VolumeSFX(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Console.WriteLine(barreSFX.Value);
+            this.Fenetre.musiqueMenu.Volume = (double)this.barreSFX.Value;
+        }
+
+        private void VolumeMusique(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            this.Fenetre.musiqueMenu.Volume = (double)barreMusique.Value;
+        }
     }
 }

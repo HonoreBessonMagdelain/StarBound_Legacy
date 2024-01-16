@@ -17,6 +17,9 @@
         <ImageBrush ImageSource="/Fond.png"/>
     </Window.Background>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/FondSpecial.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32*"/>
             <ColumnDefinition Width="94*"/>
