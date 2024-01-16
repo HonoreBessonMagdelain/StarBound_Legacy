@@ -40,13 +40,13 @@ namespace StarBound_Legacy
         {
             InitializeComponent();
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
-            int vie = this.Fenetre.VieJoueurDebutPartie;
+            //int vie = this.Fenetre.VieJoueurDebutPartie;
             
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            for(int i = 0; i < vie; i++)
-            {
-                barreVie[i].Fill = imgCoeur;
-            }
+            //for(int i = 0; i < vie; i++)
+            //{
+            //    barreVie[i].Fill = imgCoeur;
+            //}
         }
 
         
