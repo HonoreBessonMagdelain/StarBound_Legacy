@@ -8,27 +8,57 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CreditsRelache.png" />
     <None Remove="Fond.png" />
     <None Remove="FondSpecial.png" />
+    <None Remove="GarageRelache.png" />
+    <None Remove="GarageRelache1.png" />
     <None Remove="JouerRelache.png" />
     <None Remove="JouerRelache1.png" />
     <None Remove="marque.png" />
+    <None Remove="ParametreRelache.png" />
+    <None Remove="ParametresRelache.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
+    <None Remove="QuitterRelache.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="CreditsRelache.png" />
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="FondSpecial.png" />
+    <Resource Include="GarageRelache.png" />
+    <Resource Include="GarageRelache1.png" />
     <Resource Include="JouerRelache.png" />
     <Resource Include="JouerRelache1.png" />
     <Resource Include="marque.png" />
+    <Resource Include="ParametreRelache.png" />
+    <Resource Include="ParametresRelache.png" />
+    <Resource Include="QuitterRelache.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="img\Boutons\CreditsAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\CreditsRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageAppuye1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageRelache1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\Boutons\JouerAppuye.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -40,6 +70,24 @@
     </None>
     <None Update="img\Boutons\JouerRelache1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ParametresAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ParametresRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\QuitterAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\QuitterRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\RetourAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\RetourRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
