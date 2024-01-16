@@ -116,10 +116,10 @@ namespace StarBound_Legacy
             Canva.Width = SystemParameters.PrimaryScreenWidth;
             Canva.Focus();
 
-            MediaPlayer playMedia = new MediaPlayer(); // instancie le Mediaplayer pour ajouter de la musique
+            MediaPlayer musiqueMenu = new MediaPlayer(); // instancie le Mediaplayer pour ajouter de la musique
             var uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // chemin d'acces pour la musique
-            playMedia.Open(uri);
-            playMedia.Play(); // joue le fichier de la musique
+            musiqueMenu.Open(uri);
+            musiqueMenu.Play(); // joue le fichier de la musique
 
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
@@ -170,6 +170,7 @@ namespace StarBound_Legacy
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
                             minuterie.Start();
+                            musiqueMenu.Close();
                             
                             // assignement de skin du joueur au rectangle associé
                             rectJoueur.Fill = apparenceJoueur;
