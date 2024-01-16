@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Fond.png" />
+    <None Remove="FondSpecial.png" />
     <None Remove="marque.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
@@ -23,6 +24,7 @@
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="FondSpecial.png" />
     <Resource Include="marque.png" />
   </ItemGroup>
 
@@ -40,6 +42,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="img\Fond\Fond.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Fond\FondSpecial.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\GrandeEtoiles\grandeEtoile.png">
