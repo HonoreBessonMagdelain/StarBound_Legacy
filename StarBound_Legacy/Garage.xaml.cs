@@ -33,20 +33,20 @@ namespace StarBound_Legacy
         }
         ImageBrush imgCoeur = new ImageBrush();
 
-        
+        Rectangle[] barreVie;
 
 
         public Garage()
         {
             InitializeComponent();
-            //Rectangle[] barreVie = new Rectangle[rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10];
-
-            //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
+            barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
+            int vie = this.Fenetre.VieJoueurDebutPartie;
+            
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            //for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
-            //{
-            //    rectCoeur6.Fill = imgCoeur;
-            //}
+            for(int i = 0; i < vie; i++)
+            {
+                barreVie[i].Fill = imgCoeur;
+            }
         }
 
         
@@ -73,24 +73,14 @@ namespace StarBound_Legacy
             this.DialogResult = true;
         }
 
-        
-
-        private void Jouer(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        
+        private void Jouer(object sender, RoutedEventArgs e)
+        {
 
-        
-
-
-
-
+        }
     }
 }

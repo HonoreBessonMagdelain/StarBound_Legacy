@@ -155,7 +155,7 @@ namespace StarBound_Legacy
             #if DEBUG
             Console.WriteLine("Debug version");
             #endif
-            vieJoueur = MIN_VIE;
+            
             InitializeComponent();
             txtPalier.Opacity = 0;
             bool quitter = false;
@@ -165,7 +165,7 @@ namespace StarBound_Legacy
             Canva.Focus();
             LanceMusiqueMenu();
             
-
+            this.VieJoueurDebutPartie = MIN_VIE;
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1.png"));
