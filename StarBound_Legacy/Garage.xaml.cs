@@ -61,7 +61,7 @@ namespace StarBound_Legacy
 
         
 
-        private void Rejouer(object sender, RoutedEventArgs e)
+        private void Jouer(object sender, RoutedEventArgs e)
         {
             this.Fenetre.FenetreAOuvrir = "jouer";
             this.DialogResult = true;
@@ -74,11 +74,6 @@ namespace StarBound_Legacy
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Jouer(object sender, RoutedEventArgs e)
         {
 
         }
