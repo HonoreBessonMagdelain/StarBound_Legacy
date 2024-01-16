@@ -27,8 +27,8 @@ namespace StarBound_Legacy
         public MenuPrincipal()
         {            
             InitializeComponent();
-            boutonJouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/JouerAppuye.png"));
-            boutonJouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/JouerRelache.png"));
+            boutonJouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/JouerAppuye1.png"));
+            boutonJouerRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/JouerRelache1.png"));
 
         }
         private MainWindow fenetre;
