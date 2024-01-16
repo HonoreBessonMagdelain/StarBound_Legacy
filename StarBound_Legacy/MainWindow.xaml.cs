@@ -49,6 +49,7 @@ namespace StarBound_Legacy
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
         // booléens pour gauche droite haut bas
+        private DispatcherTimer chronoMusiqueGameplay = new DispatcherTimer();
         private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
         // booléens pour detecter le tir du joueur
         private bool tirer = false;
@@ -134,8 +135,10 @@ namespace StarBound_Legacy
 
             musiqueGameplay.Open(musique);
             musiqueGameplay.Volume = 1;
+            musiqueGameplay.MediaEnded += new EventHandler(Media_Ended_Gameplay);
             musiqueGameplay.Play(); // joue le fichier de la musique
         }
+
 
         public MainWindow()
         {
@@ -204,6 +207,7 @@ namespace StarBound_Legacy
 
                             musiqueMenu.Close();
                             LanceMusiqueGameplay();
+                            
 
                             // assignement de skin du joueur au rectangle associé
                             rectJoueur.Fill = apparenceJoueur;
@@ -225,12 +229,14 @@ namespace StarBound_Legacy
             CreationPieuvre(100);
             CreationEnemie(5);
         }
-        private void Media_Ended(object? sender, EventArgs e)
+        private void Media_Ended_Gameplay(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            musiqueGameplay.Position = TimeSpan.Zero;
+            musiqueGameplay.Play();
         }
         private void MoteurJeu(object sender, EventArgs e)
         {
+            
 
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
