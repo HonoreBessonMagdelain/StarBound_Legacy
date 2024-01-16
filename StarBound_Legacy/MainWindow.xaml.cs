@@ -126,6 +126,7 @@ namespace StarBound_Legacy
             musiqueMenu.Open(musique);
             musiqueMenu.Volume = 1;
             musiqueMenu.Play(); // joue le fichier de la musique
+            
         }
         public void LanceMusiqueGameplay()
         {
