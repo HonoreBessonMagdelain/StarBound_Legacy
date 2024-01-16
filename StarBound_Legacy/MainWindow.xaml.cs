@@ -49,7 +49,6 @@ namespace StarBound_Legacy
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
         // booléens pour gauche droite haut bas
-        private DispatcherTimer chronoMusiqueGameplay = new DispatcherTimer();
         private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
         // booléens pour detecter le tir du joueur
         private bool tirer = false;
@@ -126,6 +125,7 @@ namespace StarBound_Legacy
 
             musiqueMenu.Open(musique);
             musiqueMenu.Volume = 1;
+            musiqueMenu.MediaEnded += new EventHandler(Media_Ended_Menu);
             musiqueMenu.Play(); // joue le fichier de la musique
             
         }
@@ -230,6 +230,11 @@ namespace StarBound_Legacy
             CreationEnemie(5);
         }
         private void Media_Ended_Gameplay(object? sender, EventArgs e)
+        {
+            musiqueGameplay.Position = TimeSpan.Zero;
+            musiqueGameplay.Play();
+        }
+        private void Media_Ended_Menu(object? sender, EventArgs e)
         {
             musiqueGameplay.Position = TimeSpan.Zero;
             musiqueGameplay.Play();
