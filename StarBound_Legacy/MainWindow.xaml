@@ -53,11 +53,11 @@
             Stroke="Black" />
         <TextBlock
             x:Name="txtScore"
-            Canvas.Left="618"
-            Canvas.Top="8"
-            Width="auto"
-            Height="auto"
-            HorizontalAlignment="Left"
+            Canvas.Left="653"
+            Canvas.Top="10"
+            Width="124"
+            Height="25"
+            HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Panel.ZIndex="5"
             FontSize="24"
