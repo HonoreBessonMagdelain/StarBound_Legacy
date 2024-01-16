@@ -67,6 +67,7 @@ namespace StarBound_Legacy
         private int nombrePetitesEtoiles = 5;
         // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
         private ImageBrush apparenceJoueur = new ImageBrush();
+        private ImageBrush apparenceEnnemie = new ImageBrush();
         // vitesse du joueur
         private int vitesseJoueur = 10;
         private int vitesseBalle = 20;
@@ -254,6 +255,7 @@ namespace StarBound_Legacy
             animeVaisseau++;
             if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon1.png"));
+            apparenceEnnemie.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
 
             // déplacement à gauche et droite de vitessePlayer avec vérification des positions
             if (vaAGauche && Canvas.GetLeft(rectJoueur) > -50)
@@ -300,9 +302,10 @@ namespace StarBound_Legacy
                             // appel à la méthode IntersectsWith pour détecter la collision
                             if (balle.IntersectsWith(enemy))
                             {
-                                // on ajoute l’ennemi de la liste à supprimer eton décrémente le nombre d’ennemis
+                                // on ajoute la balla a la liste à supprimer et on incremente le score
                                 ElementsASupprimer.Add(x);
-                                ElementsASupprimer.Add(y);
+                                Canvas.SetLeft(y, Canva.Width);
+                                Canvas.SetTop(y, aleatoire.Next((int)Canva.Height) - (int)y.Height);
                             }
                         }
                     }
@@ -343,7 +346,7 @@ namespace StarBound_Legacy
                 if (x is Rectangle && (string)x.Tag == "ennemie")
                 {
                     Rect ennemie = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                    if (Canvas.GetLeft(x) > Canva.Width)
+                    if (Canvas.GetLeft(x) < -100)
                     {
                         ElementsASupprimer.Add(x);
                     }
@@ -366,11 +369,12 @@ namespace StarBound_Legacy
                 {
                     Width = 50,
                     Height = 50,
-                    Fill = apparenceJoueur,
+                    Fill = apparenceEnnemie,
                     Tag = "ennemie"
                 };
-                Canvas.SetLeft(ennemie, Canva.Width);
+                Canvas.SetLeft(ennemie, aleatoire.Next((int)Canva.Width, (int)Canva.Width + (int)ennemie.Width));
                 Canvas.SetTop(ennemie, aleatoire.Next((int)Canva.Height) - (int)ennemie.Height);
+                Canvas.SetZIndex(ennemie, 4);
                 Canva.Children.Add(ennemie);
             }
         }
