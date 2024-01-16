@@ -59,12 +59,12 @@ namespace StarBound_Legacy
         private int ImagesEnnemis = 0;
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
-        private int vitesseEtoile1 = 1;
-        private int vitesseEtoile2 = 2;
-        private int vitesseEtoile3 = 3;
-        private int vitessePieuvre = 2;
-        private int vitesseEnnemie = 1;
-        private int vitesseBalleEnnemie;
+        private double vitesseEtoile1 = 1;
+        private double vitesseEtoile2 = 2;
+        private double vitesseEtoile3 = 3;
+        private double vitessePieuvre = 2;
+        private double vitesseEnnemie = 1;
+        private double vitesseBalleEnnemie;
 
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
@@ -90,8 +90,8 @@ namespace StarBound_Legacy
         private int timerTirMax = 2;
         private int animeVaisseau = 6;
         private int animeVaisseauMax = 6;
-        private int minuterieBalle = 8;
-        private int minuterieBalleLimite = 800;
+        private double minuterieBalle = 8;
+        private double minuterieBalleLimite = 800;
 
 
         private String fenetreAOuvrir;
@@ -288,9 +288,9 @@ namespace StarBound_Legacy
 
             if (score % 10 == 0 && passpalier)
             {
-                CreationEnemie(2);
+                CreationEnemie(1);
                 palierActuel++;
-                vitesseEnnemie++;
+                vitesseEnnemie += 0.1;
                 passpalier = false;
             }
             if (score % 10 != 0 && !passpalier)
@@ -329,6 +329,10 @@ namespace StarBound_Legacy
                                 ElementsASupprimer.Add(x);
                                 ReplacerElement(y);
                                 score++;
+                                if (minuterieBalleLimite >= 300)
+                                {
+                                    minuterieBalleLimite--;
+                                }
                             }
                             
 
@@ -370,7 +374,7 @@ namespace StarBound_Legacy
 
                 if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > -x.Width)
                 {
-                    int vitesseEtoile = 0;
+                    double vitesseEtoile = 0;
                     if ((int)x.Width == TAILLE_GRANDE_ETOILE)
                     {
                         vitesseEtoile = vitesseEtoile3;
