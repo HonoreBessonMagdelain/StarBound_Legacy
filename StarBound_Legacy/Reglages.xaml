@@ -39,8 +39,12 @@
         <TextBlock Height="40" TextWrapping="Wrap" Text="Son :" VerticalAlignment="Top" Width="88" Grid.Column="1" FontSize="22" FontWeight="Bold" Grid.Row="2" HorizontalAlignment="Left" Margin="70,10,0,0" FontFamily="ArcadeClassic"/>
         <TextBlock Height="26" Margin="90,0,90,10" TextWrapping="Wrap" Text="SFX" VerticalAlignment="Bottom" TextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" FontWeight="Bold" FontSize="16" Grid.Row="2" FontFamily="ArcadeClassic"/>
         <TextBlock Height="26" Margin="90,0,90,10" TextWrapping="Wrap" Text="Musique" VerticalAlignment="Bottom" TextAlignment="Center" Grid.Column="3" FontSize="16" FontWeight="Bold" Grid.Row="2" FontFamily="ArcadeClassic"/>
-        <Button Grid.Column="5" Content="Retour" Grid.Row="5" Click="Retour" FontSize="22"/>
         <TextBlock  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" TextWrapping="Wrap" FontWeight="Bold" FontSize="40" TextAlignment="Center" Margin="0,20,0,20" VerticalAlignment="Center" FontFamily="ArcadeClassic"><Run Text="R"/><Run Language="fr-fr" Text="e"/><Run Text="glages"/></TextBlock>
+        <Rectangle x:Name="rectRetour" Grid.Column="5" Grid.Row="5" MouseEnter="RetourEntreeSouris" MouseLeave="RetourSortieSouris" MouseLeftButtonUp="Retour">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/RetourRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Window>
