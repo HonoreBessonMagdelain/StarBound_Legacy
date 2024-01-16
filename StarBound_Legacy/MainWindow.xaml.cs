@@ -78,6 +78,8 @@ namespace StarBound_Legacy
         private int timerTirMax = 2;
         private int animeVaisseau = 6;
         private int animeVaisseauMax = 6;
+        private int minuterieBalle = 8;
+        private int minuterieBalleLimite = 8;
 
 
         private String fenetreAOuvrir;
@@ -230,6 +232,13 @@ namespace StarBound_Legacy
             {
                 Canvas.SetTop(rectJoueur, Canvas.GetTop(rectJoueur) + vitesseJoueur);
             }
+            minuterieBalle -= 2;
+            if (minuterieBalle < 0)
+            {
+                CreationTirEnnemie((Canvas.GetTop(rectJoueur) + rectJoueur.Width / 2), Canvas.GetLeft(rectJoueur));
+                // remise au max de la fréquence du tir ennemi. 
+                minuterieBalle = minuterieBalleLimite;
+            }
             foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
             {
                 if (x is Rectangle && (string)x.Tag == "balleJoueur")
@@ -239,6 +248,23 @@ namespace StarBound_Legacy
                     if (Canvas.GetLeft(x) > Canva.Width)
                     {
                         ElementsASupprimer.Add(x);
+                    }
+                    foreach (var y in Canva.Children.OfType<Rectangle>())
+                    {
+                        // si le rectangle est un ennemi
+                        if (y is Rectangle && (string)y.Tag == "ennemie")
+                        {
+                            // création d’un rectangle correspondant à l’ennemi
+                            Rect enemy = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
+                            // on vérifie la collision
+                            // appel à la méthode IntersectsWith pour détecter la collision
+                            if (balle.IntersectsWith(enemy))
+                            {
+                                // on ajoute l’ennemi de la liste à supprimer eton décrémente le nombre d’ennemis
+                                ElementsASupprimer.Add(x);
+                                ElementsASupprimer.Add(y);
+                            }
+                        }
                     }
                 }
                 if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > -x.Width)
@@ -263,6 +289,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(x, Canva.Width);
                     Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
                 }
+
                 if (x is Rectangle && (string)x.Tag == "pieuvre" && Canvas.GetLeft(x) > -x.Width)
                 {
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitessePieuvre);
@@ -272,11 +299,18 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(x, Canva.Width * 2);
                     Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
                 }
+
                 if (x is Rectangle && (string)x.Tag == "ennemie")
                 {
+                    Rect ennemie = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    if (Canvas.GetLeft(x) > Canva.Width)
+                    {
+                        ElementsASupprimer.Add(x);
+                    }
+
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitessePieuvre);
                 }
-            }
+            }    
             foreach (Rectangle x in ElementsASupprimer)
             {
                 Canva.Children.Remove(x);
@@ -440,5 +474,23 @@ namespace StarBound_Legacy
             }
         }
 
+        private void CreationTirEnnemie(double y, double x)
+        {
+            // création des tirs ennemies tirant vers l'objet joueur
+            // x et y position du tir
+            Rectangle NouvelleBalleEnnemie = new Rectangle
+            {
+                Tag = "balleEnnemie"
+            ,
+                Height = 40,
+                Width = 15,
+                Fill = Brushes.Yellow,
+                Stroke = Brushes.Black,
+                StrokeThickness = 5
+            };
+            Canvas.SetTop(NouvelleBalleEnnemie, y);
+            Canvas.SetLeft(NouvelleBalleEnnemie, x);
+            Canva.Children.Add(NouvelleBalleEnnemie);
+        }
     }
 }
