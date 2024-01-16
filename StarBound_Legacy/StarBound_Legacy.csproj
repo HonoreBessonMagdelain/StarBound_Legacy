@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Fond.png" />
     <None Remove="FondSpecial.png" />
+    <None Remove="JouerRelache.png" />
     <None Remove="marque.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
@@ -21,10 +22,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="FondSpecial.png" />
+    <Resource Include="JouerRelache.png" />
     <Resource Include="marque.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="img\Boutons\JouerAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\JouerRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -18,12 +18,18 @@ namespace StarBound_Legacy
     /// <summary>
     /// Logique d'interaction pour MenuPrincipal.xaml
     /// </summary>
+    
+
     public partial class MenuPrincipal : Window
     {
+        private ImageBrush boutonJouerAppuye = new ImageBrush();
+        private ImageBrush boutonJouerRelache = new ImageBrush();
         public MenuPrincipal()
         {            
             InitializeComponent();
-            
+            boutonJouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/JouerAppuye.png"));
+            boutonJouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/JouerRelache.png"));
+
         }
         private MainWindow fenetre;
 
@@ -58,7 +64,21 @@ namespace StarBound_Legacy
             this.Fenetre.FenetreAOuvrir = "reglages";
             this.DialogResult = true;
         }
-        private void Jouer(object sender, RoutedEventArgs e)
+        
+
+        private void JouerEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectJouer.Fill = boutonJouerAppuye;
+        }
+
+        private void JouerSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectJouer.Fill = boutonJouerRelache;
+        }
+
+        
+
+        private void Jouer(object sender, MouseButtonEventArgs e)
         {
             this.Fenetre.FenetreAOuvrir = "jouer";
             this.DialogResult = true;
