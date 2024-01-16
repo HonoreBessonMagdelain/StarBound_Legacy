@@ -19,9 +19,13 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class Credits : Window
     {
+        private ImageBrush boutonRetourAppuye = new ImageBrush();
+        private ImageBrush boutonRetourRelache = new ImageBrush();
         public Credits()
         {
             InitializeComponent();
+            boutonRetourAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourAppuye.png"));
+            boutonRetourRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourRelache.png"));
         }
         private MainWindow fenetre;
 
@@ -31,7 +35,19 @@ namespace StarBound_Legacy
             set { fenetre = value; }
         }
 
-        private void btRetourMenu(object sender, RoutedEventArgs e)
+        
+
+        private void RetourEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectRetour.Fill = boutonRetourAppuye;
+        }
+
+        private void RetourSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectRetour.Fill = boutonRetourRelache;
+        }
+
+        private void Retour(object sender, MouseButtonEventArgs e)
         {
             this.Fenetre.FenetreAOuvrir = "menuPrincipal";
             this.DialogResult = true;

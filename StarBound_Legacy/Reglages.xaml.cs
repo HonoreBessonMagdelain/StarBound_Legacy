@@ -19,9 +19,13 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class Reglages : Window
     {
+        private ImageBrush boutonRetourAppuye = new ImageBrush();
+        private ImageBrush boutonRetourRelache = new ImageBrush();
         public Reglages()
         {
             InitializeComponent();
+            boutonRetourAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourAppuye.png"));
+            boutonRetourRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourRelache.png"));
         }
         private MainWindow fenetre;
 
@@ -30,11 +34,7 @@ namespace StarBound_Legacy
             get { return fenetre; }
             set { fenetre = value; }
         }
-        private void Retour(object sender, RoutedEventArgs e)
-        {
-            this.Fenetre.FenetreAOuvrir = "menuPrincipal";
-            this.DialogResult = true;
-        }
+        
 
         private void VolumeSFX(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -44,6 +44,22 @@ namespace StarBound_Legacy
         private void VolumeMusique(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             this.Fenetre.musiqueMenu.Volume = (double)barreMusique.Value;
+        }
+
+        private void RetourEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectRetour.Fill = boutonRetourAppuye;
+        }
+
+        private void RetourSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectRetour.Fill = boutonRetourRelache;
+        }
+
+        private void Retour(object sender, MouseButtonEventArgs e)
+        {
+        this.Fenetre.FenetreAOuvrir = "menuPrincipal";
+            this.DialogResult = true;
         }
     }
 }
