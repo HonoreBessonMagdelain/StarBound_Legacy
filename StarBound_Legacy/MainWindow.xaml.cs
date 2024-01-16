@@ -189,6 +189,7 @@ namespace StarBound_Legacy
             CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
             CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
             CreationPieuvre(100);
+            CreationEnemie(5);
         }
         private void Media_Ended(object? sender, EventArgs e)
         {
@@ -266,6 +267,10 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(x, Canva.Width * 2);
                     Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
                 }
+                if (x is Rectangle && (string)x.Tag == "ennemie")
+                {
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitessePieuvre);
+                }
             }
             foreach (Rectangle x in ElementsASupprimer)
             {
@@ -278,7 +283,16 @@ namespace StarBound_Legacy
         {
             for (int i = 0; i < limite; i++)
             {
-                Console.WriteLine("tomme");
+                Rectangle ennemie = new Rectangle
+                {
+                    Width = 50,
+                    Height = 50,
+                    Fill = apparenceJoueur,
+                    Tag = "ennemie"
+                };
+                Canvas.SetLeft(ennemie, Canva.Width);
+                Canvas.SetTop(ennemie, aleatoire.Next((int)Canva.Height) - (int)ennemie.Height);
+                Canva.Children.Add(ennemie);
             }
         }
         private void CreationEtoiles(int limite, int taille, int profondeur)
