@@ -38,8 +38,7 @@ namespace StarBound_Legacy
 
         private void VolumeSFX(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Console.WriteLine(barreSFX.Value);
-            this.Fenetre.musiqueMenu.Volume = (double)this.barreSFX.Value;
+            this.Fenetre.musiqueMenu.Volume = (double)barreSFX.Value;
         }
 
         private void VolumeMusique(object sender, RoutedPropertyChangedEventArgs<double> e)
