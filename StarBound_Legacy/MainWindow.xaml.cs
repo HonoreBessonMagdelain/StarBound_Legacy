@@ -171,7 +171,11 @@ namespace StarBound_Legacy
                             minuterie.Tick += MoteurJeu;
                             minuterie.Start();
                             musiqueMenu.Close();
-                            
+                            MediaPlayer musiqueGameplay = new MediaPlayer(); // instancie le Mediaplayer pour ajouter de la musique
+                            var urii = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueGamePlay.mp3"); // chemin d'acces pour la musique
+                            musiqueGameplay.Open(urii);
+                            musiqueGameplay.Play(); // joue le fichier de la musique
+
                             // assignement de skin du joueur au rectangle associé
                             rectJoueur.Fill = apparenceJoueur;
                             break;

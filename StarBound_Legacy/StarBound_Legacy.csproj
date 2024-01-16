@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Musiques\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -116,7 +112,7 @@
     <None Update="img\Vaisseaux\Vaisseau2canon1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Musiques\Musique GamePlay.mp3">
+    <None Update="Musiques\MusiqueGamePlay.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Musiques\MusiqueAccueil.mp3">

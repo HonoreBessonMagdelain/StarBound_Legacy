@@ -43,10 +43,10 @@ namespace StarBound_Legacy
 
             //txtNbPts.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./policesEcritures/ARCADECLASSIC.TTF");
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
-            {
-                rectCoeur6.Fill = imgCoeur;
-            }
+            //for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
+            //{
+            //    rectCoeur6.Fill = imgCoeur;
+            //}
         }
 
         
