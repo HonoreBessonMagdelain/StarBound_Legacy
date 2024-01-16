@@ -44,7 +44,7 @@ namespace StarBound_Legacy
         public MediaPlayer musiqueGameplay = new MediaPlayer();
 
         private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
-        private const int NB_PETITE_ETOILE = 20, NB_MOY_ETOILE = 15, NB_GRANDE_ETOILE = 10;
+        private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
         
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
@@ -84,7 +84,7 @@ namespace StarBound_Legacy
         public int palierActuel = 0;
         public int prochainPalier = 1;
 
-        // timer tir et animation bateux
+        // timer tir et animation vaisseau
         private int timerTir = 0;
         private int timerTirMax = 2;
         private int animeVaisseau = 6;
@@ -260,7 +260,7 @@ namespace StarBound_Legacy
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
             rectJoueur.Width, rectJoueur.Height);
 
-            //animation bateaux
+            //animation vaisseau
             timerTir--;
             animeVaisseau++;
             if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
@@ -308,6 +308,38 @@ namespace StarBound_Legacy
             }
             foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
             {
+                if (x is Rectangle && (string)x.Tag == "ennemie")
+                {
+                    Rectangle NouvelleBalleEnnemie = new Rectangle
+                    {
+                        Height = 15,
+                        Width = 40,
+                        Fill = Brushes.Yellow,
+                        Tag = "balleEnnemie"
+                    };
+                    Canvas.SetTop(NouvelleBalleEnnemie, Canvas.GetTop(x));
+                    Canvas.SetLeft(NouvelleBalleEnnemie, Canvas.GetLeft(x));
+                    Canva.Children.Add(NouvelleBalleEnnemie);
+                }
+            }
+
+
+            foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
+            {
+                if (x is Rectangle && (string)x.Tag == "ennemie")
+                {/*
+                    //CreationTirEnnemie(Canvas.GetTop(x), Canvas.GetLeft(x));
+                    Rectangle NouvelleBalleEnnemie = new Rectangle
+                    {
+                        Height = 15,
+                        Width = 40,
+                        Fill = Brushes.Yellow,
+                        Tag = "balleEnnemie"
+                    };
+                    Canvas.SetTop(NouvelleBalleEnnemie, Canvas.GetTop(x));
+                    Canvas.SetLeft(NouvelleBalleEnnemie, Canvas.GetLeft(x));
+                    Canva.Children.Add(NouvelleBalleEnnemie);*/
+                }
                 if (x is Rectangle && (string)x.Tag == "balleJoueur")
                 {
                     Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseBalle);
@@ -575,13 +607,10 @@ namespace StarBound_Legacy
             // x et y position du tir
             Rectangle NouvelleBalleEnnemie = new Rectangle
             {
-                Tag = "balleEnnemie"
-            ,
                 Height = 40,
                 Width = 15,
                 Fill = Brushes.Yellow,
-                Stroke = Brushes.Black,
-                StrokeThickness = 5
+                Tag = "balleEnnemie"
             };
             Canvas.SetTop(NouvelleBalleEnnemie, y);
             Canvas.SetLeft(NouvelleBalleEnnemie, x);
