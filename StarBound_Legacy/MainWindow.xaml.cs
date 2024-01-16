@@ -82,7 +82,6 @@ namespace StarBound_Legacy
         public int score = 0;
         public bool passpalier = false;
         public int palierActuel = 0;
-        public int prochainPalier = 1;
 
         // timer tir et animation vaisseau
         private int timerTir = 0;
@@ -359,7 +358,7 @@ namespace StarBound_Legacy
                             // appel à la méthode IntersectsWith pour détecter la collision
                             if (balle.IntersectsWith(ennemie))
                             {
-                                // on ajoute la balla a la liste à supprimer et on incremente le score
+                                // on ajoute la balle a la liste à supprimer et on incremente le score
                                 ElementsASupprimer.Add(x);
                                 Canvas.SetLeft(y, Canva.Width);
                                 Canvas.SetTop(y, aleatoire.Next((int)y.Height ,(int)Canva.Height) - (int)y.Height);
