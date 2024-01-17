@@ -100,6 +100,7 @@ namespace StarBound_Legacy
         // booléens pour detecter le tir du joueur
         private bool afficheDevbug = false;
 
+        private const int NB_ENNEMI_DEPART = 2, NB_LIMITE_ENNEMIE = 10, NB_ASTEROIDE_DEPART = 3, NB_LIMITE_ASTEROIDE = 10;
         //variable du score du joueur
         public int score = 0;
         public bool passpalier = false;
@@ -111,8 +112,9 @@ namespace StarBound_Legacy
 
         // DECOR
 
-        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
+        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50, TAILLE_PIEUVRE = 100;
         private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
+        private int nb_ennemi = NB_ENNEMI_DEPART, nb_asteroide = NB_ASTEROIDE_DEPART;
 
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
@@ -137,6 +139,8 @@ namespace StarBound_Legacy
         private int vitesseBalle = 20;
         //limite le nombre de balle tirer par le joueur
         private const int LIMITE_BALLE_JOUEUR = 50;
+        private const int LIMITE_BALLE_PAR_TIR = 5;
+        private int limiteBalleParTir = 0;
         private int balletirer = 0;
 
 
@@ -182,14 +186,14 @@ namespace StarBound_Legacy
             CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE, 1); 
             CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
             CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
-            CreationPieuvre(100);
-            CreationEnnemis(5);
+            CreationPieuvre(TAILLE_PIEUVRE);
+            CreationEnnemis(NB_ENNEMI_DEPART);
         }
         
         private void MoteurJeu(object sender, EventArgs e)
         {
             
-            vitesseBalleEnnemie = vitesseEnnemie * 2;
+            vitesseBalleEnnemie = vitesseEnnemie * 3;
             txtScore.Text = score.ToString();
             txtPalier.Text = palierActuel.ToString();
             // création d’un rectangle joueur pour la détection de collision
@@ -350,11 +354,6 @@ namespace StarBound_Legacy
                 jouer = false;
                 minuterie.Tick -= MoteurJeu;
                 this.PointCredit += score;
-                score = 0;
-                vieJoueur = vieJoueurDebutPartie;
-                initialisationJeux();
-                Canvas.SetTop(rectJoueur, Canva.Height / 2);
-                Canvas.SetLeft(rectJoueur, rectJoueur.Width);
                 ControlFenetre();
             }
 
@@ -462,7 +461,7 @@ namespace StarBound_Legacy
                 vaEnBas = true;
             }
 
-            if (e.Key == Key.Space && timerTir < 1)
+            if (e.Key == Key.Space && timerTir < 1 && limiteBalleParTir <= LIMITE_BALLE_PAR_TIR)
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
@@ -500,6 +499,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(nouvelleBalle, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
                     Canva.Children.Add(nouvelleBalle);
+                    limiteBalleParTir++;
                 }
             }
             if (e.Key == Key.Escape)
@@ -542,6 +542,7 @@ namespace StarBound_Legacy
             if (e.Key == Key.Space)
             {
                 tirer = false;
+                limiteBalleParTir = 0;
             }
         }
         private void CreationTirEnnemi(double y, double x)
@@ -620,9 +621,13 @@ namespace StarBound_Legacy
                         {
                             vieJoueur = this.vieJoueurDebutPartie;
                             jouer = true;
+                            score = 0;
+                            palierActuel = 0;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
                             minuterie.Start();
+                            Canvas.SetTop(rectJoueur, Canva.Height / 2);
+                            Canvas.SetLeft(rectJoueur, rectJoueur.Width);
                             initialisationJeux();
                             musiqueMenu.Close();
                             musique.LanceMusiqueGameplay();
