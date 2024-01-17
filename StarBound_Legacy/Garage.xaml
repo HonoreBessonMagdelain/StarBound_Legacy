@@ -68,14 +68,18 @@
                 <ImageBrush ImageSource="/FondVaisseauGarage.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3" Stroke="Black" Fill="#FF864F4F"/>
+        <Rectangle Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/FondDescriptionGarage.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <TextBlock x:Name="TxtCreditPoint" Grid.Column="14" Grid.ColumnSpan="2" Height="50" TextWrapping="Wrap" Text="" Background="#FF71FF00" Margin="30,0,30,0" FontSize="24"/>
-        <Rectangle Grid.Column="13" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12">
+        <Rectangle x:Name="rectSoin" Grid.Column="13" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="SoinEntreeSouris" MouseLeave="SoinSortieSouris" MouseLeftButtonDown="Soin">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Soin.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Grid.Column="14" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12">
+        <Rectangle x:Name="rectBombe" Grid.Column="14" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="BombeEntreeSouris" MouseLeave="BombeSortieSouris" MouseLeftButtonDown="Bombe">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/BombeNucleaire.png"/>
             </Rectangle.Fill>
@@ -88,6 +92,11 @@
         <Rectangle x:Name="rectRejouer" Grid.Column="15" Margin="30,30,30,30" Grid.Row="4" MouseEnter="RejouerEntreeSouris" MouseLeftButtonUp="Rejouer" MouseLeave="RejouerSortieSouris">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/boutonRejouerRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectBouclier" Grid.Column="15" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="BouclierEntreeSouris" MouseLeave="BouclierSortieSouris" MouseLeftButtonDown="Bouclier">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Bouclier.png"/>
             </Rectangle.Fill>
         </Rectangle>
 

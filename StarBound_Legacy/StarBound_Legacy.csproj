@@ -9,11 +9,13 @@
 
   <ItemGroup>
     <None Remove="BombeNucleaire.png" />
+    <None Remove="Bouclier.png" />
     <None Remove="boutonRejouerAppuye.png" />
     <None Remove="boutonRejouerRelache.png" />
     <None Remove="boutonRejouerRelache.png.png" />
     <None Remove="CreditsRelache.png" />
     <None Remove="Fond.png" />
+    <None Remove="FondDescriptionGarage.png" />
     <None Remove="FondSpecial.png" />
     <None Remove="FondVaisseauGarage.png" />
     <None Remove="GarageRelache.png" />
@@ -36,6 +38,7 @@
 
   <ItemGroup>
     <Resource Include="BombeNucleaire.png" />
+    <Resource Include="Bouclier.png" />
     <Resource Include="boutonRejouerAppuye.png" />
     <Resource Include="boutonRejouerRelache.png" />
     <Resource Include="boutonRejouerRelache.png.png" />
@@ -43,6 +46,7 @@
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="FondDescriptionGarage.png" />
     <Resource Include="FondSpecial.png" />
     <Resource Include="FondVaisseauGarage.png" />
     <Resource Include="GarageRelache.png" />
@@ -71,6 +75,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\CreditsRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\FondDescriptionGarage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\FondVaisseauGarage.png">
@@ -172,7 +179,19 @@
     <None Update="img\ObjetsSpeciaux\BombeNucleaire.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\ObjetsSpeciaux\BombeNucleaireSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\Bouclier.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\BouclierSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\ObjetsSpeciaux\Soin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\SoinSelectionne.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\petiteEtoile1.png">
