@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <None Remove="BombeNucleaire.png" />
+    <None Remove="boutonRejouerAppuye.png" />
+    <None Remove="boutonRejouerRelache.png" />
+    <None Remove="boutonRejouerRelache.png.png" />
     <None Remove="CreditsRelache.png" />
     <None Remove="Fond.png" />
     <None Remove="FondSpecial.png" />
@@ -23,12 +26,16 @@
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
     <None Remove="QuitterRelache.png" />
+    <None Remove="RetourMenuRelache.png" />
     <None Remove="RetourRelache.png" />
     <None Remove="Soin.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="BombeNucleaire.png" />
+    <Resource Include="boutonRejouerAppuye.png" />
+    <Resource Include="boutonRejouerRelache.png" />
+    <Resource Include="boutonRejouerRelache.png.png" />
     <Resource Include="CreditsRelache.png" />
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -42,11 +49,18 @@
     <Resource Include="ParametreRelache.png" />
     <Resource Include="ParametresRelache.png" />
     <Resource Include="QuitterRelache.png" />
+    <Resource Include="RetourMenuRelache.png" />
     <Resource Include="RetourRelache.png" />
     <Resource Include="Soin.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="img\Boutons\boutonRejouerAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\boutonRejouerRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\Boutons\CreditsAppuye.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

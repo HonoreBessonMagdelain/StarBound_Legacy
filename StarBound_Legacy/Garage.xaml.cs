@@ -34,19 +34,26 @@ namespace StarBound_Legacy
         ImageBrush imgCoeur = new ImageBrush();
 
         Rectangle[] barreVie;
-
+        private ImageBrush boutonRetourMenuAppuye = new ImageBrush();
+        private ImageBrush boutonRetourMenuRelache = new ImageBrush();
+        private ImageBrush boutonRejouerAppuye = new ImageBrush();
+        private ImageBrush boutonRejouerRelache = new ImageBrush();
 
         public Garage(MainWindow fenetre)
         {
             InitializeComponent();
+            boutonRetourMenuAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuAppuye.png"));
+            boutonRetourMenuRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuRelache.png"));
+            boutonRejouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerAppuye.png"));
+            boutonRejouerRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerRelache.png"));
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            /*for(int i = 0; i < vie; i++)
+            this.Fenetre = fenetre;
+            for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
             {
                 barreVie[i].Fill = imgCoeur;
-            }*/
-            this.Fenetre = fenetre;
+            }
             this.TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString();
         }
 
@@ -57,26 +64,47 @@ namespace StarBound_Legacy
             if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE)
             {
                 this.Fenetre.VieJoueurDebutPartie++;
+                for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
+                {
+                    barreVie[i].Fill = imgCoeur;
+                }
             }
         }
 
         
 
-        private void Jouer(object sender, RoutedEventArgs e)
+        
+
+        private void RetourEntreeSouris(object sender, MouseEventArgs e)
         {
-            this.Fenetre.FenetreAOuvrir = "jouer";
-            this.DialogResult = true;
+            rectRetourMenu.Fill = boutonRetourMenuAppuye;
         }
 
-        private void Retour(object sender, RoutedEventArgs e)
+        private void RetourSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectRetourMenu.Fill = boutonRetourMenuRelache;
+        }
+
+        private void menuPrincipal(object sender, MouseButtonEventArgs e)
         {
             this.Fenetre.FenetreAOuvrir = "menuPrincipal";
             this.DialogResult = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RejouerSortieSouris(object sender, MouseEventArgs e)
         {
+            rectRejouer.Fill = boutonRejouerRelache;
+        }
 
+        private void Rejouer(object sender, MouseButtonEventArgs e)
+        {
+            this.Fenetre.FenetreAOuvrir = "jouer";
+            this.DialogResult = true;
+        }
+
+        private void RejouerEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectRejouer.Fill = boutonRejouerAppuye;
         }
     }
 }
