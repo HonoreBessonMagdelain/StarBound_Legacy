@@ -153,14 +153,11 @@
         </Rectangle>
         <TextBlock
             x:Name="TxtCreditPoint"
-            Grid.Column="14"
-            Grid.ColumnSpan="2"
+            Grid.Column="15"
             Height="50"
-            Margin="30,0,30,0"
-            Background="#FF71FF00"
-            FontSize="24"
+            FontSize="30"
             Text=""
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" FontFamily="ArcadeClassic" />
         <Rectangle
             x:Name="rectSoin"
             Grid.Row="1"

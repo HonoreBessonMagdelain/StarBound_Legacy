@@ -29,7 +29,7 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class MainWindow : Window
     {
-        // LIGNE POUR TOUT LE PROGRAMME
+        // LIGNES POUR TOUT LE PROGRAMME
 
 
         private String fenetreAOuvrir;
@@ -71,6 +71,17 @@ namespace StarBound_Legacy
             get { return pointCredit; }
             set { pointCredit = value; }
         }
+        private int canonActuel;
+
+        public int CanonActuel
+        {
+            get { return canonActuel; }
+            set { 
+                if(value > NOMBRE_TYPES_CANON || value < NOMBRE_TYPES_CANON -(NOMBRE_TYPES_CANON-1))
+                    throw new ArgumentOutOfRangeException("le type de canon doit être entre1 et 4");
+                canonActuel = value; }
+        }
+        public readonly int NOMBRE_TYPES_CANON = 4;
 
 
         // creation des lecteurs de la musique
@@ -188,7 +199,7 @@ namespace StarBound_Legacy
             #endif
             
             InitializeComponent();
-
+            this.CanonActuel = 1;
             this.VieJoueurDebutPartie = MIN_VIE;
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
@@ -220,7 +231,7 @@ namespace StarBound_Legacy
             timerTir--;
             animeVaisseau++;
             if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
-            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon1.png"));
+            apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon" + this.CanonActuel +".png"));
             apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
             apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/demi-coeur.png"));
 

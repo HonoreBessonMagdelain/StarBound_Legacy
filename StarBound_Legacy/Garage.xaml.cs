@@ -185,6 +185,7 @@ namespace StarBound_Legacy
         private void Soin(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = soinDescription;
+            rectPrix.Fill = prixRelache;
         }
 
         private void BombeEntreeSouris(object sender, MouseEventArgs e)
@@ -200,6 +201,7 @@ namespace StarBound_Legacy
         private void Bombe(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = bombeDescription;
+            rectPrix.Fill = prixRelache;
 
         }
 
@@ -216,6 +218,7 @@ namespace StarBound_Legacy
         private void Bouclier(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = bouclierDescription;
+            rectPrix.Fill = prixRelache;
 
         }
 
@@ -233,6 +236,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = pistoletLaserDescription;
             rectVaisseau.Fill = vaisseau2;
+            rectPrix.Fill = prixRelache;
         }
 
         private void LanceBombeEntreeSouris(object sender, MouseEventArgs e)
@@ -249,6 +253,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = lanceBombeDescription;
             rectVaisseau.Fill = vaisseau3;
+            rectPrix.Fill = prixRelache;
         }
 
         private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
@@ -265,6 +270,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = miniGunDescription;
             rectVaisseau.Fill = vaisseau4;
+            rectPrix.Fill = prixRelache;
         }
 
         private void PlusEntreeSouris(object sender, MouseEventArgs e)
@@ -280,6 +286,7 @@ namespace StarBound_Legacy
         private void Plus(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = plusDescription;
+            rectPrix.Fill = prixRelache;
         }
 
         private void PrixEntreeSouris(object sender, MouseEventArgs e)
