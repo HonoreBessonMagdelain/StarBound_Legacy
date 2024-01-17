@@ -99,6 +99,22 @@
                 <ImageBrush ImageSource="/Bouclier.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle x:Name="rectDescription" Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3"/>
+        <Rectangle x:Name="rectPistoletLaser" Grid.Column="13" HorizontalAlignment="Center" Height="120" Grid.Row="2" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="PistoletLaserEntreeSouris" MouseLeave="PistoletLaserSortieSouris" MouseLeftButtonDown="PistoletLaser">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/PistoletLaser.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectLanceBombe" Grid.Column="14" HorizontalAlignment="Center" Height="120" Margin="0,0,5,12" Grid.Row="2" VerticalAlignment="Center" Width="120" MouseEnter="LanceBombeEntreeSouris" MouseLeave="LanceBombeSortieSouris" MouseLeftButtonDown="LanceBombe">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/LanceBombe.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectMiniGun" Grid.Column="15" HorizontalAlignment="Center" Height="120" Margin="0,0,5,12" Grid.Row="2" VerticalAlignment="Center" Width="120" MouseEnter="MiniGunEntreeSouris" MouseLeave="MiniGunSortieSouris" MouseLeftButtonDown="MiniGun">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/MiniGun.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Window>

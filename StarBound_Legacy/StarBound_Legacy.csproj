@@ -22,10 +22,13 @@
     <None Remove="GarageRelache1.png" />
     <None Remove="JouerRelache.png" />
     <None Remove="JouerRelache1.png" />
+    <None Remove="LanceBombe.png" />
     <None Remove="marque.png" />
+    <None Remove="MiniGun.png" />
     <None Remove="ObjetGarage.png" />
     <None Remove="ParametreRelache.png" />
     <None Remove="ParametresRelache.png" />
+    <None Remove="PistoletLaser.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
@@ -53,10 +56,13 @@
     <Resource Include="GarageRelache1.png" />
     <Resource Include="JouerRelache.png" />
     <Resource Include="JouerRelache1.png" />
+    <Resource Include="LanceBombe.png" />
     <Resource Include="marque.png" />
+    <Resource Include="MiniGun.png" />
     <Resource Include="ObjetGarage.png" />
     <Resource Include="ParametreRelache.png" />
     <Resource Include="ParametresRelache.png" />
+    <Resource Include="PistoletLaser.png" />
     <Resource Include="QuitterRelache.png" />
     <Resource Include="RetourMenuRelache.png" />
     <Resource Include="RetourRelache.png" />
@@ -188,6 +194,24 @@
     <None Update="img\ObjetsSpeciaux\BouclierSelectionne.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\ObjetsSpeciaux\LanceBombe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\LanceBombeSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\MiniGun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\MiniGunSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\PistoletLaser.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\PistoletLaserSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\ObjetsSpeciaux\Soin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -230,6 +254,15 @@
     <None Update="img\textes\BouclierDescription.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\textes\LanceBombeDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\MiniGunDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\PistoletLaserDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\textes\SoinDescription.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -254,6 +287,10 @@
     <None Update="Musiques\MusiqueAccueil.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="img\ObjetsSpeciaux\" />
   </ItemGroup>
 
 </Project>

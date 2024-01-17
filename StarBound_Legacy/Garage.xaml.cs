@@ -47,6 +47,21 @@ namespace StarBound_Legacy
         private ImageBrush bouclier = new ImageBrush();
         private ImageBrush bouclierSelectionne = new ImageBrush();
 
+        private ImageBrush pistoletLaser = new ImageBrush();
+        private ImageBrush pistoletLaserSelectionne = new ImageBrush();
+        private ImageBrush lanceBombe = new ImageBrush();
+        private ImageBrush lanceBombeSelectionne = new ImageBrush();
+        private ImageBrush miniGun = new ImageBrush();
+        private ImageBrush miniGunSelectionne = new ImageBrush();
+
+        private ImageBrush soinDescription = new ImageBrush();
+        private ImageBrush bouclierDescription = new ImageBrush();
+        private ImageBrush bombeDescription = new ImageBrush();
+
+        private ImageBrush pistoletLaserDescription = new ImageBrush();
+        private ImageBrush lanceBombeDescription = new ImageBrush();
+        private ImageBrush miniGunDescription = new ImageBrush();
+
         public Garage(MainWindow fenetre)
         {
             InitializeComponent();
@@ -62,7 +77,22 @@ namespace StarBound_Legacy
             bombeSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaireSelectionne.png"));
             bouclier.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/Bouclier.png"));
             bouclierSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BouclierSelectionne.png"));
-            
+
+            pistoletLaser.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/PistoletLaser.png"));
+            pistoletLaserSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/PistoletLaserSelectionne.png"));
+            lanceBombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/LanceBombe.png"));
+            lanceBombeSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/LanceBombeSelectionne.png"));
+            miniGun.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/MiniGun.png"));
+            miniGunSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/MiniGunSelectionne.png"));
+
+            soinDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/SoinDescription.png"));
+            bouclierDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/BouclierDescription.png"));
+            bombeDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/BombeDescription.png"));
+
+            pistoletLaserDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/PistoletLaserDescription.png"));
+            lanceBombeDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/LanceBombeDescription.png"));
+            miniGunDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/MiniGunDescription.png"));
+
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
             Rectangle[] fondObjets = new Rectangle[6] { rectObjet1, rectObjet2, rectObjet3, rectObjet4, rectObjet5, rectObjet6 };
@@ -141,7 +171,7 @@ namespace StarBound_Legacy
 
         private void Soin(object sender, MouseButtonEventArgs e)
         {
-
+            rectDescription.Fill = soinDescription;
         }
 
         private void BombeEntreeSouris(object sender, MouseEventArgs e)
@@ -156,6 +186,7 @@ namespace StarBound_Legacy
 
         private void Bombe(object sender, MouseButtonEventArgs e)
         {
+            rectDescription.Fill = bombeDescription;
 
         }
 
@@ -171,7 +202,53 @@ namespace StarBound_Legacy
 
         private void Bouclier(object sender, MouseButtonEventArgs e)
         {
+            rectDescription.Fill = bouclierDescription;
 
+        }
+
+        private void PistoletLaserEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectPistoletLaser.Fill = pistoletLaserSelectionne;
+        }
+
+        private void PistoletLaserSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectPistoletLaser.Fill = pistoletLaser;
+        }
+
+        private void PistoletLaser(object sender, MouseButtonEventArgs e)
+        {
+            rectDescription.Fill = pistoletLaserDescription;
+        }
+
+        private void LanceBombeEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectLanceBombe.Fill = lanceBombeSelectionne;
+        }
+
+        private void LanceBombeSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectLanceBombe.Fill = lanceBombe;
+        }
+
+        private void LanceBombe(object sender, MouseButtonEventArgs e)
+        {
+            rectDescription.Fill = lanceBombeDescription;
+        }
+
+        private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectMiniGun.Fill = miniGunSelectionne;
+        }
+
+        private void MiniGunSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectMiniGun.Fill = miniGun;
+        }
+
+        private void MiniGun(object sender, MouseButtonEventArgs e)
+        {
+            rectDescription.Fill = miniGunDescription;
         }
     }
 }
