@@ -57,21 +57,25 @@
         <Rectangle x:Name="rectCoeur8" Grid.Column="10" Width="36" Height="36"/>
         <Rectangle x:Name="rectCoeur9" Grid.Column="11" Width="36" Height="36"/>
         <Rectangle x:Name="rectCoeur1" Grid.Column="3" Width="36" Height="36"/>
-        <Rectangle Grid.Column="13" Grid.Row="1" Stroke="Black" Fill="#FF8C8C8C" Margin="30,30,30,30"/>
-        <Rectangle Grid.Column="14" Margin="30,30,30,30" Grid.Row="1" Stroke="Black" Fill="#FF8C8C8C"/>
-        <Rectangle Grid.Column="15" Margin="30,30,30,30" Grid.Row="1" Stroke="Black" Fill="#FF8C8C8C"/>
-        <Rectangle Grid.Column="15" Margin="30,30,30,30" Grid.Row="2" Stroke="Black" Fill="#FF8C8C8C"/>
-        <Rectangle Grid.Column="14" Margin="30,30,30,30" Grid.Row="2" Stroke="Black" Fill="#FF8C8C8C"/>
-        <Rectangle Grid.Column="13" Margin="30,30,30,30" Grid.Row="2" Stroke="Black" Fill="#FF8C8C8C"/>
-        <Rectangle Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2" Grid.Row="1" Stroke="Black" Fill="#FF00FFD6" Margin="30,30,30,30"/>
+        <Rectangle x:Name="rectObjet1" Grid.Column="13" Grid.Row="1" Fill="#FF8C8C8C" Margin="30,30,30,30"/>
+        <Rectangle x:Name="rectObjet2" Grid.Column="14" Margin="30,30,30,30" Grid.Row="1" Fill="#FF8C8C8C"/>
+        <Rectangle x:Name="rectObjet3" Grid.Column="15" Margin="30,30,30,30" Grid.Row="1" Fill="#FF8C8C8C"/>
+        <Rectangle x:Name="rectObjet6" Grid.Column="15" Margin="30,30,30,30" Grid.Row="2" Fill="#FF8C8C8C"/>
+        <Rectangle x:Name="rectObjet5" Grid.Column="14" Margin="30,30,30,30" Grid.Row="2" Fill="#FF8C8C8C"/>
+        <Rectangle x:Name="rectObjet4" Grid.Column="13" Margin="30,30,30,30" Grid.Row="2" Fill="#FF8C8C8C"/>
+        <Rectangle Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2" Grid.Row="1" Margin="30,30,30,30">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/FondVaisseauGarage.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3" Stroke="Black" Fill="#FF864F4F"/>
         <TextBlock x:Name="TxtCreditPoint" Grid.Column="14" Grid.ColumnSpan="2" Height="50" TextWrapping="Wrap" Text="" Background="#FF71FF00" Margin="30,0,30,0" FontSize="24"/>
-        <Rectangle Grid.Column="13" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120">
+        <Rectangle Grid.Column="13" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Soin.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Grid.Column="14" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120">
+        <Rectangle Grid.Column="14" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/BombeNucleaire.png"/>
             </Rectangle.Fill>

@@ -15,11 +15,13 @@
     <None Remove="CreditsRelache.png" />
     <None Remove="Fond.png" />
     <None Remove="FondSpecial.png" />
+    <None Remove="FondVaisseauGarage.png" />
     <None Remove="GarageRelache.png" />
     <None Remove="GarageRelache1.png" />
     <None Remove="JouerRelache.png" />
     <None Remove="JouerRelache1.png" />
     <None Remove="marque.png" />
+    <None Remove="ObjetGarage.png" />
     <None Remove="ParametreRelache.png" />
     <None Remove="ParametresRelache.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
@@ -29,6 +31,7 @@
     <None Remove="RetourMenuRelache.png" />
     <None Remove="RetourRelache.png" />
     <None Remove="Soin.png" />
+    <None Remove="Vaisseau1canon1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,17 +44,20 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="FondSpecial.png" />
+    <Resource Include="FondVaisseauGarage.png" />
     <Resource Include="GarageRelache.png" />
     <Resource Include="GarageRelache1.png" />
     <Resource Include="JouerRelache.png" />
     <Resource Include="JouerRelache1.png" />
     <Resource Include="marque.png" />
+    <Resource Include="ObjetGarage.png" />
     <Resource Include="ParametreRelache.png" />
     <Resource Include="ParametresRelache.png" />
     <Resource Include="QuitterRelache.png" />
     <Resource Include="RetourMenuRelache.png" />
     <Resource Include="RetourRelache.png" />
     <Resource Include="Soin.png" />
+    <Resource Include="Vaisseau1canon1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +71,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\CreditsRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\FondVaisseauGarage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\GarageAppuye.png">
@@ -90,6 +99,9 @@
     </None>
     <None Update="img\Boutons\JouerRelache1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ObjetGarage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\ParametresAppuye.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

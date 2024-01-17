@@ -38,6 +38,7 @@ namespace StarBound_Legacy
         private ImageBrush boutonRetourMenuRelache = new ImageBrush();
         private ImageBrush boutonRejouerAppuye = new ImageBrush();
         private ImageBrush boutonRejouerRelache = new ImageBrush();
+        private ImageBrush fondObjetGarage = new ImageBrush();
 
         public Garage(MainWindow fenetre)
         {
@@ -46,11 +47,17 @@ namespace StarBound_Legacy
             boutonRetourMenuRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuRelache.png"));
             boutonRejouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerAppuye.png"));
             boutonRejouerRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerRelache.png"));
+            fondObjetGarage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/ObjetGarage.png"));
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
+            Rectangle[] fondObjets = new Rectangle[6] { rectObjet1, rectObjet2, rectObjet3, rectObjet4, rectObjet5, rectObjet6 };
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             this.Fenetre = fenetre;
-            for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
+            for (int i = 0; i < 6; i++)
+            {
+                fondObjets[i].Fill = fondObjetGarage;
+            }
+            for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
             {
                 barreVie[i].Fill = imgCoeur;
             }
