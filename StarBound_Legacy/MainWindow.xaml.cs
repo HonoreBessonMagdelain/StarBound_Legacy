@@ -76,6 +76,7 @@ namespace StarBound_Legacy
         // liste des éléments rectangles
         private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
         private List<Rectangle> ElementsAAjouter = new List<Rectangle>();
+        
 
 
 
@@ -147,12 +148,6 @@ namespace StarBound_Legacy
         private int animeVaisseauMax = 6;
         private double minuterieBalle = 8;
         private double minuterieBalleLimite = 800;
-
-        
-
-        
-        
-
         
 
         public MainWindow()
@@ -164,6 +159,8 @@ namespace StarBound_Legacy
             InitializeComponent();
             Musique musique = new Musique();
             musique.Fenetre = this;
+            
+            
             
             txtPalier.Opacity = 0;
             bool quitter = false;
@@ -247,11 +244,12 @@ namespace StarBound_Legacy
             CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
             CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
             CreationPieuvre(100);
-            CreationEnemie(5);
+            CreationEnnemis(5);
         }
         
         private void MoteurJeu(object sender, EventArgs e)
         {
+            
             vitesseBalleEnnemie = vitesseEnnemie * 2;
             txtScore.Text = score.ToString();
             txtPalier.Text = palierActuel.ToString();
@@ -286,7 +284,7 @@ namespace StarBound_Legacy
 
             if (score % 10 == 0 && passpalier)
             {
-                CreationEnemie(1);
+                CreationEnnemis(1);
                 palierActuel++;
                 vitesseEnnemie += 0.1;
                 passpalier = false;
@@ -346,7 +344,7 @@ namespace StarBound_Legacy
                     minuterieBalle -= 2;
                     if (minuterieBalle < 0)
                     {
-                        CreationTirEnnemie((Canvas.GetTop(x) + x.Width / 2), Canvas.GetLeft(x));
+                        CreationTirEnnemi((Canvas.GetTop(x) + x.Width / 2), Canvas.GetLeft(x));
                         // remise au max de la fréquence du tir ennemi. 
                         minuterieBalle = minuterieBalleLimite;
                     }
@@ -428,7 +426,7 @@ namespace StarBound_Legacy
 
         }
 
-        private void CreationEnemie(int limite)
+        private void CreationEnnemis(int limite)
         {
             for (int i = 0; i < limite; i++)
             {
@@ -601,8 +599,7 @@ namespace StarBound_Legacy
                 tirer = false;
             }
         }
-
-        private void CreationTirEnnemie(double y, double x)
+        private void CreationTirEnnemi(double y, double x)
         {
             // création des tirs ennemies tirant vers l'objet joueur
             // x et y position du tir
@@ -617,6 +614,7 @@ namespace StarBound_Legacy
             Canvas.SetLeft(NouvelleBalleEnnemie, x);
             ElementsAAjouter.Add(NouvelleBalleEnnemie);
         }
+
 
         private void ReplacerElement(Rectangle element)
         {
