@@ -14,89 +14,246 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Window.Background>
-        <ImageBrush ImageSource="/Fond.png"/>
+        <ImageBrush ImageSource="/Fond.png" />
     </Window.Background>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/FondSpecial.png"/>
+            <ImageBrush ImageSource="/FondSpecial.png" />
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="32*"/>
-            <ColumnDefinition Width="94*"/>
-            <ColumnDefinition Width="73*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="27*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="204*"/>
-            <ColumnDefinition Width="204*"/>
-            <ColumnDefinition Width="204*"/>
+            <ColumnDefinition Width="32*" />
+            <ColumnDefinition Width="94*" />
+            <ColumnDefinition Width="73*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="27*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="204*" />
+            <ColumnDefinition Width="204*" />
+            <ColumnDefinition Width="204*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="56*"/>
-            <RowDefinition Height="154*"/>
-            <RowDefinition Height="162*"/>
-            <RowDefinition Height="120*"/>
-            <RowDefinition Height="127*"/>
+            <RowDefinition Height="56*" />
+            <RowDefinition Height="154*" />
+            <RowDefinition Height="162*" />
+            <RowDefinition Height="120*" />
+            <RowDefinition Height="127*" />
         </Grid.RowDefinitions>
-        <Button x:Name="btAjouterVie" Grid.Column="1" Content="+" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Center" Click="AcheterVie" FontSize="24" FontWeight="Bold" Margin="44,0,0,0"/>
-        <Button Grid.Column="1" Content="200 pts" HorizontalAlignment="Left" Width="100" VerticalAlignment="Center" Height="50" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="3" Margin="94,0,0,0"/>
-        <Rectangle x:Name="rectCoeur10" Grid.Column="12" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur2" Grid.Column="4" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur3" Grid.Column="5" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur4" Grid.Column="6" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur5" Grid.Column="7" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur6" Grid.Column="8" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur7" Grid.Column="9" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur8" Grid.Column="10" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur9" Grid.Column="11" Width="36" Height="36"/>
-        <Rectangle x:Name="rectCoeur1" Grid.Column="3" Width="36" Height="36"/>
-        <Rectangle x:Name="rectObjet1" Grid.Column="13" Grid.Row="1" Fill="#FF8C8C8C" Margin="30,30,30,30"/>
-        <Rectangle x:Name="rectObjet2" Grid.Column="14" Margin="30,30,30,30" Grid.Row="1" Fill="#FF8C8C8C"/>
-        <Rectangle x:Name="rectObjet3" Grid.Column="15" Margin="30,30,30,30" Grid.Row="1" Fill="#FF8C8C8C"/>
-        <Rectangle x:Name="rectObjet6" Grid.Column="15" Margin="30,30,30,30" Grid.Row="2" Fill="#FF8C8C8C"/>
-        <Rectangle x:Name="rectObjet5" Grid.Column="14" Margin="30,30,30,30" Grid.Row="2" Fill="#FF8C8C8C"/>
-        <Rectangle x:Name="rectObjet4" Grid.Column="13" Margin="30,30,30,30" Grid.Row="2" Fill="#FF8C8C8C"/>
-        <Rectangle Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2" Grid.Row="1" Margin="30,30,30,30">
+        <Button
+            x:Name="btAjouterVie"
+            Grid.Column="1"
+            Width="50"
+            Height="50"
+            Margin="44,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="AcheterVie"
+            Content="+"
+            FontSize="24"
+            FontWeight="Bold" />
+        <Button
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Width="100"
+            Height="50"
+            Margin="94,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="500 pts"
+            FontSize="24"
+            FontWeight="Bold" />
+        <Rectangle
+            x:Name="rectCoeur10"
+            Grid.Column="12"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur2"
+            Grid.Column="4"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur3"
+            Grid.Column="5"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur4"
+            Grid.Column="6"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur5"
+            Grid.Column="7"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur6"
+            Grid.Column="8"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur7"
+            Grid.Column="9"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur8"
+            Grid.Column="10"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur9"
+            Grid.Column="11"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectCoeur1"
+            Grid.Column="3"
+            Width="36"
+            Height="36" />
+        <Rectangle
+            x:Name="rectObjet1"
+            Grid.Row="1"
+            Grid.Column="13"
+            Margin="30,30,30,30"
+            Fill="#FF8C8C8C" />
+        <Rectangle
+            x:Name="rectObjet2"
+            Grid.Row="1"
+            Grid.Column="14"
+            Margin="30,30,30,30"
+            Fill="#FF8C8C8C" />
+        <Rectangle
+            x:Name="rectObjet3"
+            Grid.Row="1"
+            Grid.Column="15"
+            Margin="30,30,30,30"
+            Fill="#FF8C8C8C" />
+        <Rectangle
+            x:Name="rectObjet6"
+            Grid.Row="2"
+            Grid.Column="15"
+            Margin="30,30,30,30"
+            Fill="#FF8C8C8C" />
+        <Rectangle
+            x:Name="rectObjet5"
+            Grid.Row="2"
+            Grid.Column="14"
+            Margin="30,30,30,30"
+            Fill="#FF8C8C8C" />
+        <Rectangle
+            x:Name="rectObjet4"
+            Grid.Row="2"
+            Grid.Column="13"
+            Margin="30,30,30,30"
+            Fill="#FF8C8C8C" />
+        <Rectangle
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="12"
+            Margin="30,30,30,30">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/FondVaisseauGarage.png"/>
+                <ImageBrush ImageSource="/FondVaisseauGarage.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Grid.Column="1" Grid.ColumnSpan="13" Margin="30,30,30,30" Grid.RowSpan="2" Grid.Row="3">
+        <Rectangle
+            Grid.Row="3"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="13"
+            Margin="30,30,30,30">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/FondDescriptionGarage.png"/>
+                <ImageBrush ImageSource="/FondDescriptionGarage.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="TxtCreditPoint" Grid.Column="14" Grid.ColumnSpan="2" Height="50" TextWrapping="Wrap" Text="" Background="#FF71FF00" Margin="30,0,30,0" FontSize="24"/>
-        <Rectangle x:Name="rectSoin" Grid.Column="13" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="SoinEntreeSouris" MouseLeave="SoinSortieSouris" MouseLeftButtonDown="Soin">
+        <TextBlock
+            x:Name="TxtCreditPoint"
+            Grid.Column="14"
+            Grid.ColumnSpan="2"
+            Height="50"
+            Margin="30,0,30,0"
+            Background="#FF71FF00"
+            FontSize="24"
+            Text=""
+            TextWrapping="Wrap" />
+        <Rectangle
+            x:Name="rectSoin"
+            Grid.Row="1"
+            Grid.Column="13"
+            Width="120"
+            Height="120"
+            Margin="0,0,5,12"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            MouseEnter="SoinEntreeSouris"
+            MouseLeave="SoinSortieSouris"
+            MouseLeftButtonDown="Soin">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/Soin.png"/>
+                <ImageBrush ImageSource="/Soin.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectBombe" Grid.Column="14" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="BombeEntreeSouris" MouseLeave="BombeSortieSouris" MouseLeftButtonDown="Bombe">
+        <Rectangle
+            x:Name="rectBombe"
+            Grid.Row="1"
+            Grid.Column="14"
+            Width="120"
+            Height="120"
+            Margin="0,0,5,12"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            MouseEnter="BombeEntreeSouris"
+            MouseLeave="BombeSortieSouris"
+            MouseLeftButtonDown="Bombe">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/BombeNucleaire.png"/>
+                <ImageBrush ImageSource="/BombeNucleaire.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectRetourMenu" Grid.Column="14" Margin="30,30,30,30" Grid.Row="4" MouseEnter="RetourEntreeSouris" MouseLeave="RetourSortieSouris" MouseLeftButtonUp="menuPrincipal">
+        <Rectangle
+            x:Name="rectRetourMenu"
+            Grid.Row="4"
+            Grid.Column="14"
+            Margin="30,30,30,30"
+            MouseEnter="RetourEntreeSouris"
+            MouseLeave="RetourSortieSouris"
+            MouseLeftButtonUp="menuPrincipal">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/RetourMenuRelache.png"/>
+                <ImageBrush ImageSource="/RetourMenuRelache.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectRejouer" Grid.Column="15" Margin="30,30,30,30" Grid.Row="4" MouseEnter="RejouerEntreeSouris" MouseLeftButtonUp="Rejouer" MouseLeave="RejouerSortieSouris">
+        <Rectangle
+            x:Name="rectRejouer"
+            Grid.Row="4"
+            Grid.Column="15"
+            Margin="30,30,30,30"
+            MouseEnter="RejouerEntreeSouris"
+            MouseLeave="RejouerSortieSouris"
+            MouseLeftButtonUp="Rejouer">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/boutonRejouerRelache.png"/>
+                <ImageBrush ImageSource="/boutonRejouerRelache.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectBouclier" Grid.Column="15" HorizontalAlignment="Center" Height="120" Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="0,0,5,12" MouseEnter="BouclierEntreeSouris" MouseLeave="BouclierSortieSouris" MouseLeftButtonDown="Bouclier">
+        <Rectangle
+            x:Name="rectBouclier"
+            Grid.Row="1"
+            Grid.Column="15"
+            Width="120"
+            Height="120"
+            Margin="0,0,5,12"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            MouseEnter="BouclierEntreeSouris"
+            MouseLeave="BouclierSortieSouris"
+            MouseLeftButtonDown="Bouclier">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/Bouclier.png"/>
+                <ImageBrush ImageSource="/Bouclier.png" />
             </Rectangle.Fill>
         </Rectangle>
 

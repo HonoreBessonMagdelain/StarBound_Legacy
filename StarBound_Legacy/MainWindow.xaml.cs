@@ -136,6 +136,8 @@ namespace StarBound_Legacy
         private int vitesseJoueur = 10;
         private int vieJoueur;
         private int vitesseBalle = 20;
+
+        //pour changer le temps de rechargement (cooldown)
         private int tempsRechargement = 600;
 
         public int TempsRechargement
@@ -146,15 +148,16 @@ namespace StarBound_Legacy
 
         //limite le nombre de balle tirer par le joueur
         private const int LIMITE_BALLE_JOUEUR = 50;
-        private const int LIMITE_BALLE_PAR_TIR = 5;
-        private int limiteBalleParTir = 0;
+
+        //pour augmenter le nombre de balle par salve
+        private int limiteBalleParTir = 5;
+        private int balleParTir = 0;
         private int balletirer = 0;
 
 
         // ENNEMIS
 
         // entier nous permettant de charger les images des ennemis
-        private int ImagesEnnemis = 0;
         private double vitesseBalleEnnemi = 2;
         private double vitesseEnnemi = 1;
         private double vitesseAsteroid = 2;
@@ -534,7 +537,7 @@ namespace StarBound_Legacy
                 vaEnBas = true;
             }
 
-            if (e.Key == Key.Space && timerTir < 1 && limiteBalleParTir <= LIMITE_BALLE_PAR_TIR)
+            if (e.Key == Key.Space && timerTir < 1 && balleParTir <= limiteBalleParTir)
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
@@ -572,7 +575,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(nouvelleBalle, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
                     Canva.Children.Add(nouvelleBalle);
-                    limiteBalleParTir++;
+                    balleParTir++;
                 }
             }
             if (e.Key == Key.Escape)
@@ -633,7 +636,7 @@ namespace StarBound_Legacy
             if (e.Key == Key.Space)
             {
                 tirer = false;
-                limiteBalleParTir = 0;
+                balleParTir = 0;
             }
         }
         private void CreationTirEnnemi(double y, double x)
