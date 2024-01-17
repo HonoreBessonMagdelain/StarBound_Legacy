@@ -100,6 +100,7 @@ namespace StarBound_Legacy
         // booléens pour detecter le tir du joueur
         private bool afficheDevbug = false;
 
+        private const int NB_ENNEMI_DEPART = 2, NB_LIMITE_ENNEMIE = 10, NB_ASTEROIDE_DEPART = 3, NB_LIMITE_ASTEROIDE = 10;
         //variable du score du joueur
         public int score = 0;
         public bool passpalier = false;
@@ -111,8 +112,9 @@ namespace StarBound_Legacy
 
         // DECOR
 
-        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
+        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50, TAILLE_PIEUVRE = 100;
         private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
+        private int nb_ennemi = NB_ENNEMI_DEPART, nb_asteroide = NB_ASTEROIDE_DEPART;
 
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
@@ -184,8 +186,8 @@ namespace StarBound_Legacy
             CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE, 1); 
             CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
             CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
-            CreationPieuvre(100);
-            CreationEnnemis(5);
+            CreationPieuvre(TAILLE_PIEUVRE);
+            CreationEnnemis(NB_ENNEMI_DEPART);
         }
         
         private void MoteurJeu(object sender, EventArgs e)
@@ -352,7 +354,6 @@ namespace StarBound_Legacy
                 jouer = false;
                 minuterie.Tick -= MoteurJeu;
                 this.PointCredit += score;
-                initialisationJeux();
                 ControlFenetre();
             }
 
