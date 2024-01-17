@@ -29,72 +29,10 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class MainWindow : Window
     {
-        public readonly int MAX_VIE = 10;
-        public readonly int MIN_VIE = 3;
-        private int vieJoueurDebutPartie;
-
-        public int VieJoueurDebutPartie
-        {
-            get { return vieJoueurDebutPartie; }
-            set { vieJoueurDebutPartie = value; }
-        }
-         
-        // instancie le Mediaplayer pour ajouter de la musique
-        
-
-        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
-        private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
-        
-        // création variable minuterie
-        private DispatcherTimer minuterie = new DispatcherTimer();
-        // booléens pour gauche droite haut bas
-        private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
-        // booléens pour detecter le tir du joueur
-        private bool tirer = false;
-        // liste des éléments rectangles
-        private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
-        private List<Rectangle> ElementsAAjouter = new List<Rectangle>();
-        // entier nous permettant de charger les images des ennemis
-        private int ImagesEnnemis = 0;
-        // entier nous permettant de charger les images des etoiles
-        private int ImagesEtoiles = 0;
-        private double vitesseEtoile1 = 1;
-        private double vitesseEtoile2 = 2;
-        private double vitesseEtoile3 = 3;
-        private double vitessePieuvre = 2;
-        private double vitesseEnnemie = 1;
-        private double vitesseBalleEnnemie;
-
-        // nombre de petites etoiles qui existent
-        private int nombrePetitesEtoiles = 5;
-        // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
-        private ImageBrush apparenceJoueur = new ImageBrush();
-        private ImageBrush apparenceEnnemie = new ImageBrush();
-        // vitesse du joueur
-        private int vitesseJoueur = 10;
-        private int vitesseBalle = 20;
-        //limite le nombre de balle tirer par le joueur
-        private const int LIMITE_BALLE_JOUEUR = 50;
-        private int balletirer = 0;
-        Random aleatoire = new Random();
-        private bool afficheDevbug = false;
-
-        //variable du score du joueur
-        public int score = 0;
-        public bool passpalier = false;
-        public int palierActuel = 0;
-
-        // timer tir et animation vaisseau
-        private int timerTir = 0;
-        private int timerTirMax = 2;
-        private int animeVaisseau = 6;
-        private int animeVaisseauMax = 6;
-        private double minuterieBalle = 8;
-        private double minuterieBalleLimite = 800;
+        // LIGNE POUR TOUT LE PROGRAMME
 
 
         private String fenetreAOuvrir;
-
         public String FenetreAOuvrir
         {
             get { return fenetreAOuvrir; }
@@ -105,34 +43,117 @@ namespace StarBound_Legacy
                 fenetreAOuvrir = value;
             }
         }
-        private int vieJoueur;
 
-        public int VieJoueur
-        {
-            get { return vieJoueur; }
-            set {
-                if (value < MIN_VIE || value > MAX_VIE)
-                    throw new ArgumentOutOfRangeException("la vie doit être entre 3 et 10");
-                vieJoueur = value; }
-        }
         private double volumeSFXactuel;
-        
         public double VolumeSFXactuel
         {
             get { return volumeSFXactuel; }
             set { volumeSFXactuel = value; }
         }
-        private double volumeMusiqueActuel;
 
+        private double volumeMusiqueActuel;
         public double VolumeMusiqueActuel
         {
             get { return volumeMusiqueActuel; }
             set { volumeMusiqueActuel = value; }
         }
 
+        private int vieJoueurDebutPartie;
+        public int VieJoueurDebutPartie
+        {
+            get { return vieJoueurDebutPartie; }
+            set { vieJoueurDebutPartie = value; }
+        }
+
+        // creation des lecteurs de la musique
         public MediaPlayer musiqueMenu = new MediaPlayer();
         public MediaPlayer musiqueGameplay = new MediaPlayer();
 
+        Random aleatoire = new Random();
+
+        public readonly int MAX_VIE = 10;
+        public readonly int MIN_VIE = 3;
+        // liste des éléments rectangles
+        private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
+        private List<Rectangle> ElementsAAjouter = new List<Rectangle>();
+
+
+
+        // LIGNES POUR LE GAMEPLAY
+
+
+        // FONCTIONNEMENT JEU
+
+        // création variable minuterie
+        private DispatcherTimer minuterie = new DispatcherTimer();
+        // booléens pour gauche droite haut bas
+        private bool vaADroite, vaAGauche, vaEnHaut, vaEnBas = false;
+        // booléens pour detecter le tir du joueur
+        private bool afficheDevbug = false;
+
+        //variable du score du joueur
+        public int score = 0;
+        public bool passpalier = false;
+        public int palierActuel = 0;
+
+
+        // DECOR
+
+        private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50;
+        private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
+
+        // entier nous permettant de charger les images des etoiles
+        private int ImagesEtoiles = 0;
+        private double vitesseEtoile1 = 1;
+        private double vitesseEtoile2 = 2;
+        private double vitesseEtoile3 = 3;
+        private double vitessePieuvre = 2;
+        private double vitesseEnnemie = 1;
+
+        // nombre de petites etoiles qui existent
+        private int nombrePetitesEtoiles = 5;
+
+        
+        // JOUEUR
+
+        private bool tirer = false;
+        // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
+        private ImageBrush apparenceJoueur = new ImageBrush();
+        // vitesse du joueur
+        private int vitesseJoueur = 10;
+        private int vieJoueur;
+        private int vitesseBalle = 20;
+        //limite le nombre de balle tirer par le joueur
+        private const int LIMITE_BALLE_JOUEUR = 50;
+        private int balletirer = 0;
+
+
+        // ENNEMIS
+
+        // entier nous permettant de charger les images des ennemis
+        private int ImagesEnnemis = 0;
+        private double vitesseBalleEnnemie;
+
+        private ImageBrush apparenceEnnemie = new ImageBrush();
+        
+        
+        
+        
+
+        // timer tir et animation vaisseau
+        private int timerTir = 0;
+        private int timerTirMax = 2;
+        private int animeVaisseau = 6;
+        private int animeVaisseauMax = 6;
+        private double minuterieBalle = 8;
+        private double minuterieBalleLimite = 800;
+
+        
+
+        
+        
+
+        
 
         public MainWindow()
         {
@@ -198,7 +219,7 @@ namespace StarBound_Legacy
                         }
                     case "jouer":
                         {
-                            this.VieJoueur = this.vieJoueurDebutPartie;
+                            vieJoueur = this.vieJoueurDebutPartie;
                             jouer = true;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
