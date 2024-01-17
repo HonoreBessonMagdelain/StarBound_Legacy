@@ -32,6 +32,8 @@
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
+    <None Remove="PlusRelache.png" />
+    <None Remove="PrixRelache.png" />
     <None Remove="QuitterRelache.png" />
     <None Remove="RetourMenuRelache.png" />
     <None Remove="RetourRelache.png" />
@@ -63,6 +65,8 @@
     <Resource Include="ParametreRelache.png" />
     <Resource Include="ParametresRelache.png" />
     <Resource Include="PistoletLaser.png" />
+    <Resource Include="PlusRelache.png" />
+    <Resource Include="PrixRelache.png" />
     <Resource Include="QuitterRelache.png" />
     <Resource Include="RetourMenuRelache.png" />
     <Resource Include="RetourRelache.png" />
@@ -120,6 +124,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\ParametresRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PlusAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PlusRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PrixAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PrixRelache.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\QuitterAppuye.png">
@@ -263,6 +279,9 @@
     <None Update="img\textes\PistoletLaserDescription.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\textes\PlusDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\textes\SoinDescription.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -276,10 +295,28 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Vaisseaux\Vaisseau1canon1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Vaisseaux\Vaisseau2canon1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Musiques\MusiqueGamePlay.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

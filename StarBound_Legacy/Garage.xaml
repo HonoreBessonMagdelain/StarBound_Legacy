@@ -45,29 +45,6 @@
             <RowDefinition Height="120*" />
             <RowDefinition Height="127*" />
         </Grid.RowDefinitions>
-        <Button
-            x:Name="btAjouterVie"
-            Grid.Column="1"
-            Width="50"
-            Height="50"
-            Margin="44,0,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="AcheterVie"
-            Content="+"
-            FontSize="24"
-            FontWeight="Bold" />
-        <Button
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Width="100"
-            Height="50"
-            Margin="94,0,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Content="500 pts"
-            FontSize="24"
-            FontWeight="Bold" />
         <Rectangle
             x:Name="rectCoeur10"
             Grid.Column="12"
@@ -272,6 +249,17 @@
                 <ImageBrush ImageSource="/MiniGun.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle x:Name="rectPlus" Grid.Column="2" HorizontalAlignment="Left" Height="50" Margin="22,0,0,0" VerticalAlignment="Center" Width="50" MouseEnter="PlusEntreeSouris" MouseLeave="PlusSortieSouris" MouseLeftButtonDown="Plus">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/PlusRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectVaisseau" Grid.Column="1" Grid.ColumnSpan="12" HorizontalAlignment="Center" Height="150" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" Width="426">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Vaisseau1canon1.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectPrix" Grid.Column="13" Grid.Row="4" Margin="0,30,50,50" MouseEnter="PrixEntreeSouris" MouseLeave="PrixSortieSouris" MouseLeftButtonDown="Acheter"/>
 
     </Grid>
 </Window>

@@ -63,6 +63,17 @@ namespace StarBound_Legacy
         private ImageBrush lanceBombeDescription = new ImageBrush();
         private ImageBrush miniGunDescription = new ImageBrush();
 
+        private ImageBrush plusDescription = new ImageBrush();
+        private ImageBrush plusRelache = new ImageBrush();
+        private ImageBrush plusAppuye = new ImageBrush();
+
+        private ImageBrush vaisseau2 = new ImageBrush();
+        private ImageBrush vaisseau3 = new ImageBrush();
+        private ImageBrush vaisseau4 = new ImageBrush();
+
+        private ImageBrush prixRelache = new ImageBrush();
+        private ImageBrush prixAppuye = new ImageBrush();
+
         public Garage(MainWindow fenetre)
         {
             InitializeComponent();
@@ -94,6 +105,17 @@ namespace StarBound_Legacy
             lanceBombeDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/LanceBombeDescription.png"));
             miniGunDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/MiniGunDescription.png"));
 
+            plusDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/PlusDescription.png"));
+            plusRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PlusRelache.png"));
+            plusAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PlusAppuye.png"));
+
+            vaisseau2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon2.png"));
+            vaisseau3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon3.png"));
+            vaisseau4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/vaisseaux/Vaisseau1canon4.png"));
+
+            prixRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PrixRelache.png"));
+            prixAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PrixAppuye.png"));
+
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
             Rectangle[] fondObjets = new Rectangle[6] { rectObjet1, rectObjet2, rectObjet3, rectObjet4, rectObjet5, rectObjet6 };
@@ -112,18 +134,7 @@ namespace StarBound_Legacy
 
         
 
-        private void AcheterVie(object sender, RoutedEventArgs e)
-        {
-            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE && this.Fenetre.PointCredit < PRIX_COEUR)
-            {
-                this.Fenetre.PointCredit -= PRIX_COEUR;
-                this.Fenetre.VieJoueurDebutPartie++;
-                for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
-                {
-                    barreVie[i].Fill = imgCoeur;
-                }
-            }
-        }
+        
 
         
 
@@ -221,6 +232,7 @@ namespace StarBound_Legacy
         private void PistoletLaser(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = pistoletLaserDescription;
+            rectVaisseau.Fill = vaisseau2;
         }
 
         private void LanceBombeEntreeSouris(object sender, MouseEventArgs e)
@@ -236,6 +248,7 @@ namespace StarBound_Legacy
         private void LanceBombe(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = lanceBombeDescription;
+            rectVaisseau.Fill = vaisseau3;
         }
 
         private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
@@ -251,6 +264,37 @@ namespace StarBound_Legacy
         private void MiniGun(object sender, MouseButtonEventArgs e)
         {
             rectDescription.Fill = miniGunDescription;
+            rectVaisseau.Fill = vaisseau4;
+        }
+
+        private void PlusEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectPlus.Fill = plusAppuye;
+        }
+
+        private void PlusSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectPlus.Fill = plusRelache;
+        }
+
+        private void Plus(object sender, MouseButtonEventArgs e)
+        {
+            rectDescription.Fill = plusDescription;
+        }
+
+        private void PrixEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectPrix.Fill = prixAppuye;
+        }
+
+        private void PrixSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectPrix.Fill= prixRelache;
+        }
+
+        private void Acheter(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
