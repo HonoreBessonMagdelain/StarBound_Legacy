@@ -64,6 +64,14 @@ namespace StarBound_Legacy
             get { return vieJoueurDebutPartie; }
             set { vieJoueurDebutPartie = value; }
         }
+        private int pointCredit = 0;
+
+        public int PointCredit
+        {
+            get { return pointCredit; }
+            set { pointCredit = value; }
+        }
+
 
         // creation des lecteurs de la musique
         public MediaPlayer musiqueMenu = new MediaPlayer();
@@ -97,6 +105,9 @@ namespace StarBound_Legacy
         public bool passpalier = false;
         public int palierActuel = 0;
 
+
+        bool quitter = false;
+        bool jouer = false;
 
         // DECOR
 
@@ -157,88 +168,16 @@ namespace StarBound_Legacy
             #endif
             
             InitializeComponent();
-            Musique musique = new Musique();
-            musique.Fenetre = this;
-            
-            
-            
-            txtPalier.Opacity = 0;
-            bool quitter = false;
-            bool jouer = false;
-            Canva.Height = SystemParameters.PrimaryScreenHeight;
-            Canva.Width = SystemParameters.PrimaryScreenWidth;
-            Canva.Focus();
-            musique.LanceMusiqueMenu();
-            
+
             this.VieJoueurDebutPartie = MIN_VIE;
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1.png"));
-
-            while (!quitter && !jouer)
-            {
-                
-                switch (FenetreAOuvrir)
-                {
-                    case "menuPrincipal":
-                        {
-                            MenuPrincipal menuPrincipal = new MenuPrincipal();
-                            menuPrincipal.Fenetre = this;
-                            menuPrincipal.ShowDialog();
-                            
-                            break;
-                        }
-                    case "garage":
-                        {
-                            Garage garage = new Garage();
-                            garage.Fenetre = this;
-                            garage.ShowDialog();
-                            break;
-                        }
-                    case "credits":
-                        {
-                            Credits credits = new Credits();
-                            credits.Fenetre = this;
-                            credits.ShowDialog();
-                            break;
-                        }
-                    case "quitter":
-                        {
-                            quitter = true;
-                            break;
-                        }
-                    case "reglages":
-                        {
-                            Reglages reglages = new Reglages();
-                            reglages.Fenetre = this;
-                            reglages.ShowDialog();
-                            break;
-                        }
-                    case "jouer":
-                        {
-                            vieJoueur = this.vieJoueurDebutPartie;
-                            jouer = true;
-                            minuterie.Interval = TimeSpan.FromMilliseconds(16);
-                            minuterie.Tick += MoteurJeu;
-                            minuterie.Start();
-
-                            musiqueMenu.Close();
-                            musique.LanceMusiqueGameplay();
-                            
-
-                            // assignement de skin du joueur au rectangle associé
-                            rectJoueur.Fill = apparenceJoueur;
-                            break;
-                        }
-                }
-            }
-            initialisationAstres();
-
-            if ( quitter )
-                System.Windows.Application.Current.Shutdown();
+            rectJoueur.Fill = apparenceJoueur;
+            ControlFenetre();
             
         }
-        public void initialisationAstres()
+        public void initialisationJeux()
         {
             CreationEtoiles(NB_PETITE_ETOILE, TAILLE_PETITE_ETOILE, 1); 
             CreationEtoiles(NB_MOY_ETOILE, TAILLE_MOY_ETOILE, 2);
@@ -323,8 +262,6 @@ namespace StarBound_Legacy
                                     minuterieBalleLimite--;
                                 }
                             }
-                            
-
                         }
                     }
                 }
@@ -357,6 +294,12 @@ namespace StarBound_Legacy
                         ElementsASupprimer.Add(x);
                     }
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseBalleEnnemie);
+                    Rect balleEnnemie = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    if (balleEnnemie.IntersectsWith(player))
+                    {
+                        ElementsASupprimer.Add(x);
+                        vieJoueur--;
+                    }
                 }
 
 
@@ -404,13 +347,15 @@ namespace StarBound_Legacy
                     }
                 }
                 this.fenetreAOuvrir = "garage";
+                jouer = false;
+                minuterie.Tick -= MoteurJeu;
+                this.PointCredit += score;
+                score = 0;
                 vieJoueur = vieJoueurDebutPartie;
-                initialisationAstres();
+                initialisationJeux();
                 Canvas.SetTop(rectJoueur, Canva.Height / 2);
                 Canvas.SetLeft(rectJoueur, rectJoueur.Width);
-                Garage garage = new Garage();
-                garage.Fenetre = this;
-                garage.ShowDialog();
+                ControlFenetre();
             }
 
             foreach (Rectangle x in ElementsAAjouter)
@@ -620,6 +565,73 @@ namespace StarBound_Legacy
         {
             Canvas.SetLeft(element, Canva.Width);
             Canvas.SetTop(element, aleatoire.Next((int)element.Height, (int)Canva.Height - (int)element.Height));
+        }
+
+        private void ControlFenetre()
+        {
+            Musique musique = new Musique();
+            musique.Fenetre = this;
+
+
+
+            txtPalier.Opacity = 0;
+            Canva.Height = SystemParameters.PrimaryScreenHeight;
+            Canva.Width = SystemParameters.PrimaryScreenWidth;
+            Canva.Focus();
+            musique.LanceMusiqueMenu();
+            while (!quitter && !jouer)
+            {
+
+                switch (FenetreAOuvrir)
+                {
+                    case "menuPrincipal":
+                        {
+                            MenuPrincipal menuPrincipal = new MenuPrincipal();
+                            menuPrincipal.Fenetre = this;
+                            menuPrincipal.ShowDialog();
+                            break;
+                        }
+                    case "garage":
+                        {
+                            Garage garage = new Garage(this);
+                            garage.ShowDialog();
+                            break;
+                        }
+                    case "credits":
+                        {
+                            Credits credits = new Credits();
+                            credits.Fenetre = this;
+                            credits.ShowDialog();
+                            break;
+                        }
+                    case "quitter":
+                        {
+                            quitter = true;
+                            break;
+                        }
+                    case "reglages":
+                        {
+                            Reglages reglages = new Reglages();
+                            reglages.Fenetre = this;
+                            reglages.ShowDialog();
+                            break;
+                        }
+                    case "jouer":
+                        {
+                            vieJoueur = this.vieJoueurDebutPartie;
+                            jouer = true;
+                            minuterie.Interval = TimeSpan.FromMilliseconds(16);
+                            minuterie.Tick += MoteurJeu;
+                            minuterie.Start();
+                            initialisationJeux();
+                            musiqueMenu.Close();
+                            musique.LanceMusiqueGameplay();
+                            break;
+                        }
+                }
+            }
+            if (quitter)
+                System.Windows.Application.Current.Shutdown();
         }
     }
 }
