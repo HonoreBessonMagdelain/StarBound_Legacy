@@ -23,6 +23,7 @@ namespace StarBound_Legacy
     /// </summary>
     public partial class Garage : Window
     {
+        private const int PRIX_COEUR = 500;
 
         private MainWindow fenetre;
 
@@ -113,8 +114,9 @@ namespace StarBound_Legacy
 
         private void AcheterVie(object sender, RoutedEventArgs e)
         {
-            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE)
+            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE && this.Fenetre.PointCredit < PRIX_COEUR)
             {
+                this.Fenetre.PointCredit -= PRIX_COEUR;
                 this.Fenetre.VieJoueurDebutPartie++;
                 for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
                 {

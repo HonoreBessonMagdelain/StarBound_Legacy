@@ -100,7 +100,7 @@ namespace StarBound_Legacy
         // booléens pour detecter le tir du joueur
         private bool afficheDevbug = false;
 
-        private const int NB_ENNEMI_DEPART = 2, NB_LIMITE_ENNEMIE = 10, NB_ASTEROIDE_DEPART = 3, NB_LIMITE_ASTEROIDE = 10;
+        private const int NB_ENNEMI_DEPART = 2, NB_LIMITE_ENNEMI = 10, NB_ASTEROIDE_DEPART = 3, NB_LIMITE_ASTEROIDE = 10;
         //variable du score du joueur
         public int score = 0;
         public bool passpalier = false;
@@ -114,7 +114,7 @@ namespace StarBound_Legacy
 
         private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50, TAILLE_PIEUVRE = 100;
         private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
-        private int nb_ennemi = NB_ENNEMI_DEPART, nb_asteroide = NB_ASTEROIDE_DEPART;
+        private int nb_ennemi = 0, nb_asteroide = 0;
 
         // entier nous permettant de charger les images des etoiles
         private int ImagesEtoiles = 0;
@@ -122,7 +122,6 @@ namespace StarBound_Legacy
         private double vitesseEtoile2 = 2;
         private double vitesseEtoile3 = 3;
         private double vitessePieuvre = 2;
-        private double vitesseEnnemie = 1;
 
         // nombre de petites etoiles qui existent
         private int nombrePetitesEtoiles = 5;
@@ -137,24 +136,41 @@ namespace StarBound_Legacy
         private int vitesseJoueur = 10;
         private int vieJoueur;
         private int vitesseBalle = 20;
+
+        //pour changer le temps de rechargement (cooldown)
+        private int tempsRechargement = 600;
+
+        public int TempsRechargement
+        {
+            get { return tempsRechargement; }
+            set { tempsRechargement = value; }
+        }
+
         //limite le nombre de balle tirer par le joueur
         private const int LIMITE_BALLE_JOUEUR = 50;
-        private const int LIMITE_BALLE_PAR_TIR = 5;
-        private int limiteBalleParTir = 0;
+
+        //pour augmenter le nombre de balle par salve
+        private int limiteBalleParTir = 5;
+        private int balleParTir = 0;
         private int balletirer = 0;
 
 
         // ENNEMIS
 
         // entier nous permettant de charger les images des ennemis
-        private int ImagesEnnemis = 0;
-        private double vitesseBalleEnnemie;
+        private double vitesseBalleEnnemi = 2;
+        private double vitesseEnnemi = 1;
+        private double vitesseAsteroid = 2;
+        private const int TAILLE_MIN_ASTEROID = 25, TAILLE_MAX_ASTEROID = 250;
+        private ImageBrush apparenceEnnemi = new ImageBrush();
+        private ImageBrush apparenceAsteroid = new ImageBrush();
+        private const int TAILLE_ENNEMI = 50;
+        private const int LONGUEUR_BALLE_ENNEMI = 40;
+        private const int HAUTEUR_BALLE_ENNEMI = 15;
+        private const double ACCELERATION_VITESSE_ENNEMI = 0.1;
+        private const double ACCELERATION_VITESSE_BALLE_ENNEMI = 0.2;
+        private const double ACCELERATION_VITESSE_ASTEROID = 0.1;
 
-        private ImageBrush apparenceEnnemie = new ImageBrush();
-        
-        
-        
-        
 
         // timer tir et animation vaisseau
         private int timerTir = 0;
@@ -188,12 +204,12 @@ namespace StarBound_Legacy
             CreationEtoiles(NB_GRANDE_ETOILE, TAILLE_GRANDE_ETOILE, 3);
             CreationPieuvre(TAILLE_PIEUVRE);
             CreationEnnemis(NB_ENNEMI_DEPART);
+            CreationAsteroids(NB_ASTEROIDE_DEPART, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
         }
         
         private void MoteurJeu(object sender, EventArgs e)
         {
-            
-            vitesseBalleEnnemie = vitesseEnnemie * 3;
+            MettreAJourStat();
             txtScore.Text = score.ToString();
             txtPalier.Text = palierActuel.ToString();
             // création d’un rectangle joueur pour la détection de collision
@@ -205,7 +221,8 @@ namespace StarBound_Legacy
             animeVaisseau++;
             if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon1.png"));
-            apparenceEnnemie.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
+            apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
+            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/demi-coeur.png"));
 
             // déplacement à gauche et droite de vitessePlayer avec vérification des positions
             if (vaAGauche && Canvas.GetLeft(rectJoueur) > -50)
@@ -227,9 +244,19 @@ namespace StarBound_Legacy
 
             if (score % 10 == 0 && passpalier)
             {
-                CreationEnnemis(1);
+                if (nb_ennemi < NB_LIMITE_ENNEMI)
+                {
+                    CreationEnnemis(1);
+                    
+                }
+                if (nb_asteroide < NB_LIMITE_ASTEROIDE)
+                {
+                    CreationAsteroids(1, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
+                }
                 palierActuel++;
-                vitesseEnnemie += 0.1;
+                vitesseEnnemi += ACCELERATION_VITESSE_ENNEMI;
+                vitesseBalleEnnemi += ACCELERATION_VITESSE_BALLE_ENNEMI;
+                vitesseAsteroid += ACCELERATION_VITESSE_ASTEROID;
                 passpalier = false;
             }
             if (score % 10 != 0 && !passpalier)
@@ -249,35 +276,49 @@ namespace StarBound_Legacy
                     foreach (var y in Canva.Children.OfType<Rectangle>())
                     {
                         // si le rectangle est un ennemi
-                        if (y is Rectangle && (string)y.Tag == "ennemie")
+                        if (y is Rectangle && (string)y.Tag == "ennemi")
                         {
                             // création d’un rectangle correspondant à l’ennemi
-                            Rect ennemie = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
+                            Rect ennemi = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
                             // on vérifie la collision
                             // appel à la méthode IntersectsWith pour détecter la collision
-                            if (balle.IntersectsWith(ennemie))
+                            if (balle.IntersectsWith(ennemi))
                             {
                                 // on ajoute la balle a la liste à supprimer et on incremente le score
                                 ElementsASupprimer.Add(x);
                                 ReplacerElement(y);
                                 score++;
-                                if (minuterieBalleLimite >= 300)
+                                if (minuterieBalleLimite >= this.TempsRechargement)
                                 {
                                     minuterieBalleLimite--;
                                 }
                             }
                         }
+                        if (y is Rectangle && (string)y.Tag == "asteroid")
+                        {
+                            Rect asteroid = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
+                            if (balle.IntersectsWith(asteroid))
+                            {
+                                int tailleAsteroid = aleatoire.Next(TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
+                                y.Height = tailleAsteroid;
+                                y.Width = tailleAsteroid;
+                                ElementsASupprimer.Add(x);
+                                ReplacerElement(y);
+                                
+                                score++;
+                            }
+                        }
                     }
                 }
-                if (x is Rectangle && (string)x.Tag == "ennemie")
+                if (x is Rectangle && (string)x.Tag == "ennemi")
                 {
-                    if (Canvas.GetLeft(x) < -100)
+                    if (Canvas.GetLeft(x) < -x.Width)
                     {
                         ReplacerElement(x);
                     }
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                    Rect ennemie = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                    if (player.IntersectsWith(ennemie))
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemi);
+                    Rect ennemi = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    if (player.IntersectsWith(ennemi))
                     {
                         ReplacerElement(x);
                         vieJoueur--;
@@ -291,15 +332,30 @@ namespace StarBound_Legacy
                     }
 
                 }
-                if (x is Rectangle && (string)x.Tag == "balleEnnemie")
+                if (x is Rectangle && (string)x.Tag == "asteroid")
+                {
+                    if (Canvas.GetLeft(x) < -x.Width)
+                    {
+                        ReplacerElement(x);
+                    }
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseAsteroid);
+                    Rect asteroid = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    if (player.IntersectsWith(asteroid))
+                    {
+                        ReplacerElement(x);
+                        vieJoueur--;
+                    }
+
+                }
+                if (x is Rectangle && (string)x.Tag == "balleEnnemi")
                 {
                     if (Canvas.GetLeft(x) < Canvas.GetLeft(Canva)-Canvas.GetLeft(x))
                     {
                         ElementsASupprimer.Add(x);
                     }
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseBalleEnnemie);
-                    Rect balleEnnemie = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                    if (balleEnnemie.IntersectsWith(player))
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseBalleEnnemi);
+                    Rect balleEnnemi = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                    if (balleEnnemi.IntersectsWith(player))
                     {
                         ElementsASupprimer.Add(x);
                         vieJoueur--;
@@ -374,17 +430,37 @@ namespace StarBound_Legacy
         {
             for (int i = 0; i < limite; i++)
             {
-                Rectangle ennemie = new Rectangle
+                Rectangle ennemi = new Rectangle
                 {
-                    Width = 50,
-                    Height = 50,
-                    Fill = apparenceEnnemie,
-                    Tag = "ennemie"
+                    Width = TAILLE_ENNEMI,
+                    Height = TAILLE_ENNEMI,
+                    Fill = apparenceEnnemi,
+                    Tag = "ennemi"
                 };
-                Canvas.SetLeft(ennemie, aleatoire.Next((int)Canva.Width, (int)Canva.Width + (int)ennemie.Width));
-                Canvas.SetTop(ennemie, aleatoire.Next((int)ennemie.Height, (int)Canva.Height) - (int)ennemie.Height);
-                Canvas.SetZIndex(ennemie, 4);
-                Canva.Children.Add(ennemie);
+                Canvas.SetLeft(ennemi, aleatoire.Next((int)Canva.Width, (int)Canva.Width + (int)ennemi.Width));
+                Canvas.SetTop(ennemi, aleatoire.Next((int)ennemi.Height, (int)Canva.Height) - (int)ennemi.Height);
+                Canvas.SetZIndex(ennemi, 4);
+                Canva.Children.Add(ennemi);
+                nb_ennemi++;
+            }
+        }
+        private void CreationAsteroids(int limite, int tailleMinAsteroid, int tailleMaxAsteroid)
+        {
+            for (int i = 0; i < limite; i++)
+            {
+                int tailleAsteroid = aleatoire.Next(tailleMinAsteroid, tailleMaxAsteroid);
+                Rectangle asteroid = new Rectangle
+                {
+                    Width = tailleAsteroid,
+                    Height = tailleAsteroid,
+                    Fill = apparenceAsteroid,
+                    Tag = "asteroid"
+                };
+                Canvas.SetLeft(asteroid, aleatoire.Next((int)Canva.Width, (int)Canva.Width + (int)asteroid.Width));
+                Canvas.SetTop(asteroid, aleatoire.Next((int)asteroid.Height, (int)Canva.Height) - (int)asteroid.Height);
+                Canvas.SetZIndex(asteroid, 4);
+                Canva.Children.Add(asteroid);
+                nb_asteroide++;
             }
         }
         private void CreationEtoiles(int limite, int taille, int profondeur)
@@ -461,7 +537,7 @@ namespace StarBound_Legacy
                 vaEnBas = true;
             }
 
-            if (e.Key == Key.Space && timerTir < 1 && limiteBalleParTir <= LIMITE_BALLE_PAR_TIR)
+            if (e.Key == Key.Space && timerTir < 1 && balleParTir <= limiteBalleParTir)
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
@@ -499,27 +575,45 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(nouvelleBalle, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
                     Canva.Children.Add(nouvelleBalle);
-                    limiteBalleParTir++;
+                    balleParTir++;
                 }
             }
             if (e.Key == Key.Escape)
             {
                 System.Windows.Application.Current.Shutdown();
             }
-            if (e.Key == Key.F4)
+            if (e.Key == Key.F3)
             {
                 if (afficheDevbug)
                 {
-                    txtPalier.Opacity = 1;
+                    changeOpaciter(1);
                     afficheDevbug = false;
                 }
                 else
                 {
-                    txtPalier.Opacity=0;
+                    changeOpaciter(0);
                     afficheDevbug= true;
                 }
             }
         }
+        private void changeOpaciter(int opaciter)
+        {
+            foreach (var y in Canva.Children.OfType<TextBlock>())
+            {
+                if ((string)y.Tag == "Devbug")
+                {
+                    y.Opacity = opaciter;
+                }
+            }
+            foreach (var y in Canva.Children.OfType<Label>())
+            {
+                if ((string)y.Tag == "Devbug")
+                {
+                    y.Opacity = opaciter;
+                }
+            }
+        }
+
         private void ToucheRelachee(object sender, KeyEventArgs e)
         {
             // on gère les booléens gauche et droite en fonction du relâchement de la touche
@@ -542,25 +636,37 @@ namespace StarBound_Legacy
             if (e.Key == Key.Space)
             {
                 tirer = false;
-                limiteBalleParTir = 0;
+                balleParTir = 0;
             }
         }
         private void CreationTirEnnemi(double y, double x)
         {
-            // création des tirs ennemies tirant vers l'objet joueur
+            // création des tirs ennemis tirant vers l'objet joueur
             // x et y position du tir
-            Rectangle NouvelleBalleEnnemie = new Rectangle
+            Rectangle NouvelleBalleEnnemi = new Rectangle
             {
-                Height = 15,
-                Width = 40,
+                Height = HAUTEUR_BALLE_ENNEMI,
+                Width = LONGUEUR_BALLE_ENNEMI,
                 Fill = Brushes.Yellow,
-                Tag = "balleEnnemie"
+                Tag = "balleEnnemi"
             };
-            Canvas.SetTop(NouvelleBalleEnnemie, y);
-            Canvas.SetLeft(NouvelleBalleEnnemie, x);
-            ElementsAAjouter.Add(NouvelleBalleEnnemie);
+            Canvas.SetZIndex(NouvelleBalleEnnemi, 4);
+            Canvas.SetTop(NouvelleBalleEnnemi, y);
+            Canvas.SetLeft(NouvelleBalleEnnemi, x);
+            ElementsAAjouter.Add(NouvelleBalleEnnemi);
         }
 
+
+        private void MettreAJourStat()
+        {
+            TxtNbAsteroid.Text = nb_asteroide.ToString();
+            TxtNbEnnemi.Text = nb_ennemi.ToString();
+            //TxtVitAsteroid = vitesseAsteroid.ToString();
+            TxtVitBalle.Text = vitesseBalle.ToString();
+            TxtVitBalleEnnemi.Text = vitesseBalleEnnemi.ToString();
+            TxtVitEnnemi.Text = vitesseEnnemi.ToString();
+            TxtVitJoueur.Text = vitesseJoueur.ToString();
+        }
 
         private void ReplacerElement(Rectangle element)
         {
@@ -575,7 +681,6 @@ namespace StarBound_Legacy
 
 
 
-            txtPalier.Opacity = 0;
             Canva.Height = SystemParameters.PrimaryScreenHeight;
             Canva.Width = SystemParameters.PrimaryScreenWidth;
             Canva.Focus();
