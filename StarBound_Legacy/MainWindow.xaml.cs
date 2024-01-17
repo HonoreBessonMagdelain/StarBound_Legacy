@@ -116,7 +116,7 @@ namespace StarBound_Legacy
                 vieJoueur = value; }
         }
         private double volumeSFXactuel;
-
+        
         public double VolumeSFXactuel
         {
             get { return volumeSFXactuel; }
@@ -198,6 +198,7 @@ namespace StarBound_Legacy
                         }
                     case "jouer":
                         {
+                            this.VieJoueur = this.vieJoueurDebutPartie;
                             jouer = true;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
@@ -273,13 +274,6 @@ namespace StarBound_Legacy
             {
                 passpalier = true;
             }
-
-
-
-            
-            
-
-
             foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
             {
                 if (x is Rectangle && (string)x.Tag == "balleJoueur")
@@ -381,6 +375,25 @@ namespace StarBound_Legacy
                     Canvas.SetTop(x, aleatoire.Next((int)Canva.Height - (int)x.Height));
                 }
             }
+            if (vieJoueur <= 0)
+            {
+                foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
+                {
+                    if (x.Name != "rectJoueur" && x.Tag != null)
+                    {
+                        ElementsASupprimer.Add(x);
+                    }
+                }
+                this.fenetreAOuvrir = "garage";
+                vieJoueur = vieJoueurDebutPartie;
+                initialisationAstres();
+                Canvas.SetTop(rectJoueur, Canva.Height / 2);
+                Canvas.SetLeft(rectJoueur, rectJoueur.Width);
+                Garage garage = new Garage();
+                garage.Fenetre = this;
+                garage.ShowDialog();
+            }
+
             foreach (Rectangle x in ElementsAAjouter)
             {
                 Canva.Children.Add(x);
@@ -390,6 +403,7 @@ namespace StarBound_Legacy
             {
                 Canva.Children.Remove(x);
             }
+            ElementsASupprimer.Clear();
 
         }
 
