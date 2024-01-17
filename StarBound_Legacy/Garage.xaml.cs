@@ -36,17 +36,18 @@ namespace StarBound_Legacy
         Rectangle[] barreVie;
 
 
-        public Garage()
+        public Garage(MainWindow fenetre)
         {
             InitializeComponent();
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
-            
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
-            //for(int i = 0; i < vie; i++)
-            //{
-            //    barreVie[i].Fill = imgCoeur;
-            //}
+            /*for(int i = 0; i < vie; i++)
+            {
+                barreVie[i].Fill = imgCoeur;
+            }*/
+            this.Fenetre = fenetre;
+            this.TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString();
         }
 
         
