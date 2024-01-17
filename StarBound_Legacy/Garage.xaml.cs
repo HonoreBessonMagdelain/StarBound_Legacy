@@ -38,6 +38,14 @@ namespace StarBound_Legacy
         private ImageBrush boutonRetourMenuRelache = new ImageBrush();
         private ImageBrush boutonRejouerAppuye = new ImageBrush();
         private ImageBrush boutonRejouerRelache = new ImageBrush();
+        private ImageBrush fondObjetGarage = new ImageBrush();
+
+        private ImageBrush soin = new ImageBrush();
+        private ImageBrush soinSelectionne = new ImageBrush();
+        private ImageBrush bombe = new ImageBrush();
+        private ImageBrush bombeSelectionne = new ImageBrush();
+        private ImageBrush bouclier = new ImageBrush();
+        private ImageBrush bouclierSelectionne = new ImageBrush();
 
         public Garage(MainWindow fenetre)
         {
@@ -46,11 +54,25 @@ namespace StarBound_Legacy
             boutonRetourMenuRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuRelache.png"));
             boutonRejouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerAppuye.png"));
             boutonRejouerRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerRelache.png"));
+            fondObjetGarage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/ObjetGarage.png"));
+
+            soin.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/Soin.png"));
+            soinSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/SoinSelectionne.png"));
+            bombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaire.png"));
+            bombeSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaireSelectionne.png"));
+            bouclier.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/Bouclier.png"));
+            bouclierSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BouclierSelectionne.png"));
+            
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
+            Rectangle[] fondObjets = new Rectangle[6] { rectObjet1, rectObjet2, rectObjet3, rectObjet4, rectObjet5, rectObjet6 };
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/coeur.png"));
             this.Fenetre = fenetre;
-            for(int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
+            for (int i = 0; i < 6; i++)
+            {
+                fondObjets[i].Fill = fondObjetGarage;
+            }
+            for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
             {
                 barreVie[i].Fill = imgCoeur;
             }
@@ -105,6 +127,51 @@ namespace StarBound_Legacy
         private void RejouerEntreeSouris(object sender, MouseEventArgs e)
         {
             rectRejouer.Fill = boutonRejouerAppuye;
+        }
+
+        private void SoinEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectSoin.Fill = soinSelectionne;
+        }
+
+        private void SoinSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectSoin.Fill = soin;
+        }
+
+        private void Soin(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BombeEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectBombe.Fill = bombeSelectionne;
+        }
+
+        private void BombeSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectBombe.Fill= bombe;
+        }
+
+        private void Bombe(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BouclierEntreeSouris(object sender, MouseEventArgs e)
+        {
+            rectBouclier.Fill = bouclierSelectionne;
+        }
+
+        private void BouclierSortieSouris(object sender, MouseEventArgs e)
+        {
+            rectBouclier.Fill = bouclier;
+        }
+
+        private void Bouclier(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
