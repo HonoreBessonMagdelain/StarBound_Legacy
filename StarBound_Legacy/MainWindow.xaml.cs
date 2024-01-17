@@ -137,6 +137,8 @@ namespace StarBound_Legacy
         private int vitesseBalle = 20;
         //limite le nombre de balle tirer par le joueur
         private const int LIMITE_BALLE_JOUEUR = 50;
+        private const int LIMITE_BALLE_PAR_TIR = 5;
+        private int limiteBalleParTir = 0;
         private int balletirer = 0;
 
 
@@ -189,7 +191,7 @@ namespace StarBound_Legacy
         private void MoteurJeu(object sender, EventArgs e)
         {
             
-            vitesseBalleEnnemie = vitesseEnnemie * 2;
+            vitesseBalleEnnemie = vitesseEnnemie * 3;
             txtScore.Text = score.ToString();
             txtPalier.Text = palierActuel.ToString();
             // création d’un rectangle joueur pour la détection de collision
@@ -350,11 +352,7 @@ namespace StarBound_Legacy
                 jouer = false;
                 minuterie.Tick -= MoteurJeu;
                 this.PointCredit += score;
-                score = 0;
-                vieJoueur = vieJoueurDebutPartie;
                 initialisationJeux();
-                Canvas.SetTop(rectJoueur, Canva.Height / 2);
-                Canvas.SetLeft(rectJoueur, rectJoueur.Width);
                 ControlFenetre();
             }
 
@@ -462,7 +460,7 @@ namespace StarBound_Legacy
                 vaEnBas = true;
             }
 
-            if (e.Key == Key.Space && timerTir < 1)
+            if (e.Key == Key.Space && timerTir < 1 && limiteBalleParTir <= LIMITE_BALLE_PAR_TIR)
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
@@ -500,6 +498,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(nouvelleBalle, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
                     Canva.Children.Add(nouvelleBalle);
+                    limiteBalleParTir++;
                 }
             }
             if (e.Key == Key.Escape)
@@ -542,6 +541,7 @@ namespace StarBound_Legacy
             if (e.Key == Key.Space)
             {
                 tirer = false;
+                limiteBalleParTir = 0;
             }
         }
         private void CreationTirEnnemi(double y, double x)
@@ -620,9 +620,13 @@ namespace StarBound_Legacy
                         {
                             vieJoueur = this.vieJoueurDebutPartie;
                             jouer = true;
+                            score = 0;
+                            palierActuel = 0;
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
                             minuterie.Start();
+                            Canvas.SetTop(rectJoueur, Canva.Height / 2);
+                            Canvas.SetLeft(rectJoueur, rectJoueur.Width);
                             initialisationJeux();
                             musiqueMenu.Close();
                             musique.LanceMusiqueGameplay();
