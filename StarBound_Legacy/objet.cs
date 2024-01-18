@@ -20,14 +20,14 @@ namespace StarBound_Legacy
 				if (String.IsNullOrEmpty(value)) throw new ArgumentNullException("Le nom ne peut pas etre nul ou vide !!!");
 				nom = value; }
 		}
-		private String type;
+		private String typeObjet;
 
-		public String Type
+		public String TypeObjet
 		{
-			get { return type; }
+			get { return typeObjet; }
 			set {
 				if (value != TypeCanon && value != TYPE_BOUCLIER && value != TYPE_SOIN && value != TYPE_SAC_POINT) throw new ArgumentOutOfRangeException("La valeur n'est pas comprise dans les type existant !!!");
-				type = value; }
+				typeObjet = value; }
 		}
 		private int dommageMultiplicateur;
 
