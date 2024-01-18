@@ -117,6 +117,8 @@ namespace StarBound_Legacy
         public bool passpalier = false;
         public int palierActuel = 0;
         private ImageBrush imgCoeur = new ImageBrush();
+        private ImageBrush imgDemiCoeur = new ImageBrush();
+        Rectangle[] barreVie;
 
 
         bool quitter = false;
@@ -210,6 +212,10 @@ namespace StarBound_Legacy
             this.FenetreAOuvrir = "menuPrincipal";
             // chargement de l’image du joueur 
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1.png"));
+            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/Coeur.png"));
+            imgDemiCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
+            apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
+            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
             rectJoueur.Fill = apparenceJoueur;
             ControlFenetre();
             
@@ -238,9 +244,8 @@ namespace StarBound_Legacy
             animeVaisseau++;
             if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon" + this.CanonActuel +".png"));
-            apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
-            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
-            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/Coeur.png"));
+            
+            
 
 
             // déplacement à gauche et droite de vitessePlayer avec vérification des positions
@@ -759,10 +764,11 @@ namespace StarBound_Legacy
                         }
                     case "jouer":
                         {
-                            vieJoueur = this.vieJoueurDebutPartie;
+                            vieJoueur = this.vieJoueurDebutPartie * 2;
                             jouer = true;
                             score = 0;
                             palierActuel = 0;
+                            barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
                             minuterie.Start();
@@ -777,6 +783,17 @@ namespace StarBound_Legacy
             }
             if (quitter)
                 System.Windows.Application.Current.Shutdown();
+        }
+        private void ActualisationBarreVie()
+        {
+            if(vieJoueur%2 == 1)
+            {
+                
+            }
+            for (int i = 0; i < vieJoueur/2; i++)
+            {
+                barreVie[i].Fill = imgCoeur;
+            }
         }
     }
 }
