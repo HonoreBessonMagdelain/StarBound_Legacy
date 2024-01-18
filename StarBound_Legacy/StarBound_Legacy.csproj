@@ -1,40 +1,250 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Degrade.png" />
+    <None Remove="BombeNucleaire.png" />
+    <None Remove="Bouclier.png" />
+    <None Remove="boutonRejouerAppuye.png" />
+    <None Remove="boutonRejouerRelache.png" />
+    <None Remove="boutonRejouerRelache.png.png" />
+    <None Remove="CreditsRelache.png" />
+    <None Remove="Fond.png" />
+    <None Remove="FondDescriptionGarage.png" />
+    <None Remove="FondSpecial.png" />
+    <None Remove="FondVaisseauGarage.png" />
+    <None Remove="GarageRelache.png" />
+    <None Remove="GarageRelache1.png" />
+    <None Remove="JouerRelache.png" />
+    <None Remove="JouerRelache1.png" />
+    <None Remove="LanceBombe.png" />
+    <None Remove="marque.png" />
+    <None Remove="MiniGun.png" />
+    <None Remove="ObjetGarage.png" />
+    <None Remove="ParametreRelache.png" />
+    <None Remove="ParametresRelache.png" />
+    <None Remove="PistoletLaser.png" />
     <None Remove="pixil-frame-0 %283%29.png" />
     <None Remove="pixil-frame-0 %284%29.png" />
     <None Remove="pixil-frame-0.png" />
+    <None Remove="PlusRelache.png" />
+    <None Remove="PrixRelache.png" />
+    <None Remove="QuitterRelache.png" />
+    <None Remove="RetourMenuRelache.png" />
+    <None Remove="RetourRelache.png" />
+    <None Remove="Soin.png" />
+    <None Remove="Vaisseau1canon1.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="img\" />
-    <Folder Include="Musiques\" />
+    <Resource Include="BombeNucleaire.png" />
+    <Resource Include="Bouclier.png" />
+    <Resource Include="boutonRejouerAppuye.png" />
+    <Resource Include="boutonRejouerRelache.png" />
+    <Resource Include="boutonRejouerRelache.png.png" />
+    <Resource Include="CreditsRelache.png" />
+    <Resource Include="Fond.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="FondDescriptionGarage.png" />
+    <Resource Include="FondSpecial.png" />
+    <Resource Include="FondVaisseauGarage.png" />
+    <Resource Include="GarageRelache.png" />
+    <Resource Include="GarageRelache1.png" />
+    <Resource Include="JouerRelache.png" />
+    <Resource Include="JouerRelache1.png" />
+    <Resource Include="LanceBombe.png" />
+    <Resource Include="marque.png" />
+    <Resource Include="MiniGun.png" />
+    <Resource Include="ObjetGarage.png" />
+    <Resource Include="ParametreRelache.png" />
+    <Resource Include="ParametresRelache.png" />
+    <Resource Include="PistoletLaser.png" />
+    <Resource Include="PlusRelache.png" />
+    <Resource Include="PrixRelache.png" />
+    <Resource Include="QuitterRelache.png" />
+    <Resource Include="RetourMenuRelache.png" />
+    <Resource Include="RetourRelache.png" />
+    <Resource Include="Soin.png" />
+    <Resource Include="Vaisseau1canon1.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Degrade.png" />
-    <Resource Include="pixil-frame-0 (3).png" />
-    <Resource Include="pixil-frame-0 (4).png" />
-    <Resource Include="pixil-frame-0.png" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Update="img\Asteroids\Asteroid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\boutonRejouerAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\boutonRejouerRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\CreditsAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\CreditsRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\FondDescriptionGarage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\FondVaisseauGarage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageAppuye1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\GarageRelache1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\JouerAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\JouerAppuye1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\JouerRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\JouerRelache1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ObjetGarage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ParametresAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ParametresRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PlusAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PlusRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PrixAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\PrixRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\QuitterAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\QuitterRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\RetourAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\RetourMenuAppuye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\RetourMenuRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\RetourRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="img\Degrade.png">
+    <None Update="img\Coeurs\coeur.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Coeurs\CoeurVide.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Coeurs\demi-coeur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Coeurs\DemiCoeur.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Ennemis\Ennemi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Fond\Fond.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Fond\FondSpecial.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\GrandeEtoiles\grandeEtoile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\GrandeEtoiles\grosseEtoileVerte.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\GrandeEtoiles\grosseEtoileViolette.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Logo\marque.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\MoyennesEtoiles\moyenneEtoile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\MoyennesEtoiles\moyenneEtoileRouge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\MoyennesEtoiles\moyenneEtoileViolette.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetFond\pieuvre.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\BombeNucleaire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\BombeNucleaireSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\Bouclier.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\BouclierSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\LanceBombe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\LanceBombeSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\MiniGun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\MiniGunSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\PistoletLaser.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\PistoletLaserSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\Soin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\ObjetsSpeciaux\SoinSelectionne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\petiteEtoile1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -51,6 +261,75 @@
     <None Update="img\petiteEtoile5.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\PetitesEtoiles\Etoile1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\Etoile9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\petiteEtoile1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\petiteEtoile2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\petiteEtoile3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\petiteEtoile4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\PetitesEtoiles\petiteEtoile5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\BombeDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\BouclierDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\LanceBombeDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\MiniGunDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\PistoletLaserDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\PlusDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\textes\SoinDescription.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\vaisseau1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -60,9 +339,40 @@
     <None Update="img\VaisseauHD.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau1canon4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Vaisseaux\Vaisseau2canon4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Musiques\MusiqueGamePlay.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Musiques\MusiqueAccueil.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="img\ObjetsSpeciaux\" />
   </ItemGroup>
 
 </Project>

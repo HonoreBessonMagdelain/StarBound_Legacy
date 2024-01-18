@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:StarBound_Legacy"
         mc:Ignorable="d"
         Title="Starbound Legacy" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png"/>
+    </Window.Background>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/FondSpecial.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="128*"/>
             <ColumnDefinition Width="131*"/>
@@ -25,13 +31,37 @@
             <RowDefinition Height="76*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle x:Name="rectFondMenuPrincipal" Stroke="Black" Fill="#FF321DC7" Grid.RowSpan="7" Grid.ColumnSpan="5"/>
-        <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,1" Stroke="Black" Fill="#FFFFD200" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="5"/>
-        <Button x:Name="btGarage" Content="Garage" Margin="20,20,20,20" Background="#FFE23131" Click="Garage" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Button x:Name="btJouer" Content="Jouer" Background="#FF00FFD6" Margin="20,20,20,20" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Click="Jouer"/>
-        <Button x:Name="btReglages" Content="Réglages" Margin="20,9,20,20" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2"/>
-        <Button x:Name="btCredits" Content="Crédits" Background="#FF689E1F" Grid.Row="5" Margin="20,9,20,20" RenderTransformOrigin="0.486,0.559" Grid.Column="2" Grid.RowSpan="2" Click="Credits"/>
-        <Button x:Name="btQuitter" Content="Quitter" Click="Quitter" Grid.Row="6" MinWidth="116" MinHeight="50" Margin="20,20,20,20"/>
+
+        <Rectangle x:Name="rectTitreMenuPrincipal" Margin="125,0,125,1" MinWidth="500" MinHeight="100" Grid.Row="1" Grid.ColumnSpan="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/marque.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectJouer" Grid.Column="2" Margin="20,20,20,20" Grid.Row="3" Grid.ColumnSpan="2" MouseEnter="JouerEntreeSouris" MouseLeave="JouerSortieSouris" MouseLeftButtonUp="Jouer">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/JouerRelache1.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectGarage" Grid.Column="2" Grid.ColumnSpan="2" Margin="20,20,20,20" Grid.Row="4" MouseEnter="GarageEntreeSouris" MouseLeave="GarageSortieSouris" MouseLeftButtonUp="Garage">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/GarageRelache1.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectParametres" Grid.Column="3" Margin="20,9,20,20" Grid.Row="5" Grid.RowSpan="2" MouseEnter="ParametresEntreeSouris" MouseLeave="ParametresSortieSouris" MouseLeftButtonUp="Parametres">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/ParametresRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectCredits" Grid.Column="2" Margin="20,9,20,20" Grid.RowSpan="2" Grid.Row="5" MouseEnter="CreditsEntreeSouris" MouseLeave="CreditsSortieSouris" MouseLeftButtonUp="Credits">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/CreditsRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectQuitter" Margin="20,20,20,20" Grid.Row="6" MouseEnter="QuitterEntreeSouris" MouseLeave="QuitterSortieSouris" MouseLeftButtonUp="Quitter">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/QuitterRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Window>

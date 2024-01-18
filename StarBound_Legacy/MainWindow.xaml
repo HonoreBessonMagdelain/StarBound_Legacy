@@ -5,63 +5,216 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:StarBound_Legacy"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Name="Fenetre"
+    x:Name="fenetreJeu"
     Title="MainWindow"
     Width="800"
     Height="450"
+    MinWidth="800"
+    MinHeight="450"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     WindowStyle="None"
-    mc:Ignorable="d" MinWidth="800" MinHeight="450">
+    mc:Ignorable="d">
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png" />
+    </Window.Background>
     <Canvas
         Name="Canva"
         Width="auto"
-        Height="auto">
-        <Canvas.Background>
-            <ImageBrush ImageSource="/Degrade.png"/>
-        </Canvas.Background>
+        Height="auto"
+        Focusable="True"
+        KeyDown="ToucheEnfoncee"
+        KeyUp="ToucheRelachee">
 
-        <Rectangle
-            Canvas.Left="10"
-            Canvas.Top="10"
-            Width="30"
-            Height="30"
-            Fill="Red"
-            Stroke="Black" />
-        <Rectangle
-            Canvas.Left="56"
-            Canvas.Top="10"
-            Width="30"
-            Height="30"
-            Fill="Red"
-            Stroke="Black" />
-        <Rectangle
-            Canvas.Left="100"
-            Canvas.Top="10"
-            Width="30"
-            Height="30"
-            Fill="Red"
-            Stroke="Black" />
+        <Rectangle x:Name="rectCoeur1"
+            Canvas.Left="15"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" />
+        <Rectangle x:Name="rectCoeur2"
+            Canvas.Left="80"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" />
+        <Rectangle x:Name="rectCoeur6"
+            Canvas.Left="340"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" />
         <TextBlock
-            Canvas.Left="618"
-            Canvas.Top="8"
-            Width="auto"
-            Height="auto"
-            HorizontalAlignment="Left"
+            x:Name="txtScore"
+            Canvas.Right="0"
+            Canvas.Top="15"
+            Width="124"
+            Height="25"
+            HorizontalAlignment="Right"
             VerticalAlignment="Top"
+            Panel.ZIndex="5"
             FontSize="24"
             Text="26300"
-            TextWrapping="Wrap" />
-        <Rectangle x:Name="rectJoueur"
-            Canvas.Left="71"
-            Canvas.Top="212"
-            Width="59"
-            Height="46"
+            TextWrapping="Wrap" FontFamily="ArcadeClassic" Foreground="White" Margin="0,0,15,0" />
+        <Rectangle
+            x:Name="rectJoueur"
+            Canvas.Left="228"
+            Canvas.Top="217"
+            Width="136"
+            Height="48"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Panel.ZIndex="6"
+            Fill="#FF2A6AD2" />
+        <TextBlock
+            x:Name="txtPalier"
+            Canvas.Left="130"
+            Canvas.Top="60"
+            Width="60"
+            Height="28"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="0"
+            TextWrapping="Wrap" Foreground="White" 
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtNbAsteroid"
+            Canvas.Left="130"
+            Canvas.Top="90"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White" 
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtNbEnnemi"
+            Canvas.Left="130"
+            Canvas.Top="120"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White" 
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtVitBalleEnnemi"
+            Canvas.Left="130"
+            Canvas.Top="180"
+            Width="66"
+            Height="28"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Fill="#FF2A6AD2"
-            Stroke="Black" />
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White"
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtVitJoueur"
+            Canvas.Left="130"
+            Canvas.Top="210"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White"
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtVitEnnemi"
+            Canvas.Left="130"
+            Canvas.Top="240"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White"
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtVitAsteroid"
+            Canvas.Left="130"
+            Canvas.Top="270"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White" 
+            Tag="Devbug" Opacity="0"/>
+        <TextBlock
+            x:Name="TxtVitBalle"
+            Canvas.Left="130"
+            Canvas.Top="300"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White" 
+            Tag="Devbug" Opacity="0"/>
+
+        <Label Content="Palier" Canvas.Left="10" Canvas.Top="60" Foreground="White" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="nbAsteroid" Canvas.Left="10" Canvas.Top="90" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="88" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="nbEnnemie" Canvas.Left="10" Canvas.Top="120" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="113" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="vitesse" Canvas.Left="10" Canvas.Top="150" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="Joueur" Canvas.Left="10" Canvas.Top="180" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="Balle" Canvas.Left="10" Canvas.Top="210" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="Asteroid" Canvas.Left="10" Canvas.Top="240" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="Ennemi" Canvas.Left="10" Canvas.Top="270" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="BalleEnnemi" Canvas.Left="10" Canvas.Top="300" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="98" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Rectangle x:Name="rectCoeur8"
+            Canvas.Left="470"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur10"
+            Canvas.Left="600"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur3"
+            Canvas.Left="145"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur4"
+            Canvas.Left="210"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle x:Name="rectCoeur5"
+            Canvas.Left="275"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle x:Name="rectCoeur7"
+            Canvas.Left="405"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur9"
+            Canvas.Left="535"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
 
     </Canvas>

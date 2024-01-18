@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:StarBound_Legacy"
         mc:Ignorable="d"
         Title="Crédits" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="/Fond.png"/>
+    </Window.Background>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/FondSpecial.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="174*"/>
             <ColumnDefinition Width="32*"/>
@@ -25,9 +31,13 @@
             <RowDefinition Height="21*"/>
         </Grid.RowDefinitions>
         <Rectangle Grid.RowSpan="5" Stroke="Black" Fill="#FFA09696" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Crédits" TextAlignment="Center" FontSize="30" Grid.ColumnSpan="3" FontWeight="Bold" Grid.Column="1"/>
-        <TextBlock Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="Machin" FontSize="20" TextAlignment="Center" Grid.RowSpan="2"/>
-        <Button x:Name="btRetour" Grid.Column="5" Content="Retour" Grid.RowSpan="2" Grid.Row="4" Margin="20,20,20,0" Click="btRetourMenu"/>
+        <TextBlock Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" Grid.ColumnSpan="3" FontWeight="Bold" Grid.Column="1" FontFamily="ArcadeClassic"><Run Text="Cr"/><Run Language="fr-fr" Text="e"/><Run Text="dits"/></TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" Grid.RowSpan="2" Background="#FFCACACA"><Run Language="fr-fr" Text="Conception et développement du jeu :"/><LineBreak/><Run Language="fr-fr" Text=" Ethann Cochenet "/><LineBreak/><Run Language="fr-fr" Text="et "/><LineBreak/><Run Language="fr-fr" Text="Honoré Besson-Magdelain "/><LineBreak/><Run Language="fr-fr"/><LineBreak/><Run Language="fr-fr" Text="Musique du jeu :"/><LineBreak/><Run Language="fr-fr" Text="Scarface (Push it to the Limit)"/><LineBreak/><Run Language="fr-fr" Text="Paul Engemann"/><LineBreak/><Run Language="fr-fr"/><LineBreak/><Run Language="fr-fr" Text="Main Theme"/><LineBreak/><Run Language="fr-fr" Text="Project Laser"/></TextBlock>
+        <Rectangle x:Name="rectRetour" Grid.Column="5" Margin="20,20,20,0" Grid.RowSpan="2" Grid.Row="4" MouseEnter="RetourEntreeSouris" MouseLeave="RetourSortieSouris" MouseLeftButtonUp="Retour">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/RetourRelache.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Window>
