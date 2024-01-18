@@ -111,7 +111,7 @@ namespace StarBound_Legacy
         // booléens pour detecter le tir du joueur
         private bool afficheDevbug = false;
 
-        private const int NB_ENNEMI_DEPART = 2, NB_LIMITE_ENNEMI = 10, NB_ASTEROIDE_DEPART = 3, NB_LIMITE_ASTEROIDE = 10;
+        private const int NB_ENNEMI_DEPART = 2, NB_LIMITE_ENNEMI = 15, NB_ASTEROIDE_DEPART = 3, NB_LIMITE_ASTEROIDE = 5;
         //variable du score du joueur
         public int score = 0;
         public bool passpalier = false;
@@ -169,6 +169,10 @@ namespace StarBound_Legacy
         private int balleParTir = 0;
         private int balletirer = 0;
 
+        //variable des degat
+        private const int DEGAT_ASTEROID = 3;
+        private const int DEGAT_TIR_ENNEMI = 1;
+        private const int DEGAT_ENNEMI = 2;
 
         // ENNEMIS
 
@@ -186,6 +190,7 @@ namespace StarBound_Legacy
         private const double ACCELERATION_VITESSE_BALLE_ENNEMI = 0.3;
         private const double ACCELERATION_VITESSE_ASTEROID = 0.2;
         private const double RATIO_TAILLE_ASTEROID = 2.5;
+        private const double RATIO_TAILLE_ENNEMI = 1.5;
         private int[] listeMouvementEnnemi = new int[] {0, 1, -1, 2, -2};
         private int prochainMouvement = 0;
         private int delaiMouvementEnnemi = 0;
@@ -215,8 +220,8 @@ namespace StarBound_Legacy
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon1.png"));
             imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/Coeur.png"));
             imgDemiCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
-            apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
-            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
+            apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Ennemis/Ennemi.png"));
+            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Asteroids/Asteroid.png"));
             imgCoeurVide.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/CoeurVide.png"));
             rectJoueur.Fill = apparenceJoueur;
             ControlFenetre();
@@ -328,7 +333,7 @@ namespace StarBound_Legacy
                             {
                                 int tailleAsteroid = aleatoire.Next(TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
                                 y.Height = tailleAsteroid;
-                                y.Width = tailleAsteroid;
+                                y.Width = tailleAsteroid * RATIO_TAILLE_ASTEROID;
                                 ElementsASupprimer.Add(x);
                                 ReplacerElement(y);
                                 
@@ -353,9 +358,9 @@ namespace StarBound_Legacy
 
                     }
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemi);
-                    prochainMouvement = aleatoire.Next(listeMouvementEnnemi.Length);
                     if (delaiMouvementEnnemi > DELAI_MOUVEMENT_ENNEMI_LIMITE)
                     {
+                        prochainMouvement = aleatoire.Next(listeMouvementEnnemi.Length);
                         delaiMouvementEnnemi = 0;
                     }
                     Canvas.SetTop(x, Canvas.GetTop(x) + listeMouvementEnnemi[prochainMouvement]);
@@ -364,7 +369,7 @@ namespace StarBound_Legacy
                     if (player.IntersectsWith(ennemi))
                     {
                         ReplacerElement(x);
-                        vieJoueur--;
+                        vieJoueur -= DEGAT_ENNEMI;
                     }
                     minuterieBalle -= 2;
                     if (minuterieBalle < 0)
@@ -386,7 +391,7 @@ namespace StarBound_Legacy
                     if (player.IntersectsWith(asteroid))
                     {
                         ReplacerElement(x);
-                        vieJoueur--;
+                        vieJoueur -= DEGAT_ASTEROID;
                     }
 
                 }
@@ -401,7 +406,7 @@ namespace StarBound_Legacy
                     if (balleEnnemi.IntersectsWith(player))
                     {
                         ElementsASupprimer.Add(x);
-                        vieJoueur--;
+                        vieJoueur -= DEGAT_TIR_ENNEMI;
                     }
                 }
 
@@ -475,7 +480,7 @@ namespace StarBound_Legacy
             {
                 Rectangle ennemi = new Rectangle
                 {
-                    Width = TAILLE_ENNEMI,
+                    Width = TAILLE_ENNEMI * RATIO_TAILLE_ENNEMI,
                     Height = TAILLE_ENNEMI,
                     Fill = apparenceEnnemi,
                     Tag = "ennemi"
@@ -494,8 +499,8 @@ namespace StarBound_Legacy
                 int tailleAsteroid = aleatoire.Next(tailleMinAsteroid, tailleMaxAsteroid);
                 Rectangle asteroid = new Rectangle
                 {
-                    Width = tailleAsteroid,
-                    Height = tailleAsteroid / RATIO_TAILLE_ASTEROID,
+                    Width = tailleAsteroid * RATIO_TAILLE_ASTEROID,
+                    Height = tailleAsteroid,
                     Fill = apparenceAsteroid,
                     Tag = "asteroid"
                 };
