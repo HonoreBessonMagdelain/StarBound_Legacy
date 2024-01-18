@@ -8,6 +8,8 @@ namespace StarBound_Legacy
 {
     public class objet
     {
+		
+
 		const String TypeCanon = "canon", TYPE_BOUCLIER = "bouclier", TYPE_BOMBE = "bombe", TYPE_SOIN = "soin", TYPE_SAC_POINT = "sac_point";
 		private String nom;
 
