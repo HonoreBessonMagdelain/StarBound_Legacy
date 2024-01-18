@@ -81,6 +81,7 @@ namespace StarBound_Legacy
                     throw new ArgumentOutOfRangeException("le type de canon doit être entre1 et 4");
                 canonActuel = value; }
         }
+        
         public readonly int NOMBRE_TYPES_CANON = 4;
 
 
