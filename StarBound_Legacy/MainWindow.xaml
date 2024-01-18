@@ -27,34 +27,34 @@
         KeyDown="ToucheEnfoncee"
         KeyUp="ToucheRelachee">
 
-        <Rectangle
-            Canvas.Left="10"
-            Canvas.Top="10"
-            Width="30"
-            Height="30"
+        <Rectangle x:Name="rectCoeur1"
+            Canvas.Left="15"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
             Panel.ZIndex="5"
             Fill="Red"
             Stroke="Black" />
-        <Rectangle
-            Canvas.Left="56"
-            Canvas.Top="10"
-            Width="30"
-            Height="30"
+        <Rectangle x:Name="rectCoeur2"
+            Canvas.Left="80"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
             Panel.ZIndex="5"
             Fill="Red"
             Stroke="Black" />
-        <Rectangle
-            Canvas.Left="100"
-            Canvas.Top="10"
-            Width="30"
-            Height="30"
+        <Rectangle x:Name="rectCoeur6"
+            Canvas.Left="340"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
             Panel.ZIndex="5"
             Fill="Red"
             Stroke="Black" />
         <TextBlock
             x:Name="txtScore"
-            Canvas.Left="650"
-            Canvas.Top="10"
+            Canvas.Right="0"
+            Canvas.Top="15"
             Width="124"
             Height="25"
             HorizontalAlignment="Right"
@@ -62,7 +62,7 @@
             Panel.ZIndex="5"
             FontSize="24"
             Text="26300"
-            TextWrapping="Wrap" FontFamily="ArcadeClassic" Foreground="White" />
+            TextWrapping="Wrap" FontFamily="ArcadeClassic" Foreground="White" Margin="0,0,15,0" />
         <Rectangle
             x:Name="rectJoueur"
             Canvas.Left="228"
@@ -169,7 +169,7 @@
             Text="10"
             TextWrapping="Wrap" Foreground="White" 
             Tag="Devbug" Opacity="0"/>
-        
+
         <Label Content="Palier" Canvas.Left="10" Canvas.Top="60" Foreground="White" FontSize="16" Tag="Devbug" Opacity="0"/>
         <Label Content="nbAsteroid" Canvas.Left="10" Canvas.Top="90" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="88" FontSize="16" Tag="Devbug" Opacity="0"/>
         <Label Content="nbEnnemie" Canvas.Left="10" Canvas.Top="120" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="113" FontSize="16" Tag="Devbug" Opacity="0"/>
@@ -179,6 +179,62 @@
         <Label Content="Asteroid" Canvas.Left="10" Canvas.Top="240" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug" Opacity="0"/>
         <Label Content="Ennemi" Canvas.Left="10" Canvas.Top="270" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug" Opacity="0"/>
         <Label Content="BalleEnnemi" Canvas.Left="10" Canvas.Top="300" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="98" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Rectangle x:Name="rectCoeur8"
+            Canvas.Left="470"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur10"
+            Canvas.Left="600"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur3"
+            Canvas.Left="145"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur4"
+            Canvas.Left="210"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle x:Name="rectCoeur5"
+            Canvas.Left="275"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle x:Name="rectCoeur7"
+            Canvas.Left="405"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="rectCoeur9"
+            Canvas.Left="535"
+            Canvas.Top="15"
+            Width="50"
+            Height="50"
+            Panel.ZIndex="5"
+            Fill="Red"
+            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
 
     </Canvas>
