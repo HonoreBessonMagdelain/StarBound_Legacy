@@ -330,8 +330,7 @@ namespace StarBound_Legacy
         {
             rectPrix.Fill= prixRelache;
         }
-
-        private void Acheter(String itemSelectionne)
+        private void Acheter(object sender, MouseButtonEventArgs e)
         {
 
         }
@@ -347,5 +346,6 @@ namespace StarBound_Legacy
             if (txtPrix.Foreground != null)
                 rectPrix.Fill = prixAppuye;
         }
+
     }
 }
