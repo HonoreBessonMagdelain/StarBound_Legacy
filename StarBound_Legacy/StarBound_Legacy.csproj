@@ -75,6 +75,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="img\Asteroids\Asteroid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\Boutons\boutonRejouerAppuye.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -170,6 +173,9 @@
     </None>
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Ennemis\Ennemi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Fond\Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
