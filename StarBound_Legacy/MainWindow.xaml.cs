@@ -139,7 +139,7 @@ namespace StarBound_Legacy
         private double vitessePieuvre = 2;
 
         // nombre de petites etoiles qui existent
-        private int nombrePetitesEtoiles = 5;
+        private int nombrePetitesEtoiles = 11;
 
         
         // JOUEUR
@@ -512,7 +512,7 @@ namespace StarBound_Legacy
             {
                 int numeroEtoile = aleatoire.Next(1, nombrePetitesEtoiles + 1);
                 ImageBrush etoileApparence = new ImageBrush();
-                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/petiteEtoile" + numeroEtoile + ".png"));
+                etoileApparence.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/PetitesEtoiles/Etoile" + numeroEtoile + ".png"));
 
                 Rectangle nouvelleEtoile = new Rectangle
                 {
