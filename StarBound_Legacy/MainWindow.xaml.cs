@@ -129,7 +129,7 @@ namespace StarBound_Legacy
         // DECOR
 
         private const int TAILLE_PETITE_ETOILE = 15, TAILLE_MOY_ETOILE = 30, TAILLE_GRANDE_ETOILE = 50, TAILLE_PIEUVRE = 100;
-        private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 2, NB_GRANDE_ETOILE = 1;
+        private const int NB_PETITE_ETOILE = 10, NB_MOY_ETOILE = 10, NB_GRANDE_ETOILE = 10;
         private int nb_ennemi = 0, nb_asteroide = 0;
 
         // entier nous permettant de charger les images des etoiles
@@ -283,10 +283,11 @@ namespace StarBound_Legacy
                 {
                     CreationAsteroids(1, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
                 }
-                palierActuel++;
+                palierActuel = score / 10;
                 vitesseEnnemi += ACCELERATION_VITESSE_ENNEMI;
                 vitesseBalleEnnemi += ACCELERATION_VITESSE_BALLE_ENNEMI;
                 vitesseAsteroid += ACCELERATION_VITESSE_ASTEROID;
+                
                 passpalier = false;
             }
             if (score % 10 != 0 && !passpalier)
@@ -310,18 +311,14 @@ namespace StarBound_Legacy
                         {
                             // création d’un rectangle correspondant à l’ennemi
                             Rect ennemi = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
-                            // on vérifie la collision
-                            // appel à la méthode IntersectsWith pour détecter la collision
+                            // on vérifie la collision entre la balle du joueur et l'ennemi
                             if (balle.IntersectsWith(ennemi))
                             {
                                 // on ajoute la balle a la liste à supprimer et on incremente le score
                                 ElementsASupprimer.Add(x);
                                 ReplacerElement(y);
                                 score++;
-                                if (minuterieBalleLimite >= this.TempsRechargement)
-                                {
-                                    minuterieBalleLimite--;
-                                }
+                                minuterieBalleLimite--;
                             }
                         }
                         if (y is Rectangle && (string)y.Tag == "asteroid")
@@ -451,6 +448,10 @@ namespace StarBound_Legacy
                 jouer = false;
                 minuterie.Tick -= MoteurJeu;
                 this.PointCredit += score;
+                vaADroite = false;
+                vaAGauche = false;
+                vaEnBas = false;
+                vaEnHaut = false;
                 ControlFenetre();
             }
 
@@ -623,6 +624,14 @@ namespace StarBound_Legacy
             {
                 System.Windows.Application.Current.Shutdown();
             }
+            if (e.Key == Key.Y)
+            {
+                //MAX_VIE correpond au nombre de coeur
+                if (vieJoueur < this.MAX_VIE*2)
+                {
+                    vieJoueur++;
+                }
+            }
             if (e.Key == Key.F3)
             {
                 if (afficheDevbug)
@@ -787,7 +796,7 @@ namespace StarBound_Legacy
         }
         private void ActualisationBarreVie()
         {
-            for (int i = 0; i < 10 / 2; i++)
+            for (int i = 0; i < this.MAX_VIE; i++)
             {
                 barreVie[i].Fill = imgCoeurVide;
             }
@@ -811,11 +820,11 @@ namespace StarBound_Legacy
                 return 0;
             }
 
-            if (direction < 0)
+            if (direction < -5)
             {
                 return -VITESSE_VERTICALE_ENNEMI;
             }
-            else if (direction > 0)
+            else if (direction > 5)
             {
                 return VITESSE_VERTICALE_ENNEMI;
             }
