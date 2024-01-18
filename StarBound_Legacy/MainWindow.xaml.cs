@@ -194,6 +194,9 @@ namespace StarBound_Legacy
         private const double RATIO_TAILLE_ASTEROID = 2.5;
         private const double RATIO_TAILLE_ENNEMI = 1.5;
         private const double VITESSE_VERTICALE_ENNEMI = 2;
+        private const double VIT_DEPART_ASTEROID = 5;
+        private const double VIT_DEPART_ENNEMI = 2;
+        private const double VIT_DEPART_BALLE_ENNEMI = 10;
 
 
         // timer tir et animation vaisseau
@@ -447,8 +450,12 @@ namespace StarBound_Legacy
                 }
                 this.fenetreAOuvrir = "garage";
                 jouer = false;
+                passpalier = false;
                 minuterie.Tick -= MoteurJeu;
                 this.PointCredit += score;
+                vitesseAsteroid = VIT_DEPART_ASTEROID;
+                vitesseBalleEnnemi = VIT_DEPART_BALLE_ENNEMI;
+                vitesseEnnemi = VIT_DEPART_ENNEMI;
                 vaADroite = false;
                 vaAGauche = false;
                 vaEnBas = false;
