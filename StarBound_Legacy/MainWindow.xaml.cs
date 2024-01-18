@@ -350,11 +350,11 @@ namespace StarBound_Legacy
 
                     }
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemi);
+                    prochainMouvement = aleatoire.Next(listeMouvementEnnemi.Length);
                     if (delaiMouvementEnnemi > DELAI_MOUVEMENT_ENNEMI_LIMITE)
                     {
                         delaiMouvementEnnemi = 0;
                     }
-                    prochainMouvement = aleatoire.Next(listeMouvementEnnemi.Length);
                     Canvas.SetTop(x, Canvas.GetTop(x) + listeMouvementEnnemi[prochainMouvement]);
                     delaiMouvementEnnemi++;
                     Rect ennemi = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
