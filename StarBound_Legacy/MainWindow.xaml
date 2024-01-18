@@ -65,7 +65,7 @@
             Height="48"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Panel.ZIndex="4"
+            Panel.ZIndex="6"
             Fill="#FF2A6AD2" />
         <TextBlock
             x:Name="txtPalier"
