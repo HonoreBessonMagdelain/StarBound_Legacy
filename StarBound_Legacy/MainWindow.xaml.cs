@@ -786,14 +786,19 @@ namespace StarBound_Legacy
         }
         private void ActualisationBarreVie()
         {
-            if(vieJoueur%2 == 1)
+            for (int i = 0; i < 10 / 2; i++)
             {
-                
+                barreVie[i].Fill = imgCoeur;
+            }
+            if (vieJoueur%2 == 1)
+            {
+                barreVie[(vieJoueur / 2) + 1].Fill = imgDemiCoeur;
             }
             for (int i = 0; i < vieJoueur/2; i++)
             {
                 barreVie[i].Fill = imgCoeur;
             }
+            
         }
     }
 }
