@@ -81,6 +81,8 @@ namespace StarBound_Legacy
         private readonly int PRIX_MINIGUN = 500;
         private readonly int PRIX_COEUR = 500;
 
+        private String itemSelectionne;
+
         private readonly String UNITE_PRIX = " pts";
 
         public Garage(MainWindow fenetre)
@@ -197,6 +199,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_SOIN.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "soin";
 
         }
 
@@ -216,6 +219,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_BOMBE.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "bombe";
 
         }
 
@@ -235,6 +239,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_BOUCLIER.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "bouclier";
         }
 
         private void PistoletLaserEntreeSouris(object sender, MouseEventArgs e)
@@ -254,6 +259,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_PISTOLET_LASER.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "pistoletLaser";
         }
 
         private void LanceBombeEntreeSouris(object sender, MouseEventArgs e)
@@ -273,6 +279,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_LANCE_BOMBE.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "lanceBombe";
         }
 
         private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
@@ -292,6 +299,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_MINIGUN.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "miniGun";
         }
 
         private void PlusEntreeSouris(object sender, MouseEventArgs e)
@@ -310,6 +318,7 @@ namespace StarBound_Legacy
             rectPrix.Fill = prixRelache;
             txtPrix.Text = PRIX_COEUR.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
+            itemSelectionne = "vie";
         }
 
         private void PrixEntreeSouris(object sender, MouseEventArgs e)
@@ -322,7 +331,7 @@ namespace StarBound_Legacy
             rectPrix.Fill= prixRelache;
         }
 
-        private void Acheter(object sender, MouseButtonEventArgs e)
+        private void Acheter(String itemSelectionne)
         {
 
         }
