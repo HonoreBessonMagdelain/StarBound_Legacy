@@ -26,9 +26,6 @@
         Focusable="True"
         KeyDown="ToucheEnfoncee"
         KeyUp="ToucheRelachee">
-        <Canvas.Background>
-        <ImageBrush ImageSource="/Degrade.png"/>
-        </Canvas.Background>
 
         <Rectangle x:Name="rectCoeur1"
             Canvas.Left="15"
