@@ -369,7 +369,7 @@ namespace StarBound_Legacy
                     if (player.IntersectsWith(ennemi))
                     {
                         ReplacerElement(x);
-                        vieJoueur--;
+                        vieJoueur -= DEGAT_ENNEMI;
                     }
                     minuterieBalle -= 2;
                     if (minuterieBalle < 0)
@@ -391,7 +391,7 @@ namespace StarBound_Legacy
                     if (player.IntersectsWith(asteroid))
                     {
                         ReplacerElement(x);
-                        vieJoueur--;
+                        vieJoueur -= DEGAT_ASTEROID;
                     }
 
                 }
@@ -406,7 +406,7 @@ namespace StarBound_Legacy
                     if (balleEnnemi.IntersectsWith(player))
                     {
                         ElementsASupprimer.Add(x);
-                        vieJoueur--;
+                        vieJoueur -= DEGAT_TIR_ENNEMI;
                     }
                 }
 
