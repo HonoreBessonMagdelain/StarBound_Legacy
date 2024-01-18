@@ -116,6 +116,7 @@ namespace StarBound_Legacy
         public int score = 0;
         public bool passpalier = false;
         public int palierActuel = 0;
+        private ImageBrush imgCoeur = new ImageBrush();
 
 
         bool quitter = false;
@@ -238,7 +239,9 @@ namespace StarBound_Legacy
             if (animeVaisseau > animeVaisseauMax*2) { animeVaisseau = animeVaisseauMax; }
             apparenceJoueur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau"+ animeVaisseau /6 + "canon" + this.CanonActuel +".png"));
             apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
-            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/demi-coeur.png"));
+            apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
+            imgCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/Coeur.png"));
+
 
             // déplacement à gauche et droite de vitessePlayer avec vérification des positions
             if (vaAGauche && Canvas.GetLeft(rectJoueur) > -50)
