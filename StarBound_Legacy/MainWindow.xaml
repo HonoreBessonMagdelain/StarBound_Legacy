@@ -84,7 +84,7 @@
             FontSize="20"
             Text="0"
             TextWrapping="Wrap" Foreground="White" 
-            Tag="Devbug" Opacity="0"/>
+            Tag="Devbug"/>
         <TextBlock
             x:Name="TxtNbAsteroid"
             Canvas.Left="130"
@@ -96,7 +96,7 @@
             FontSize="20"
             Text="10"
             TextWrapping="Wrap" Foreground="White" 
-            Tag="Devbug" Opacity="0"/>
+            Tag="Devbug"/>
         <TextBlock
             x:Name="TxtNbEnnemi"
             Canvas.Left="130"
@@ -108,9 +108,21 @@
             FontSize="20"
             Text="10"
             TextWrapping="Wrap" Foreground="White" 
-            Tag="Devbug" Opacity="0"/>
+            Tag="Devbug"/>
         <TextBlock
             x:Name="TxtVitBalleEnnemi"
+            Canvas.Left="130"
+            Canvas.Top="300"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White"
+            Tag="Devbug"/>
+        <TextBlock
+            x:Name="TxtVitJoueur"
             Canvas.Left="130"
             Canvas.Top="180"
             Width="66"
@@ -120,33 +132,9 @@
             FontSize="20"
             Text="10"
             TextWrapping="Wrap" Foreground="White"
-            Tag="Devbug" Opacity="0"/>
-        <TextBlock
-            x:Name="TxtVitJoueur"
-            Canvas.Left="130"
-            Canvas.Top="210"
-            Width="66"
-            Height="28"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            FontSize="20"
-            Text="10"
-            TextWrapping="Wrap" Foreground="White"
-            Tag="Devbug" Opacity="0"/>
+            Tag="Devbug"/>
         <TextBlock
             x:Name="TxtVitEnnemi"
-            Canvas.Left="130"
-            Canvas.Top="240"
-            Width="66"
-            Height="28"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            FontSize="20"
-            Text="10"
-            TextWrapping="Wrap" Foreground="White"
-            Tag="Devbug" Opacity="0"/>
-        <TextBlock
-            x:Name="TxtVitAsteroid"
             Canvas.Left="130"
             Canvas.Top="270"
             Width="66"
@@ -155,12 +143,12 @@
             VerticalAlignment="Top"
             FontSize="20"
             Text="10"
-            TextWrapping="Wrap" Foreground="White" 
-            Tag="Devbug" Opacity="0"/>
+            TextWrapping="Wrap" Foreground="White"
+            Tag="Devbug"/>
         <TextBlock
-            x:Name="TxtVitBalle"
+            x:Name="TxtVitAsteroid"
             Canvas.Left="130"
-            Canvas.Top="300"
+            Canvas.Top="240"
             Width="66"
             Height="28"
             HorizontalAlignment="Center"
@@ -168,17 +156,29 @@
             FontSize="20"
             Text="10"
             TextWrapping="Wrap" Foreground="White" 
-            Tag="Devbug" Opacity="0"/>
-        
+            Tag="Devbug"/>
+        <TextBlock
+            x:Name="TxtVitBalle"
+            Canvas.Left="130"
+            Canvas.Top="210"
+            Width="66"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="10"
+            TextWrapping="Wrap" Foreground="White" 
+            Tag="Devbug"/>
+
         <Label Content="Palier" Canvas.Left="10" Canvas.Top="60" Foreground="White" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="nbAsteroid" Canvas.Left="10" Canvas.Top="90" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="88" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="nbEnnemie" Canvas.Left="10" Canvas.Top="120" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="113" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="vitesse" Canvas.Left="10" Canvas.Top="150" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="Joueur" Canvas.Left="10" Canvas.Top="180" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="Balle" Canvas.Left="10" Canvas.Top="210" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="Asteroid" Canvas.Left="10" Canvas.Top="240" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="Ennemi" Canvas.Left="10" Canvas.Top="270" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug" Opacity="0"/>
-        <Label Content="BalleEnnemi" Canvas.Left="10" Canvas.Top="300" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="98" FontSize="16" Tag="Devbug" Opacity="0"/>
+        <Label Content="nbAsteroid" Canvas.Left="10" Canvas.Top="90" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="88" FontSize="16" Tag="Devbug"/>
+        <Label Content="nbEnnemie" Canvas.Left="10" Canvas.Top="120" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="113" FontSize="16" Tag="Devbug"/>
+        <Label Content="vitesse" Canvas.Left="10" Canvas.Top="150" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontSize="16" Tag="Devbug"/>
+        <Label Content="Joueur" Canvas.Left="10" Canvas.Top="180" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" FontSize="16" Tag="Devbug"/>
+        <Label Content="Balle" Canvas.Left="10" Canvas.Top="210" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontSize="16" Tag="Devbug"/>
+        <Label Content="Asteroid" Canvas.Left="10" Canvas.Top="240" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug"/>
+        <Label Content="Ennemi" Canvas.Left="10" Canvas.Top="270" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" FontSize="16" Tag="Devbug"/>
+        <Label Content="BalleEnnemi" Canvas.Left="10" Canvas.Top="300" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="98" FontSize="16" Tag="Devbug"/>
 
 
     </Canvas>

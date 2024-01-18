@@ -170,17 +170,22 @@ namespace StarBound_Legacy
 
         // entier nous permettant de charger les images des ennemis
         private double vitesseBalleEnnemi = 2;
-        private double vitesseEnnemi = 1;
-        private double vitesseAsteroid = 2;
+        private double vitesseEnnemi = 2;
+        private double vitesseAsteroid = 5;
         private const int TAILLE_MIN_ASTEROID = 25, TAILLE_MAX_ASTEROID = 250;
         private ImageBrush apparenceEnnemi = new ImageBrush();
         private ImageBrush apparenceAsteroid = new ImageBrush();
         private const int TAILLE_ENNEMI = 50;
         private const int LONGUEUR_BALLE_ENNEMI = 40;
         private const int HAUTEUR_BALLE_ENNEMI = 15;
-        private const double ACCELERATION_VITESSE_ENNEMI = 0.1;
-        private const double ACCELERATION_VITESSE_BALLE_ENNEMI = 0.2;
-        private const double ACCELERATION_VITESSE_ASTEROID = 0.1;
+        private const double ACCELERATION_VITESSE_ENNEMI = 0.2;
+        private const double ACCELERATION_VITESSE_BALLE_ENNEMI = 0.3;
+        private const double ACCELERATION_VITESSE_ASTEROID = 0.2;
+        private const double RATIO_TAILLE_ASTEROID = 2.5;
+        private int[] listeMouvementEnnemi = new int[] {0, 1, -1, 2, -2};
+        private int prochainMouvement = 0;
+        private int delaiMouvementEnnemi = 0;
+        private const int DELAI_MOUVEMENT_ENNEMI_LIMITE = 500;
 
 
         // timer tir et animation vaisseau
@@ -327,7 +332,23 @@ namespace StarBound_Legacy
                     {
                         ReplacerElement(x);
                     }
+                    if (Canvas.GetTop(x) < -x.Height -1)
+                    {
+                        Canvas.SetTop(x, Canva.Height);
+                    }
+                    else if (Canvas.GetTop(x) > Canva.Height + x.Height + 1)
+                    {
+                        Canvas.SetTop(x, -x.Height);
+
+                    }
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemi);
+                    if (delaiMouvementEnnemi > DELAI_MOUVEMENT_ENNEMI_LIMITE)
+                    {
+                        delaiMouvementEnnemi = 0;
+                    }
+                    prochainMouvement = aleatoire.Next(listeMouvementEnnemi.Length);
+                    Canvas.SetTop(x, Canvas.GetTop(x) + listeMouvementEnnemi[prochainMouvement]);
+                    delaiMouvementEnnemi++;
                     Rect ennemi = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                     if (player.IntersectsWith(ennemi))
                     {
@@ -463,7 +484,7 @@ namespace StarBound_Legacy
                 Rectangle asteroid = new Rectangle
                 {
                     Width = tailleAsteroid,
-                    Height = tailleAsteroid,
+                    Height = tailleAsteroid / RATIO_TAILLE_ASTEROID,
                     Fill = apparenceAsteroid,
                     Tag = "asteroid"
                 };
@@ -672,7 +693,7 @@ namespace StarBound_Legacy
         {
             TxtNbAsteroid.Text = nb_asteroide.ToString();
             TxtNbEnnemi.Text = nb_ennemi.ToString();
-            //TxtVitAsteroid = vitesseAsteroid.ToString();
+            TxtVitAsteroid.Text = vitesseAsteroid.ToString();
             TxtVitBalle.Text = vitesseBalle.ToString();
             TxtVitBalleEnnemi.Text = vitesseBalleEnnemi.ToString();
             TxtVitEnnemi.Text = vitesseEnnemi.ToString();
