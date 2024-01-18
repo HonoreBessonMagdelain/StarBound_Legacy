@@ -118,6 +118,7 @@ namespace StarBound_Legacy
         public int palierActuel = 0;
         private ImageBrush imgCoeur = new ImageBrush();
         private ImageBrush imgDemiCoeur = new ImageBrush();
+        private ImageBrush imgCoeurVide = new ImageBrush();
         Rectangle[] barreVie;
 
 
@@ -216,6 +217,7 @@ namespace StarBound_Legacy
             imgDemiCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
             apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Logo/marque.png"));
             apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
+            imgCoeurVide.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/CoeurVide.png"));
             rectJoueur.Fill = apparenceJoueur;
             ControlFenetre();
             
@@ -233,6 +235,7 @@ namespace StarBound_Legacy
         private void MoteurJeu(object sender, EventArgs e)
         {
             MettreAJourStat();
+            ActualisationBarreVie();
             txtScore.Text = score.ToString();
             txtPalier.Text = palierActuel.ToString();
             // création d’un rectangle joueur pour la détection de collision
@@ -788,11 +791,11 @@ namespace StarBound_Legacy
         {
             for (int i = 0; i < 10 / 2; i++)
             {
-                barreVie[i].Fill = imgCoeur;
+                barreVie[i].Fill = imgCoeurVide;
             }
             if (vieJoueur%2 == 1)
             {
-                barreVie[(vieJoueur / 2) + 1].Fill = imgDemiCoeur;
+                barreVie[(vieJoueur / 2)].Fill = imgDemiCoeur;
             }
             for (int i = 0; i < vieJoueur/2; i++)
             {
