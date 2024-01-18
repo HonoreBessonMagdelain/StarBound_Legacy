@@ -177,7 +177,7 @@ namespace StarBound_Legacy
         // ENNEMIS
 
         // entier nous permettant de charger les images des ennemis
-        private double vitesseBalleEnnemi = 2;
+        private double vitesseBalleEnnemi = 4;
         private double vitesseEnnemi = 2;
         private double vitesseAsteroid = 5;
         private const int TAILLE_MIN_ASTEROID = 25, TAILLE_MAX_ASTEROID = 250;
