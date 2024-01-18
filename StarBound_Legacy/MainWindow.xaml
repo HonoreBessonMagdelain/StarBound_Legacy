@@ -32,25 +32,19 @@
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" />
+            Panel.ZIndex="5" />
         <Rectangle x:Name="rectCoeur2"
             Canvas.Left="80"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" />
+            Panel.ZIndex="5" />
         <Rectangle x:Name="rectCoeur6"
             Canvas.Left="340"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" />
+            Panel.ZIndex="5" />
         <TextBlock
             x:Name="txtScore"
             Canvas.Right="0"
@@ -184,57 +178,43 @@
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle x:Name="rectCoeur10"
             Canvas.Left="600"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle x:Name="rectCoeur3"
             Canvas.Left="145"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle x:Name="rectCoeur4"
             Canvas.Left="210"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle x:Name="rectCoeur5"
             Canvas.Left="275"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle x:Name="rectCoeur7"
             Canvas.Left="405"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle x:Name="rectCoeur9"
             Canvas.Left="535"
             Canvas.Top="15"
             Width="50"
             Height="50"
-            Panel.ZIndex="5"
-            Fill="Red"
-            Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
 
     </Canvas>
