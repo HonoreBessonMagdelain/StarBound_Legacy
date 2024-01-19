@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace StarBound_Legacy
 {
@@ -12,6 +13,7 @@ namespace StarBound_Legacy
         private String nom;
 
         
+
 
         public String Nom
         {
@@ -64,5 +66,7 @@ namespace StarBound_Legacy
                 chanceDeTomber = value;
             }
         }
+
+        
     }
 }

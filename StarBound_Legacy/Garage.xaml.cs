@@ -35,13 +35,13 @@ namespace StarBound_Legacy
 
         Rectangle[] barreVie;
 
-        private readonly int PRIX_SOIN = 200;
-        private readonly int PRIX_BOMBE = 300;
-        private readonly int PRIX_BOUCLIER = 400;
-        private readonly int PRIX_PISTOLET_LASER = 500;
-        private readonly int PRIX_LANCE_BOMBE = 500;
-        private readonly int PRIX_MINIGUN = 500;
-        private readonly int PRIX_COEUR = 100;
+        private readonly int PRIX_SOIN = 50;
+        private readonly int PRIX_BOMBE = 50;
+        private readonly int PRIX_BOUCLIER = 50;
+        private readonly int PRIX_PISTOLET_LASER = 50;
+        private readonly int PRIX_LANCE_BOMBE = 50;
+        private readonly int PRIX_MINIGUN = 50;
+        private readonly int PRIX_COEUR = 50;
 
         private String itemSelectionne;
 
