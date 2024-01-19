@@ -132,6 +132,20 @@ namespace StarBound_Legacy
             get { return boucliers; }
             set { boucliers = value; }
         }
+        private double volumeSfx;
+
+        public double VolumeSfx
+        {
+            get { return volumeSfx; }
+            set { volumeSfx = value; }
+        }
+        private double volumeSons;
+
+        public double VolumeSons
+        {
+            get { return volumeSons; }
+            set { volumeSons = value; }
+        }
 
 
         // creation des lecteurs de la musique
@@ -496,6 +510,7 @@ namespace StarBound_Legacy
                         ElementsASupprimer.Add(x);
                     }
                 }
+                musiqueGameplay.Close();
                 this.fenetreAOuvrir = "garage";
                 jouer = false;
                 passpalier = false;

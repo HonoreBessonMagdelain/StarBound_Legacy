@@ -16,13 +16,14 @@ namespace StarBound_Legacy
             get { return fenetre; }
             set { fenetre = value; }
         }
-        
+
+
         public void LanceMusiqueMenu()
         {
             var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // chemin d'acces pour la musique
 
             this.Fenetre.musiqueMenu.Open(musique);
-            this.Fenetre.musiqueMenu.Volume = 1;
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSons;
             this.Fenetre.musiqueMenu.MediaEnded += new EventHandler(Media_Ended_Menu);
             this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
 
@@ -32,7 +33,7 @@ namespace StarBound_Legacy
             var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueGamePlay.mp3"); // chemin d'acces pour la musique
 
             this.Fenetre.musiqueGameplay.Open(musique);
-            this.Fenetre.musiqueGameplay.Volume = 1;
+            this.Fenetre.musiqueGameplay.Volume = this.Fenetre.VolumeSons;
             this.Fenetre.musiqueGameplay.MediaEnded += new EventHandler(Media_Ended_Gameplay);
             this.Fenetre.musiqueGameplay.Play(); // joue le fichier de la musique
         }
@@ -43,8 +44,8 @@ namespace StarBound_Legacy
         }
         private void Media_Ended_Menu(object? sender, EventArgs e)
         {
-            this.Fenetre.musiqueGameplay.Position = TimeSpan.Zero;
-            this.Fenetre.musiqueGameplay.Play();
+            this.Fenetre.musiqueMenu.Position = TimeSpan.Zero;
+            this.Fenetre.musiqueMenu.Play();
         }
     }
 }
