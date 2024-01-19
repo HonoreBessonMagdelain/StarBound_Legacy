@@ -45,7 +45,7 @@ namespace StarBound_Legacy
 
         private String itemSelectionne;
 
-        private readonly String UNITE_PRIX = " pts";
+        
 
         public Garage(MainWindow fenetre)
         {
@@ -70,7 +70,7 @@ namespace StarBound_Legacy
             for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
             {
                 barreVie[i].Fill = imgCoeur;
-                this.TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString();
+                TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString() + this.Fenetre.UNITE_PRIX;
             }
         }
 
@@ -128,7 +128,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = Apparences.soinDescription;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_SOIN.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_SOIN.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "soin";
 
@@ -148,7 +148,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = Apparences.bombeDescription;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_BOMBE.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_BOMBE.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bombe";
 
@@ -168,7 +168,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = Apparences.bouclierDescription;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_BOUCLIER.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_BOUCLIER.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bouclier";
         }
@@ -188,7 +188,7 @@ namespace StarBound_Legacy
             rectDescription.Fill = Apparences.pistoletLaserDescription;
             rectVaisseau.Fill = Apparences.vaisseau2;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_PISTOLET_LASER.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_PISTOLET_LASER.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "pistoletLaser";
         }
@@ -208,7 +208,7 @@ namespace StarBound_Legacy
             rectDescription.Fill = Apparences.lanceBombeDescription;
             rectVaisseau.Fill = Apparences.vaisseau3;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_LANCE_BOMBE.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_LANCE_BOMBE.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "lanceBombe";
         }
@@ -228,7 +228,7 @@ namespace StarBound_Legacy
             rectDescription.Fill = Apparences.miniGunDescription;
             rectVaisseau.Fill = Apparences.vaisseau4;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_MINIGUN.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_MINIGUN.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "miniGun";
         }
@@ -247,7 +247,7 @@ namespace StarBound_Legacy
         {
             rectDescription.Fill = Apparences.plusDescription;
             rectPrix.Fill = Apparences.prixRelache;
-            txtPrix.Text = PRIX_COEUR.ToString() + UNITE_PRIX;
+            txtPrix.Text = PRIX_COEUR.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "vie";
         }

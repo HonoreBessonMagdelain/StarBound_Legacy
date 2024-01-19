@@ -155,7 +155,7 @@
             x:Name="TxtCreditPoint"
             Grid.Column="15"
             Height="50"
-            FontSize="30"
+            FontSize="50"
             Text=""
             TextWrapping="Wrap" FontFamily="ArcadeClassic" />
         <Rectangle

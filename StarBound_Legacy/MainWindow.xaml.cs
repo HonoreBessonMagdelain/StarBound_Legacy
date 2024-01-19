@@ -154,6 +154,8 @@ namespace StarBound_Legacy
 
         Random aleatoire = new Random();
 
+        // unite des points
+        public readonly String UNITE_PRIX = " pts";
         public readonly int MAX_VIE = 10;
         public readonly int MIN_VIE = 3;
         // liste des éléments rectangles
@@ -305,7 +307,7 @@ namespace StarBound_Legacy
         {
             MettreAJourStat();
             ActualisationBarreVie();
-            txtScore.Text = score.ToString();
+            txtScore.Text = score.ToString() + this.UNITE_PRIX;
             txtPalier.Text = palierActuel.ToString();
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
@@ -421,7 +423,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemi);
 
                     Rect ennemi = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                    Canvas.SetTop(x, Canvas.GetTop(x) + AttacquerJoueur(rectJoueur, x));
+                    Canvas.SetTop(x, Canvas.GetTop(x) + AttaquerJoueur(rectJoueur, x));
                     if (player.IntersectsWith(ennemi))
                     {
                         ReplacerElement(x);
@@ -882,7 +884,7 @@ namespace StarBound_Legacy
             
         }
 
-        private static double AttacquerJoueur(Rectangle joueur, Rectangle ennemi)
+        private static double AttaquerJoueur(Rectangle joueur, Rectangle ennemi)
         {
             double direction = Canvas.GetTop(joueur) - Canvas.GetTop(ennemi);
             double stopAttaque = Canvas.GetLeft(joueur) - Canvas.GetLeft(ennemi);
