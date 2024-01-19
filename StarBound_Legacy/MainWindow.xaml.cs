@@ -132,6 +132,7 @@ namespace StarBound_Legacy
             get { return boucliers; }
             set { boucliers = value; }
         }
+        //propriete de gestion du sons
         private double volumeSfx = 1;
 
         public double VolumeSfx
@@ -139,7 +140,7 @@ namespace StarBound_Legacy
             get { return volumeSfx; }
             set { volumeSfx = value; }
         }
-        private double volumeSons;
+        private double volumeSons = 1;
 
         public double VolumeSons
         {
@@ -246,7 +247,7 @@ namespace StarBound_Legacy
         private double vitesseBalleEnnemi = 10;
         private double vitesseEnnemi = 2;
         private double vitesseAsteroid = 5;
-        private const int TAILLE_MIN_ASTEROID = 25, TAILLE_MAX_ASTEROID = 250;
+        private const int TAILLE_MIN_ASTEROID = 25, TAILLE_MAX_ASTEROID = 200;
         private ImageBrush apparenceEnnemi = new ImageBrush();
         private ImageBrush apparenceAsteroid = new ImageBrush();
         private const int TAILLE_ENNEMI = 50;
