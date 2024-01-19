@@ -287,19 +287,25 @@ namespace StarBound_Legacy
                         }
                     case "pistoletLaser":
                         {
-                            this.Fenetre.PistoletLaser  =true;
+                            this.Fenetre.PistoletLaser  = true;
+                            this.Fenetre.MiniGun = false;
+                            this.Fenetre.Lancebombe = false;
                             this.Fenetre.PointCredit -= PRIX_PISTOLET_LASER;
                             break;
                         }
                     case "lanceBombe":
                         {
                             this.Fenetre.Lancebombe = true;
+                            this.Fenetre.PistoletLaser  = false;
+                            this.Fenetre.MiniGun = false;
                             this.Fenetre.PointCredit -= PRIX_LANCE_BOMBE;
                             break;
                         }
                     case "miniGun":
                         {
-                            this.Fenetre.Soins++;
+                            this.Fenetre.MiniGun = true;
+                            this.Fenetre.PistoletLaser  = false;
+                            this.Fenetre.Lancebombe = false;
                             this.Fenetre.PointCredit -= PRIX_SOIN;
                             break;
                         }
