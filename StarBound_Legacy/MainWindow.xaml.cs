@@ -698,7 +698,7 @@ namespace StarBound_Legacy
             {
                 System.Windows.Application.Current.Shutdown();
             }
-            if (e.Key == Key.Y)
+            if (e.Key == Key.Y && afficheDevbug)
             {
                 //MAX_VIE correpond au nombre de coeur
                 if (vieJoueur < this.MAX_VIE*2)
@@ -708,15 +708,15 @@ namespace StarBound_Legacy
             }
             if (e.Key == Key.F3)
             {
-                if (afficheDevbug)
+                if (!afficheDevbug)
                 {
                     changeOpaciter(1);
-                    afficheDevbug = false;
+                    afficheDevbug = true;
                 }
                 else
                 {
                     changeOpaciter(0);
-                    afficheDevbug= true;
+                    afficheDevbug= false;
                 }
             }
         }
