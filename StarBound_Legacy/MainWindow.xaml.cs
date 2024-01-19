@@ -63,7 +63,11 @@ namespace StarBound_Legacy
         public int VieJoueurDebutPartie
         {
             get { return vieJoueurDebutPartie; }
-            set { vieJoueurDebutPartie = value; }
+            set {
+                if (value > MAX_VIE)
+                    throw new ArgumentOutOfRangeException("la vie ne peut pas etre superieure à 10");
+                vieJoueurDebutPartie = value; 
+            }
         }
         private int pointCredit = 0;
 
@@ -84,6 +88,50 @@ namespace StarBound_Legacy
         }
         
         public readonly int NOMBRE_TYPES_CANON = 4;
+
+        // propriétés pour l'obtention des objets dans le garage
+        private bool pistoletLaser;
+
+        public bool PistoletLaser
+        {
+            get { return pistoletLaser; }
+            set { pistoletLaser = value; }
+        }
+        private bool lanceBombe;
+
+        public bool Lancebombe
+        {
+            get { return lanceBombe; }
+            set { lanceBombe = value; }
+        }
+        private bool miniGun;
+
+        public bool MiniGun
+        {
+            get { return miniGun; }
+            set { miniGun = value; }
+        }
+        private int soins;
+
+        public int Soins
+        {
+            get { return soins; }
+            set { soins = value; }
+        }
+        private int bombes;
+
+        public int Bombes
+        {
+            get { return bombes; }
+            set { bombes = value; }
+        }
+        private int boucliers;
+
+        public int Boucliers
+        {
+            get { return boucliers; }
+            set { boucliers = value; }
+        }
 
 
         // creation des lecteurs de la musique

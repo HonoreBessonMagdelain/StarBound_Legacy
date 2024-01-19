@@ -34,44 +34,6 @@ namespace StarBound_Legacy
         ImageBrush imgCoeur = new ImageBrush();
 
         Rectangle[] barreVie;
-        private ImageBrush boutonRetourMenuAppuye = new ImageBrush();
-        private ImageBrush boutonRetourMenuRelache = new ImageBrush();
-        private ImageBrush boutonRejouerAppuye = new ImageBrush();
-        private ImageBrush boutonRejouerRelache = new ImageBrush();
-        private ImageBrush fondObjetGarage = new ImageBrush();
-
-        private ImageBrush soin = new ImageBrush();
-        private ImageBrush soinSelectionne = new ImageBrush();
-        private ImageBrush bombe = new ImageBrush();
-        private ImageBrush bombeSelectionne = new ImageBrush();
-        private ImageBrush bouclier = new ImageBrush();
-        private ImageBrush bouclierSelectionne = new ImageBrush();
-
-        private ImageBrush pistoletLaser = new ImageBrush();
-        private ImageBrush pistoletLaserSelectionne = new ImageBrush();
-        private ImageBrush lanceBombe = new ImageBrush();
-        private ImageBrush lanceBombeSelectionne = new ImageBrush();
-        private ImageBrush miniGun = new ImageBrush();
-        private ImageBrush miniGunSelectionne = new ImageBrush();
-
-        private ImageBrush soinDescription = new ImageBrush();
-        private ImageBrush bouclierDescription = new ImageBrush();
-        private ImageBrush bombeDescription = new ImageBrush();
-
-        private ImageBrush pistoletLaserDescription = new ImageBrush();
-        private ImageBrush lanceBombeDescription = new ImageBrush();
-        private ImageBrush miniGunDescription = new ImageBrush();
-
-        private ImageBrush plusDescription = new ImageBrush();
-        private ImageBrush plusRelache = new ImageBrush();
-        private ImageBrush plusAppuye = new ImageBrush();
-
-        private ImageBrush vaisseau2 = new ImageBrush();
-        private ImageBrush vaisseau3 = new ImageBrush();
-        private ImageBrush vaisseau4 = new ImageBrush();
-
-        private ImageBrush prixRelache = new ImageBrush();
-        private ImageBrush prixAppuye = new ImageBrush();
 
         private readonly int PRIX_SOIN = 200;
         private readonly int PRIX_BOMBE = 300;
@@ -79,7 +41,7 @@ namespace StarBound_Legacy
         private readonly int PRIX_PISTOLET_LASER = 500;
         private readonly int PRIX_LANCE_BOMBE = 500;
         private readonly int PRIX_MINIGUN = 500;
-        private readonly int PRIX_COEUR = 500;
+        private readonly int PRIX_COEUR = 100;
 
         private String itemSelectionne;
 
@@ -88,45 +50,8 @@ namespace StarBound_Legacy
         public Garage(MainWindow fenetre)
         {
             InitializeComponent();
-            boutonRetourMenuAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuAppuye.png"));
-            boutonRetourMenuRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuRelache.png"));
-            boutonRejouerAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerAppuye.png"));
-            boutonRejouerRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/boutonRejouerRelache.png"));
-            fondObjetGarage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/ObjetGarage.png"));
-
-            soin.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/Soin.png"));
-            soinSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/SoinSelectionne.png"));
-            bombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaire.png"));
-            bombeSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaireSelectionne.png"));
-            bouclier.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/Bouclier.png"));
-            bouclierSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BouclierSelectionne.png"));
-
-            pistoletLaser.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/PistoletLaser.png"));
-            pistoletLaserSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/PistoletLaserSelectionne.png"));
-            lanceBombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/LanceBombe.png"));
-            lanceBombeSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/LanceBombeSelectionne.png"));
-            miniGun.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/MiniGun.png"));
-            miniGunSelectionne.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/MiniGunSelectionne.png"));
-
-            soinDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/SoinDescription.png"));
-            bouclierDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/BouclierDescription.png"));
-            bombeDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/BombeDescription.png"));
-
-            pistoletLaserDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/PistoletLaserDescription.png"));
-            lanceBombeDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/LanceBombeDescription.png"));
-            miniGunDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/MiniGunDescription.png"));
-
-            plusDescription.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/textes/PlusDescription.png"));
-            plusRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PlusRelache.png"));
-            plusAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PlusAppuye.png"));
-
-            vaisseau2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon2.png"));
-            vaisseau3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Vaisseaux/Vaisseau1canon3.png"));
-            vaisseau4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/vaisseaux/Vaisseau1canon4.png"));
-
-            prixRelache.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PrixRelache.png"));
-            prixAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PrixAppuye.png"));
-
+            Apparences.InitialisationImagesGarage();
+            
             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
             //int vie = this.Fenetre.VieJoueurDebutPartie;
             Rectangle[] fondObjets = new Rectangle[6] { rectObjet1, rectObjet2, rectObjet3, rectObjet4, rectObjet5, rectObjet6 };
@@ -134,13 +59,19 @@ namespace StarBound_Legacy
             this.Fenetre = fenetre;
             for (int i = 0; i < 6; i++)
             {
-                fondObjets[i].Fill = fondObjetGarage;
+                fondObjets[i].Fill = Apparences.fondObjetGarage;
             }
+            ActualisationDonnees();
+            
+            
+        }
+        private void ActualisationDonnees()
+        {
             for (int i = 0; i < this.Fenetre.VieJoueurDebutPartie; i++)
             {
                 barreVie[i].Fill = imgCoeur;
+                this.TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString();
             }
-            this.TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString();
         }
 
         
@@ -153,12 +84,12 @@ namespace StarBound_Legacy
 
         private void RetourEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectRetourMenu.Fill = boutonRetourMenuAppuye;
+            rectRetourMenu.Fill = Apparences.boutonRetourMenuAppuye;
         }
 
         private void RetourSortieSouris(object sender, MouseEventArgs e)
         {
-            rectRetourMenu.Fill = boutonRetourMenuRelache;
+            rectRetourMenu.Fill = Apparences.boutonRetourMenuRelache;
         }
 
         private void menuPrincipal(object sender, MouseButtonEventArgs e)
@@ -169,7 +100,7 @@ namespace StarBound_Legacy
 
         private void RejouerSortieSouris(object sender, MouseEventArgs e)
         {
-            rectRejouer.Fill = boutonRejouerRelache;
+            rectRejouer.Fill = Apparences.boutonRejouerRelache;
         }
 
         private void Rejouer(object sender, MouseButtonEventArgs e)
@@ -180,23 +111,23 @@ namespace StarBound_Legacy
 
         private void RejouerEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectRejouer.Fill = boutonRejouerAppuye;
+            rectRejouer.Fill = Apparences.boutonRejouerAppuye;
         }
 
         private void SoinEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectSoin.Fill = soinSelectionne;
+            rectSoin.Fill = Apparences.soinSelectionne;
         }
 
         private void SoinSortieSouris(object sender, MouseEventArgs e)
         {
-            rectSoin.Fill = soin;
+            rectSoin.Fill = Apparences.soin;
         }
 
         private void Soin(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = soinDescription;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.soinDescription;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_SOIN.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "soin";
@@ -205,18 +136,18 @@ namespace StarBound_Legacy
 
         private void BombeEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectBombe.Fill = bombeSelectionne;
+            rectBombe.Fill = Apparences.bombeSelectionne;
         }
 
         private void BombeSortieSouris(object sender, MouseEventArgs e)
         {
-            rectBombe.Fill= bombe;
+            rectBombe.Fill= Apparences.bombe;
         }
 
         private void Bombe(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = bombeDescription;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.bombeDescription;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_BOMBE.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bombe";
@@ -225,18 +156,18 @@ namespace StarBound_Legacy
 
         private void BouclierEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectBouclier.Fill = bouclierSelectionne;
+            rectBouclier.Fill = Apparences.bouclierSelectionne;
         }
 
         private void BouclierSortieSouris(object sender, MouseEventArgs e)
         {
-            rectBouclier.Fill = bouclier;
+            rectBouclier.Fill = Apparences.bouclier;
         }
 
         private void Bouclier(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = bouclierDescription;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.bouclierDescription;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_BOUCLIER.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bouclier";
@@ -244,19 +175,19 @@ namespace StarBound_Legacy
 
         private void PistoletLaserEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectPistoletLaser.Fill = pistoletLaserSelectionne;
+            rectPistoletLaser.Fill = Apparences.pistoletLaserSelectionne;
         }
 
         private void PistoletLaserSortieSouris(object sender, MouseEventArgs e)
         {
-            rectPistoletLaser.Fill = pistoletLaser;
+            rectPistoletLaser.Fill = Apparences.pistoletLaser;
         }
 
         private void PistoletLaser(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = pistoletLaserDescription;
-            rectVaisseau.Fill = vaisseau2;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.pistoletLaserDescription;
+            rectVaisseau.Fill = Apparences.vaisseau2;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_PISTOLET_LASER.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "pistoletLaser";
@@ -264,19 +195,19 @@ namespace StarBound_Legacy
 
         private void LanceBombeEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectLanceBombe.Fill = lanceBombeSelectionne;
+            rectLanceBombe.Fill = Apparences.lanceBombeSelectionne;
         }
 
         private void LanceBombeSortieSouris(object sender, MouseEventArgs e)
         {
-            rectLanceBombe.Fill = lanceBombe;
+            rectLanceBombe.Fill = Apparences.lanceBombe;
         }
 
         private void LanceBombe(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = lanceBombeDescription;
-            rectVaisseau.Fill = vaisseau3;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.lanceBombeDescription;
+            rectVaisseau.Fill = Apparences.vaisseau3;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_LANCE_BOMBE.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "lanceBombe";
@@ -284,19 +215,19 @@ namespace StarBound_Legacy
 
         private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectMiniGun.Fill = miniGunSelectionne;
+            rectMiniGun.Fill = Apparences.miniGunSelectionne;
         }
 
         private void MiniGunSortieSouris(object sender, MouseEventArgs e)
         {
-            rectMiniGun.Fill = miniGun;
+            rectMiniGun.Fill = Apparences.miniGun;
         }
 
         private void MiniGun(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = miniGunDescription;
-            rectVaisseau.Fill = vaisseau4;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.miniGunDescription;
+            rectVaisseau.Fill = Apparences.vaisseau4;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_MINIGUN.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "miniGun";
@@ -304,18 +235,18 @@ namespace StarBound_Legacy
 
         private void PlusEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectPlus.Fill = plusAppuye;
+            rectPlus.Fill = Apparences.plusAppuye;
         }
 
         private void PlusSortieSouris(object sender, MouseEventArgs e)
         {
-            rectPlus.Fill = plusRelache;
+            rectPlus.Fill = Apparences.plusRelache;
         }
 
         private void Plus(object sender, MouseButtonEventArgs e)
         {
-            rectDescription.Fill = plusDescription;
-            rectPrix.Fill = prixRelache;
+            rectDescription.Fill = Apparences.plusDescription;
+            rectPrix.Fill = Apparences.prixRelache;
             txtPrix.Text = PRIX_COEUR.ToString() + UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "vie";
@@ -323,28 +254,77 @@ namespace StarBound_Legacy
 
         private void PrixEntreeSouris(object sender, MouseEventArgs e)
         {
-            rectPrix.Fill = prixAppuye;
+            rectPrix.Fill = Apparences.prixAppuye;
         }
 
         private void PrixSortieSouris(object sender, MouseEventArgs e)
         {
-            rectPrix.Fill= prixRelache;
+            rectPrix.Fill= Apparences.prixRelache;
         }
         private void Acheter(object sender, MouseButtonEventArgs e)
         {
-
+            if (this.Fenetre.PointCredit >= int.Parse(txtPrix.Text.Substring(0, 3)))
+            {
+                switch(itemSelectionne)
+                {
+                    case "soin":
+                        {
+                            this.Fenetre.Soins++;
+                            this.Fenetre.PointCredit -= PRIX_SOIN;
+                            break;
+                        }
+                    case "bombe":
+                        {
+                            this.Fenetre.Bombes++;
+                            this.Fenetre.PointCredit -= PRIX_BOMBE;
+                            break;
+                        }
+                    case "bouclier":
+                        {
+                            this.Fenetre.Boucliers++;
+                            this.Fenetre.PointCredit -= PRIX_BOUCLIER;
+                            break;
+                        }
+                    case "pistoletLaser":
+                        {
+                            this.Fenetre.PistoletLaser  =true;
+                            this.Fenetre.PointCredit -= PRIX_PISTOLET_LASER;
+                            break;
+                        }
+                    case "lanceBombe":
+                        {
+                            this.Fenetre.Lancebombe = true;
+                            this.Fenetre.PointCredit -= PRIX_LANCE_BOMBE;
+                            break;
+                        }
+                    case "miniGun":
+                        {
+                            this.Fenetre.Soins++;
+                            this.Fenetre.PointCredit -= PRIX_SOIN;
+                            break;
+                        }
+                    case "vie":
+                        {
+                            this.Fenetre.VieJoueurDebutPartie++;
+                            this.Fenetre.PointCredit -= PRIX_COEUR;
+                            break;
+                        }
+                }
+                ActualisationDonnees();
+            }
+            
         }
 
         private void TxtPrixEntreeSouris(object sender, MouseEventArgs e)
         {
             if (txtPrix.Foreground != null)
-                rectPrix.Fill = prixAppuye;
+                rectPrix.Fill = Apparences.prixAppuye;
         }
 
         private void TxtPrixSortieSouris(object sender, MouseEventArgs e)
         {
             if (txtPrix.Foreground != null)
-                rectPrix.Fill = prixAppuye;
+                rectPrix.Fill = Apparences.prixAppuye;
         }
 
     }
