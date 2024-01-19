@@ -50,11 +50,11 @@
             Canvas.Right="0"
             Canvas.Top="15"
             Width="124"
-            Height="25"
+            Height="50"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Panel.ZIndex="5"
-            FontSize="24"
+            FontSize="60"
             Text="26300"
             TextWrapping="Wrap" FontFamily="ArcadeClassic" Foreground="White" Margin="0,0,15,0" />
         <Rectangle
