@@ -132,7 +132,7 @@ namespace StarBound_Legacy
             get { return boucliers; }
             set { boucliers = value; }
         }
-        private double volumeSfx;
+        private double volumeSfx = 1;
 
         public double VolumeSfx
         {
