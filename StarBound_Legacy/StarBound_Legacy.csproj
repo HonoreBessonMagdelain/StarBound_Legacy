@@ -177,6 +177,9 @@
     <None Update="img\demi-coeur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="img\Effets\explosionBombe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\Ennemis\Ennemi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

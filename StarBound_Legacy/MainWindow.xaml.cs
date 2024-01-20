@@ -184,7 +184,6 @@ namespace StarBound_Legacy
         public int palierActuel = 0;
         private ImageBrush imgCoeur = new ImageBrush();
         private ImageBrush imgDemiCoeur = new ImageBrush();
-        private ImageBrush imgCoeurVide = new ImageBrush();
         Rectangle[] barreVie;
 
 
@@ -290,17 +289,30 @@ namespace StarBound_Legacy
         // OBJETS
 
         private DispatcherTimer minuterieBombe = new DispatcherTimer();
-        private int tailleBombe = 40;
+        private static readonly int TAILLE_BOMBE = 40;
         private int vitesseBombeLancee = 1;
         private int comptageAcceleration = 1;
-        private readonly int VITESSE_ACCELERATION_BOMBE = 4;
-        private Rectangle rectBombeLancee = new Rectangle()
+        private readonly int VITESSE_ACCELERATION_BOMBE = 8;
+        private Rectangle rectBombeLancee = new Rectangle
         {
-            
-            Fill = Apparences.bombe,
+            Height = TAILLE_BOMBE,
+            Width = TAILLE_BOMBE,
+            Fill = Apparences.imgCoeurVide,
             Tag = "bombeLancee"
         };
-        
+
+        // EFFETS
+        private Rectangle rectExplosionBombe = new Rectangle
+        {
+            Height = TAILLE_BOMBE,
+            Width = TAILLE_BOMBE,
+            Fill = Apparences.explosionBombe
+            
+        };
+        private readonly int VITESSE_EXPENSION_EXPLOSION = 20;
+        private double abscisseExplosion;
+        private double ordonneeExplosion;
+
 
 
         public MainWindow()
@@ -320,7 +332,6 @@ namespace StarBound_Legacy
             imgDemiCoeur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/DemiCoeur.png"));
             apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Ennemis/Ennemi.png"));
             apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Asteroids/Asteroid.png"));
-            imgCoeurVide.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/CoeurVide.png"));
             rectJoueur.Fill = apparenceJoueur;
             ControlFenetre();
             
@@ -333,13 +344,15 @@ namespace StarBound_Legacy
             CreationPieuvre(TAILLE_PIEUVRE);
             CreationEnnemis(NB_ENNEMI_DEPART);
             CreationAsteroids(NB_ASTEROIDE_DEPART, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
+            Canvas.SetTop(rectExplosionBombe, -50);
+            Canvas.SetLeft(rectExplosionBombe,-50);
         }
         
         private void MoteurJeu(object sender, EventArgs e)
         {
             MettreAJourStat();
             ActualisationStats();
-            UtilisationBombe(Canvas.GetTop(rectJoueur), Canvas.GetLeft(rectJoueur));
+            UtilisationBombe(Canvas.GetTop(rectJoueur),rectJoueur.Height, Canvas.GetLeft(rectJoueur), rectJoueur.Width);
             
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
@@ -890,7 +903,7 @@ namespace StarBound_Legacy
         {
             for (int i = 0; i < this.MAX_VIE; i++)
             {
-                barreVie[i].Fill = imgCoeurVide;
+                barreVie[i].Fill = Apparences.imgCoeurVide;
             }
             if (vieJoueur%2 == 1)
             {
@@ -1000,7 +1013,7 @@ namespace StarBound_Legacy
             vaEnHaut = false;
             ControlFenetre();
         }
-        private void UtilisationBombe(double setTop, double setLeft)
+        private void UtilisationBombe(double setTop, double hauteur, double setLeft, double largeur)
         {
             if (utiliseBombe && Bombes > 0)
             {
@@ -1008,11 +1021,18 @@ namespace StarBound_Legacy
                 minuterieBombe.Interval = TimeSpan.FromMilliseconds(16);
                 minuterieBombe.Tick += AnimationBombe; 
                 minuterieBombe.Start();
-                rectBombeLancee.Height = tailleBombe;
-                rectBombeLancee.Width = tailleBombe;
-                Canvas.SetTop(rectBombeLancee, setTop);
-                Canvas.SetLeft(rectBombeLancee, setLeft);
+                rectBombeLancee.Fill = Apparences.bombe;
+                Canvas.SetTop(rectBombeLancee, setTop + (hauteur/2));
+                Canvas.SetLeft(rectBombeLancee, setLeft + (largeur/2));
+                Canvas.SetTop(rectExplosionBombe, Canva.Height);
+                ordonneeExplosion = Canva.Height;
+                Canvas.SetLeft(rectExplosionBombe, Canvas.GetLeft(rectBombeLancee));
+                abscisseExplosion = Canvas.GetLeft(rectBombeLancee);
                 Canvas.SetZIndex(rectBombeLancee, zIndexBombeLancee);
+                Canva.Children.Add(rectBombeLancee);
+                Canva.Children.Add(rectExplosionBombe);
+                
+
                 Bombes = Bombes - 1;
 
             }
@@ -1021,16 +1041,25 @@ namespace StarBound_Legacy
         {
             if (Canvas.GetTop(rectBombeLancee) + rectBombeLancee.Height < Canva.Height)
             {
-            Canvas.SetTop(rectBombeLancee, Canvas.GetTop(rectBombeLancee) - vitesseBombeLancee);
+            Canvas.SetTop(rectBombeLancee, Canvas.GetTop(rectBombeLancee) + vitesseBombeLancee);
+                comptageAcceleration = comptageAcceleration + 1;
                 if (comptageAcceleration >= VITESSE_ACCELERATION_BOMBE)
                 {
                     vitesseBombeLancee = vitesseBombeLancee * 2;
-                    comptageAcceleration = 1;
+                    comptageAcceleration = comptageAcceleration = 1;
                 }
             }
             else
             {
-
+                
+                
+                if(rectExplosionBombe.Height < 3000)
+                {
+                    Canvas.SetTop(rectExplosionBombe, ordonneeExplosion-(VITESSE_EXPENSION_EXPLOSION/2));
+                    Canvas.SetLeft(rectExplosionBombe, abscisseExplosion-(VITESSE_EXPENSION_EXPLOSION/2));
+                    rectExplosionBombe.Height = rectExplosionBombe.Height + VITESSE_EXPENSION_EXPLOSION;
+                    rectExplosionBombe.Width = rectExplosionBombe.Width + VITESSE_EXPENSION_EXPLOSION;
+                }
             }
         }
     }

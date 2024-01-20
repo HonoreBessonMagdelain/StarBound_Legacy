@@ -49,7 +49,14 @@ namespace StarBound_Legacy
         public static ImageBrush prixRelache = new ImageBrush();
         public static ImageBrush prixAppuye = new ImageBrush();
 
-        
+        // COEURS
+        public static ImageBrush imgCoeurVide = new ImageBrush();
+
+        // EFFETS
+        public static ImageBrush explosionBombe = new ImageBrush();
+
+
+
         public static void InitialisationImagesGarage()
         {
             boutonRetourMenuAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/RetourMenuAppuye.png"));
@@ -95,6 +102,10 @@ namespace StarBound_Legacy
         public static void InitialisationImagesMainWindow()
         {
             bombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaire.png"));
+            imgCoeurVide.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Coeurs/CoeurVide.png"));
+
+            // EFFETS
+            explosionBombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Effets/explosionBombe.png"));
         }
     }
 }
