@@ -284,6 +284,7 @@ namespace StarBound_Legacy
         private int zIndexGrandesEtoiles = 3;
         private int zIndexPieuvre = 3;
         private int zIndexBalleEnnemi = 5;
+        private int zIndexBombeLancee = 7;
 
 
         // OBJETS
@@ -293,7 +294,12 @@ namespace StarBound_Legacy
         private int vitesseBombeLancee = 1;
         private int comptageAcceleration = 1;
         private readonly int VITESSE_ACCELERATION_BOMBE = 4;
-        private Rectangle rectBombeLancee = new Rectangle();
+        private Rectangle rectBombeLancee = new Rectangle()
+        {
+            
+            Fill = Apparences.bombe,
+            Tag = "bombeLancee"
+        };
         
 
 
@@ -1001,16 +1007,13 @@ namespace StarBound_Legacy
                 minuterie.Stop();
                 minuterieBombe.Interval = TimeSpan.FromMilliseconds(16);
                 minuterieBombe.Tick += AnimationBombe; 
-                minuterie.Start();
-                rectBombeLancee = new Rectangle()
-                {
-                    Height = tailleBombe,
-                    Width = tailleBombe,
-                    Fill = Apparences.bombe,
-                    Tag = "bombeLancee"
-                };
+                minuterieBombe.Start();
+                rectBombeLancee.Height = tailleBombe;
+                rectBombeLancee.Width = tailleBombe;
                 Canvas.SetTop(rectBombeLancee, setTop);
                 Canvas.SetLeft(rectBombeLancee, setLeft);
+                Canvas.SetZIndex(rectBombeLancee, zIndexBombeLancee);
+                Bombes = Bombes - 1;
 
             }
         }
