@@ -289,6 +289,12 @@ namespace StarBound_Legacy
         // OBJETS
 
         private DispatcherTimer minuterieBombe = new DispatcherTimer();
+        private int tailleBombe = 40;
+        private int vitesseBombeLancee = 1;
+        private int comptageAcceleration = 1;
+        private readonly int VITESSE_ACCELERATION_BOMBE = 4;
+        private Rectangle rectBombeLancee = new Rectangle();
+        
 
 
         public MainWindow()
@@ -298,6 +304,7 @@ namespace StarBound_Legacy
             #endif
             
             InitializeComponent();
+            Apparences.InitialisationImagesMainWindow();
             this.CanonActuel = 1;
             this.VieJoueurDebutPartie = MIN_VIE;
             this.FenetreAOuvrir = "menuPrincipal";
@@ -326,7 +333,7 @@ namespace StarBound_Legacy
         {
             MettreAJourStat();
             ActualisationStats();
-            UtilisationBombe();
+            UtilisationBombe(Canvas.GetTop(rectJoueur), Canvas.GetLeft(rectJoueur));
             
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
@@ -987,19 +994,41 @@ namespace StarBound_Legacy
             vaEnHaut = false;
             ControlFenetre();
         }
-        private void UtilisationBombe()
+        private void UtilisationBombe(double setTop, double setLeft)
         {
             if (utiliseBombe && Bombes > 0)
             {
                 minuterie.Stop();
                 minuterieBombe.Interval = TimeSpan.FromMilliseconds(16);
+                minuterieBombe.Tick += AnimationBombe; 
                 minuterie.Start();
+                rectBombeLancee = new Rectangle()
+                {
+                    Height = tailleBombe,
+                    Width = tailleBombe,
+                    Fill = Apparences.bombe,
+                    Tag = "bombeLancee"
+                };
+                Canvas.SetTop(rectBombeLancee, setTop);
+                Canvas.SetLeft(rectBombeLancee, setLeft);
 
             }
         }
         private void AnimationBombe(object sender, EventArgs e)
         {
+            if (Canvas.GetTop(rectBombeLancee) + rectBombeLancee.Height < Canva.Height)
+            {
+            Canvas.SetTop(rectBombeLancee, Canvas.GetTop(rectBombeLancee) - vitesseBombeLancee);
+                if (comptageAcceleration >= VITESSE_ACCELERATION_BOMBE)
+                {
+                    vitesseBombeLancee = vitesseBombeLancee * 2;
+                    comptageAcceleration = 1;
+                }
+            }
+            else
+            {
 
+            }
         }
     }
 }

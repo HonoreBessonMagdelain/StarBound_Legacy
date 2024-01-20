@@ -92,5 +92,9 @@ namespace StarBound_Legacy
             prixAppuye.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Boutons/PrixAppuye.png"));
 
         }
+        public static void InitialisationImagesMainWindow()
+        {
+            bombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BombeNucleaire.png"));
+        }
     }
 }
