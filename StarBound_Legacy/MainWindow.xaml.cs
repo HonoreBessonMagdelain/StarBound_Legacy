@@ -290,7 +290,7 @@ namespace StarBound_Legacy
 
         private DispatcherTimer minuterieBombe = new DispatcherTimer();
         private static readonly int TAILLE_BOMBE = 40;
-        private int vitesseBombeLancee = 1;
+        private int vitesseBombeLancee;
         private int comptageAcceleration = 1;
         private readonly int VITESSE_ACCELERATION_BOMBE = 8;
         private Rectangle rectBombeLancee = new Rectangle
@@ -309,7 +309,7 @@ namespace StarBound_Legacy
             Fill = Apparences.explosionBombe
             
         };
-        private readonly int VITESSE_EXPENSION_EXPLOSION = 20;
+        private int vitesseExpensionExplosion;
         private double abscisseExplosion;
         private double ordonneeExplosion;
 
@@ -346,6 +346,7 @@ namespace StarBound_Legacy
             CreationAsteroids(NB_ASTEROIDE_DEPART, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
             Canvas.SetTop(rectExplosionBombe, -50);
             Canvas.SetLeft(rectExplosionBombe,-50);
+            
         }
         
         private void MoteurJeu(object sender, EventArgs e)
@@ -400,22 +401,6 @@ namespace StarBound_Legacy
                                 minuterieBalleLimite--;
                             }
                         }
-                        /*
-                        if (y is Rectangle && (string)y.Tag == "asteroid")
-                        {
-                            Rect asteroid = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
-                            if (balle.IntersectsWith(asteroid))
-                            {
-                                int tailleAsteroid = aleatoire.Next(TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
-                                y.Height = tailleAsteroid;
-                                y.Width = tailleAsteroid * RATIO_TAILLE_ASTEROID;
-                                ElementsASupprimer.Add(x);
-                                ReplacerElement(y);
-                                
-                                score++;
-                            }
-                        }
-                        */
                     }
                 }
 
@@ -1031,6 +1016,8 @@ namespace StarBound_Legacy
                 Canvas.SetZIndex(rectBombeLancee, zIndexBombeLancee);
                 Canva.Children.Add(rectBombeLancee);
                 Canva.Children.Add(rectExplosionBombe);
+                vitesseExpensionExplosion = 10;
+                vitesseBombeLancee = 1;
                 
 
                 Bombes = Bombes - 1;
@@ -1051,14 +1038,34 @@ namespace StarBound_Legacy
             }
             else
             {
-                
-                
                 if(rectExplosionBombe.Height < 3000)
                 {
-                    Canvas.SetTop(rectExplosionBombe, ordonneeExplosion-(VITESSE_EXPENSION_EXPLOSION/2));
-                    Canvas.SetLeft(rectExplosionBombe, abscisseExplosion-(VITESSE_EXPENSION_EXPLOSION/2));
-                    rectExplosionBombe.Height = rectExplosionBombe.Height + VITESSE_EXPENSION_EXPLOSION;
-                    rectExplosionBombe.Width = rectExplosionBombe.Width + VITESSE_EXPENSION_EXPLOSION;
+                    Canvas.SetTop(rectExplosionBombe, ordonneeExplosion);
+                    Canvas.SetLeft(rectExplosionBombe, abscisseExplosion);
+
+                    ordonneeExplosion = ordonneeExplosion - (vitesseExpensionExplosion/2);
+                    abscisseExplosion = abscisseExplosion - (vitesseExpensionExplosion / 2);
+                    rectExplosionBombe.Opacity = 1 - rectExplosionBombe.Height/3000;
+                    rectExplosionBombe.Height = rectExplosionBombe.Height + vitesseExpensionExplosion;
+                    rectExplosionBombe.Width = rectExplosionBombe.Width + vitesseExpensionExplosion;
+                    comptageAcceleration = comptageAcceleration + 1;
+
+                    if (comptageAcceleration >= VITESSE_ACCELERATION_BOMBE)
+                    {
+                        vitesseExpensionExplosion = vitesseExpensionExplosion * 2;
+                        comptageAcceleration = comptageAcceleration = 1;
+                    }
+                }
+                else
+                {
+                    rectExplosionBombe.Height = TAILLE_BOMBE;
+                    rectExplosionBombe.Width = TAILLE_BOMBE;
+                    rectBombeLancee.Height = TAILLE_BOMBE;
+                    rectBombeLancee.Width = TAILLE_BOMBE;
+                    Canvas.SetTop(rectExplosionBombe, -50);
+                    Canvas.SetLeft(rectExplosionBombe, -50);
+                    Canvas.SetTop(rectBombeLancee, -50);
+                    Canvas.SetLeft(rectBombeLancee, -50);
                 }
             }
         }
