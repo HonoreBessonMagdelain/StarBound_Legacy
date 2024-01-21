@@ -169,6 +169,7 @@ namespace StarBound_Legacy
 
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
+        private bool pauseActive = false;
         
         // booléens pour detecter le tir du joueur
         private bool afficheDevbug = false;
@@ -722,6 +723,19 @@ namespace StarBound_Legacy
                 Console.WriteLine("touche V appuyée !");
                 #endif
                 utiliseSoin = true;
+            }
+            if (e.Key == Key.P)
+            {
+                if (!pauseActive)
+                {
+                    minuterie.Stop();
+                    pauseActive = true;
+                }
+                else
+                {
+                    minuterie.Start();
+                    pauseActive = false;
+                }
             }
             if (e.Key == Key.B)
             {
