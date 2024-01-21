@@ -163,11 +163,7 @@ namespace StarBound_Legacy
         private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
         private List<Rectangle> ElementsAAjouter = new List<Rectangle>();
         
-
-
-
         // LIGNES POUR LE GAMEPLAY
-
 
         // FONCTIONNEMENT JEU
 
@@ -217,7 +213,7 @@ namespace StarBound_Legacy
         private int vitesseBalle = 20;
 
         //pour changer le temps de rechargement (cooldown)
-        private int tempsRechargement = 600;
+        private int tempsRechargement = 5;
 
         public int TempsRechargement
         {
@@ -235,6 +231,13 @@ namespace StarBound_Legacy
 
         //pour augmenter le nombre de balle par salve
         private int limiteBalleParTir = 5;
+
+        public int LimiteBalleParTir
+        {
+            get { return limiteBalleParTir; }
+            set { limiteBalleParTir = value; }
+        }
+
         private int balleParTir = 0;
         private int balletirer = 0;
 
@@ -267,7 +270,7 @@ namespace StarBound_Legacy
 
         // timer tir et animation vaisseau
         private int timerTir = 0;
-        private int timerTirMax = 2;
+        private int timerTirMax = 5;
         private int animeVaisseau = 6;
         private int animeVaisseauMax = 6;
         private double minuterieBalle = 8;
@@ -613,12 +616,12 @@ namespace StarBound_Legacy
                 #endif
                 vaEnBas = true;
             }
-            if (e.Key == Key.Space && timerTir < 1 && balleParTir <= limiteBalleParTir)
+            if (e.Key == Key.Space && timerTir < 0 && balleParTir <= LimiteBalleParTir)
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
-#endif
-                timerTir = timerTirMax;
+                #endif
+                timerTir = TempsRechargement;
                 // on vide la liste des items
                 ElementsASupprimer.Clear();
                 balletirer = 0;
@@ -993,13 +996,18 @@ namespace StarBound_Legacy
                 minuterieBombe.Start();
                 foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
                 {
-                    if ((string)x.Tag == "ennemi" || (string)x.Tag == "asteroid" || (string)x.Tag == "bombelancee")
+                    if ((string)x.Tag == "ennemi" || (string)x.Tag == "asteroid")
                     {
+                        score++;
                         ElementsASupprimer.Add(x);
                     }
                 }
-                CreationEnnemis(nbEnnemi);
-                CreationAsteroids(nbAsteroid, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
+                int tmpResetObstacle = nbEnnemi;
+                nbEnnemi = 0;
+                CreationEnnemis(tmpResetObstacle);
+                tmpResetObstacle = nbAsteroid;
+                nbAsteroid = 0;
+                CreationAsteroids(tmpResetObstacle, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
                 utiliseBombe = false;
                 Bombes = Bombes - 1;
             }
