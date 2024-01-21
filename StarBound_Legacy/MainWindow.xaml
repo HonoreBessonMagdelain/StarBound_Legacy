@@ -49,7 +49,7 @@
             x:Name="txtScore"
             Canvas.Right="0"
             Canvas.Top="15"
-            Width="124"
+            Width="286"
             Height="50"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
@@ -215,20 +215,20 @@
             Width="50"
             Height="50"
             Panel.ZIndex="7" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBlock x:Name="txtNombreBombe" Height="50" Canvas.Left="30" TextWrapping="Wrap" Text="0" Canvas.Bottom="40" Width="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" TextAlignment="Center"/>
-        <Rectangle x:Name="rectBombe" Height="80" Canvas.Left="90" Canvas.Bottom="30" Width="80" HorizontalAlignment="Left" VerticalAlignment="Bottom" Panel.ZIndex="7">
+        <TextBlock x:Name="txtNombreBombe" Height="50" Canvas.Left="30" TextWrapping="Wrap" Text="0" Canvas.Bottom="40" Width="70" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" TextAlignment="Center"/>
+        <Rectangle x:Name="rectBombe" Height="80" Canvas.Left="100" Canvas.Bottom="30" Width="80" HorizontalAlignment="Left" VerticalAlignment="Bottom" Panel.ZIndex="7">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/BombeNucleaire.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="txtNombreSoin" Height="50" Canvas.Left="210" TextWrapping="Wrap" Text="0" Canvas.Bottom="40" Width="50" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" HorizontalAlignment="Left" VerticalAlignment="Bottom" TextAlignment="Center"/>
-        <Rectangle x:Name="rectSoin" Height="80" Canvas.Left="270" Canvas.Bottom="30" Width="80">
+        <TextBlock x:Name="txtNombreSoin" Height="50" Canvas.Left="220" TextWrapping="Wrap" Canvas.Bottom="40" Width="70" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" HorizontalAlignment="Left" VerticalAlignment="Bottom" TextAlignment="Center"><Run Language="fr-fr" Text="0"/></TextBlock>
+        <Rectangle x:Name="rectSoin" Height="80" Canvas.Left="290" Canvas.Bottom="30" Width="80" Panel.ZIndex="7">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Soin.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="txtNombreBouclier" Height="50" Canvas.Left="390" TextWrapping="Wrap" Text="0" Canvas.Bottom="40" Width="50" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Rectangle x:Name="rectBouclier" Height="80" Canvas.Left="450" Canvas.Bottom="30" Width="80" HorizontalAlignment="Left"  VerticalAlignment="Top">
+        <TextBlock x:Name="txtNombreBouclier" Height="50" Canvas.Left="410" TextWrapping="Wrap" Text="0" Canvas.Bottom="40" Width="70" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle x:Name="rectBouclier" Height="80" Canvas.Left="480" Canvas.Bottom="30" Width="80" HorizontalAlignment="Left"  VerticalAlignment="Top">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Bouclier.png"/>
             </Rectangle.Fill>

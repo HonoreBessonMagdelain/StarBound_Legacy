@@ -52,6 +52,9 @@ namespace StarBound_Legacy
         // COEURS
         public static ImageBrush imgCoeurVide = new ImageBrush();
 
+        // OBJETS
+        public static ImageBrush bouclierUtilise = new ImageBrush();
+
         // EFFETS
         public static ImageBrush explosionBombe = new ImageBrush();
 
@@ -106,6 +109,9 @@ namespace StarBound_Legacy
 
             // EFFETS
             explosionBombe.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Effets/explosionBombe.png"));
+
+            // OBJETS
+            bouclierUtilise.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/ObjetsSpeciaux/BouclierEntier.png"));
         }
     }
 }

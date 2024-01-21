@@ -222,6 +222,9 @@
     <None Update="img\ObjetsSpeciaux\Bouclier.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\ObjetsSpeciaux\BouclierEntier.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\ObjetsSpeciaux\BouclierSelectionne.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
