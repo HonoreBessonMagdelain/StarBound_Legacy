@@ -150,8 +150,8 @@ namespace StarBound_Legacy
 
 
         // creation des lecteurs de la musique
-        public MediaPlayer musiqueMenu = new MediaPlayer();
-        public MediaPlayer musiqueGameplay = new MediaPlayer();
+        
+        
 
         Random aleatoire = new Random();
 
@@ -169,6 +169,8 @@ namespace StarBound_Legacy
 
         // création variable minuterie
         private DispatcherTimer minuterie = new DispatcherTimer();
+        private DispatcherTimer minuterieDefaite = new DispatcherTimer();
+        private bool finMinuterieDefaite = false;
         
         // booléens pour detecter le tir du joueur
         private bool afficheDevbug = false;
@@ -851,7 +853,7 @@ namespace StarBound_Legacy
                             Canvas.SetTop(rectJoueur, Canva.Height / 2);
                             Canvas.SetLeft(rectJoueur, rectJoueur.Width);
                             initialisationJeux();
-                            musiqueMenu.Close();
+                            Musique.musiqueMenu.Close();
                             musique.LanceMusiqueGameplay();
                             break;
                         }
@@ -959,11 +961,12 @@ namespace StarBound_Legacy
                     ElementsASupprimer.Add(x);
                 }
             }
-            musiqueGameplay.Close();
+            Musique.musiqueGameplay.Close();
             this.fenetreAOuvrir = "garage";
             jouer = false;
             passpalier = false;
             minuterie.Tick -= MoteurJeu;
+            minuterie.Stop();
             this.PointCredit += score;
             vitesseAsteroid = VIT_DEPART_ASTEROID;
             vitesseBalleEnnemi = VIT_DEPART_BALLE_ENNEMI;
@@ -972,7 +975,10 @@ namespace StarBound_Legacy
             vaAGauche = false;
             vaEnBas = false;
             vaEnHaut = false;
-            ControlFenetre();
+            minuterieDefaite.Interval = TimeSpan.FromSeconds(4);
+            minuterieDefaite.Tick += MusiqueDefaite;
+            minuterieDefaite.Start();
+            
         }
         private void UtilisationBombe(double setTop, double hauteur, double setLeft, double largeur)
         {
@@ -1103,6 +1109,21 @@ namespace StarBound_Legacy
             else
             {
                 utiliseBouclier = false;
+            }
+        }
+        private void MusiqueDefaite(object sender, EventArgs e)
+        {
+            if (!finMinuterieDefaite)
+            {
+                Musique musique = new Musique();
+                musique.Fenetre = this;
+                musique.LanceDefaite();
+            }
+            else
+            {
+                minuterieDefaite.Tick -= MusiqueDefaite;
+                minuterieDefaite.Stop();
+                ControlFenetre();
             }
         }
     }
