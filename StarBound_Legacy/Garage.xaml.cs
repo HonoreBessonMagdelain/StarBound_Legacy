@@ -48,8 +48,10 @@ namespace StarBound_Legacy
         private const int MAX_BOUCLIER = 5;
 
         private String itemSelectionne;
+        private readonly String OBJETS_POSSEDES = "Objets possedes :";
 
-        
+
+
 
         public Garage(MainWindow fenetre)
         {
@@ -135,6 +137,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_SOIN.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "soin";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Soins.ToString();
 
         }
 
@@ -155,6 +158,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_BOMBE.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bombe";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Bombes.ToString();
 
         }
 
@@ -175,6 +179,8 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_BOUCLIER.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bouclier";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Boucliers.ToString();
+
         }
 
         private void PistoletLaserEntreeSouris(object sender, MouseEventArgs e)
@@ -195,6 +201,13 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_PISTOLET_LASER.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "pistoletLaser";
+            String possede;
+            if (this.Fenetre.PistoletLaser)
+                possede = "1";
+            else possede = "0";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+
+
         }
 
         private void LanceBombeEntreeSouris(object sender, MouseEventArgs e)
@@ -215,6 +228,11 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_LANCE_BOMBE.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "lanceBombe";
+            String possede;
+            if (this.Fenetre.Lancebombe)
+                possede = "1";
+            else possede = "0";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
         }
 
         private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
@@ -235,6 +253,11 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_MINIGUN.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "miniGun";
+            String possede;
+            if (this.Fenetre.MiniGun)
+                possede = "1";
+            else possede = "0";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
         }
 
         private void PlusEntreeSouris(object sender, MouseEventArgs e)

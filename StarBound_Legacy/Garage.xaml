@@ -258,6 +258,7 @@
         </Rectangle>
         <Rectangle x:Name="rectPrix" Grid.Column="13" Grid.Row="4" Margin="0,30,50,50" MouseEnter="PrixEntreeSouris" MouseLeave="PrixSortieSouris" MouseLeftButtonDown="Acheter"/>
         <TextBlock x:Name="txtPrix" Grid.Column="13" Margin="10,60,60,60" Grid.Row="4" TextWrapping="Wrap" Text="600 pts" FontSize="60" FontFamily="ArcadeClassic" TextAlignment="Center" MouseEnter="TxtPrixEntreeSouris" MouseLeave="TxtPrixSortieSouris" MouseLeftButtonDown="Acheter" Foreground="{x:Null}"/>
+        <TextBlock x:Name="txtNombrePossedes" Grid.Column="1" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="70" Margin="60,0,0,40" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="1000" FontSize="60" FontFamily="ArcadeClassic"/>
 
     </Grid>
 </Window>

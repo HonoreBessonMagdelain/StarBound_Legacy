@@ -76,7 +76,7 @@ namespace StarBound_Legacy
             get { return pointCredit; }
             set { pointCredit = value; }
         }
-        private int canonActuel;
+        private int canonActuel = 1;
 
         public int CanonActuel
         {
@@ -90,42 +90,42 @@ namespace StarBound_Legacy
         public readonly int NOMBRE_TYPES_CANON = 4;
 
         // propriétés pour l'obtention des objets dans le garage
-        private bool pistoletLaser;
+        private bool pistoletLaser = false;
 
         public bool PistoletLaser
         {
             get { return pistoletLaser; }
             set { pistoletLaser = value; }
         }
-        private bool lanceBombe;
+        private bool lanceBombe = false;
 
         public bool Lancebombe
         {
             get { return lanceBombe; }
             set { lanceBombe = value; }
         }
-        private bool miniGun;
+        private bool miniGun = false;
 
         public bool MiniGun
         {
             get { return miniGun; }
             set { miniGun = value; }
         }
-        private int soins;
+        private int soins = 0;
 
         public int Soins
         {
             get { return soins; }
             set { soins = value; }
         }
-        private int bombes;
+        private int bombes = 0;
 
         public int Bombes
         {
             get { return bombes; }
             set { bombes = value; }
         }
-        private int boucliers;
+        private int boucliers = 0;
 
         public int Boucliers
         {
