@@ -346,16 +346,17 @@ namespace StarBound_Legacy
             CreationAsteroids(NB_ASTEROIDE_DEPART, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
             Canvas.SetTop(rectExplosionBombe, -50);
             Canvas.SetLeft(rectExplosionBombe,-50);
-            
+
+
         }
-        
+
         private void MoteurJeu(object sender, EventArgs e)
         {
-            MettreAJourStat();
-            ActualisationStats();
+            
             UtilisationBombe(Canvas.GetTop(rectJoueur),rectJoueur.Height, Canvas.GetLeft(rectJoueur), rectJoueur.Width);
             UtilisationSoin();
-            
+            MettreAJourStat();
+            ActualisationStats();
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
             rectJoueur.Width, rectJoueur.Height);
@@ -1008,6 +1009,12 @@ namespace StarBound_Legacy
                 minuterieBombe.Tick += AnimationBombe; 
                 minuterieBombe.Start();
                 rectBombeLancee.Fill = Apparences.bombe;
+                if (!Canva.Children.Contains(rectBombeLancee) && !Canva.Children.Contains(rectExplosionBombe))
+                {
+                    Canva.Children.Add(rectBombeLancee);
+                    Canva.Children.Add(rectExplosionBombe);
+                }
+
                 Canvas.SetTop(rectBombeLancee, setTop + (hauteur/2));
                 Canvas.SetLeft(rectBombeLancee, setLeft + (largeur/2));
                 Canvas.SetTop(rectExplosionBombe, Canva.Height);
@@ -1015,8 +1022,6 @@ namespace StarBound_Legacy
                 Canvas.SetLeft(rectExplosionBombe, Canvas.GetLeft(rectBombeLancee));
                 abscisseExplosion = Canvas.GetLeft(rectBombeLancee);
                 Canvas.SetZIndex(rectBombeLancee, zIndexBombeLancee);
-                Canva.Children.Add(rectBombeLancee);
-                Canva.Children.Add(rectExplosionBombe);
                 vitesseExpensionExplosion = 10;
                 vitesseBombeLancee = 1;
                 
@@ -1039,7 +1044,7 @@ namespace StarBound_Legacy
             }
             else
             {
-                if(rectExplosionBombe.Height < 3000)
+                if(rectExplosionBombe.Height < 4000)
                 {
                     Canvas.SetTop(rectExplosionBombe, ordonneeExplosion);
                     Canvas.SetLeft(rectExplosionBombe, abscisseExplosion);
@@ -1068,7 +1073,9 @@ namespace StarBound_Legacy
                     Canvas.SetTop(rectBombeLancee, -50);
                     Canvas.SetLeft(rectBombeLancee, -50);
                     minuterieBombe.Stop();
+                    minuterieBombe.Tick -= AnimationBombe;
                     minuterie.Start();
+                    utiliseBombe = false;
                 }
             }
         }
@@ -1078,6 +1085,7 @@ namespace StarBound_Legacy
             {
                 vieJoueur = this.vieJoueurDebutPartie * 2;
                 soins = soins - 1;
+                utiliseSoin = false;
             }  
             
         }
