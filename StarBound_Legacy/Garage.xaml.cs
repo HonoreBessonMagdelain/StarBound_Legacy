@@ -48,7 +48,7 @@ namespace StarBound_Legacy
         private const int MAX_BOUCLIER = 5;
 
         private String itemSelectionne;
-        private readonly String OBJETS_POSSEDES = "Objets possedes :";
+        private readonly String OBJETS_POSSEDES = "Objets possedes : ";
 
 
 
@@ -78,15 +78,52 @@ namespace StarBound_Legacy
                 barreVie[i].Fill = imgCoeur;
                 TxtCreditPoint.Text = this.Fenetre.PointCredit.ToString() + this.Fenetre.UNITE_PRIX;
             }
+            
         }
 
         
 
-        
+        private void ActualisationSoinsPossedes()
+        {
+            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Soins.ToString();
+        }
+        private void ActualisationBombesPossedees()
+        {
+            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Bombes.ToString();
+        }
+        private void ActualisationBoucliersPossedes()
+        {
+            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Boucliers.ToString();
 
-        
+        }
+        private void ActualisationLanceBombesPossede()
+        {
+            String possede;
+            if (this.Fenetre.Lancebombe)
+                possede = "1";
+            else possede = "0";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+        }
+        private void ActualisationPistoletLaserPossede()
+        {
+            String possede;
+            if (this.Fenetre.PistoletLaser)
+                possede = "1";
+            else possede = "0";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+        }
+        private void ActualisationMiniGunPossede()
+        {
+            String possede;
+            if (this.Fenetre.MiniGun)
+                possede = "1";
+            else possede = "0";
+            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+        }
 
-        
+
+
+
 
         private void RetourEntreeSouris(object sender, MouseEventArgs e)
         {
@@ -137,7 +174,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_SOIN.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "soin";
-            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Soins.ToString();
+            ActualisationSoinsPossedes();
 
         }
 
@@ -158,8 +195,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_BOMBE.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bombe";
-            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Bombes.ToString();
-
+            ActualisationBombesPossedees() ;
         }
 
         private void BouclierEntreeSouris(object sender, MouseEventArgs e)
@@ -179,8 +215,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_BOUCLIER.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "bouclier";
-            txtNombrePossedes.Text = OBJETS_POSSEDES + this.Fenetre.Boucliers.ToString();
-
+            ActualisationBoucliersPossedes();
         }
 
         private void PistoletLaserEntreeSouris(object sender, MouseEventArgs e)
@@ -201,11 +236,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_PISTOLET_LASER.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "pistoletLaser";
-            String possede;
-            if (this.Fenetre.PistoletLaser)
-                possede = "1";
-            else possede = "0";
-            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+            ActualisationPistoletLaserPossede();
 
 
         }
@@ -228,11 +259,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_LANCE_BOMBE.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "lanceBombe";
-            String possede;
-            if (this.Fenetre.Lancebombe)
-                possede = "1";
-            else possede = "0";
-            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+            ActualisationLanceBombesPossede() ;
         }
 
         private void MiniGunEntreeSouris(object sender, MouseEventArgs e)
@@ -253,11 +280,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_MINIGUN.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "miniGun";
-            String possede;
-            if (this.Fenetre.MiniGun)
-                possede = "1";
-            else possede = "0";
-            txtNombrePossedes.Text = OBJETS_POSSEDES + possede;
+            ActualisationMiniGunPossede();
         }
 
         private void PlusEntreeSouris(object sender, MouseEventArgs e)
@@ -277,6 +300,7 @@ namespace StarBound_Legacy
             txtPrix.Text = PRIX_COEUR.ToString() + this.Fenetre.UNITE_PRIX;
             txtPrix.Foreground = Brushes.Black;
             itemSelectionne = "vie";
+            txtNombrePossedes.Text = "";
         }
 
         private void PrixEntreeSouris(object sender, MouseEventArgs e)
@@ -300,6 +324,7 @@ namespace StarBound_Legacy
                             {
                                 this.Fenetre.Soins++;
                                 this.Fenetre.PointCredit -= PRIX_SOIN;
+                                ActualisationSoinsPossedes();
                             }
                             break;
                         }
@@ -309,6 +334,7 @@ namespace StarBound_Legacy
                             {
                                 this.Fenetre.Bombes++;
                                 this.Fenetre.PointCredit -= PRIX_BOMBE;
+                                ActualisationBombesPossedees();
                             }
                             break;
                         }
@@ -318,6 +344,7 @@ namespace StarBound_Legacy
                             {
                                 this.Fenetre.Boucliers++;
                                 this.Fenetre.PointCredit -= PRIX_BOUCLIER;
+                                ActualisationBoucliersPossedes();
                             }
                             break;
                         }
@@ -331,6 +358,7 @@ namespace StarBound_Legacy
                                 this.Fenetre.PointCredit -= PRIX_PISTOLET_LASER;
                                 this.Fenetre.TempsRechargement = 0;
                                 this.Fenetre.LimiteBalleParTir = 50;
+                                ActualisationPistoletLaserPossede();
                             }
                             break;
                         }
@@ -344,6 +372,7 @@ namespace StarBound_Legacy
                                 this.Fenetre.PointCredit -= PRIX_LANCE_BOMBE;
                                 this.Fenetre.TempsRechargement = 8;
                                 this.Fenetre.LimiteBalleParTir = 3;
+                                ActualisationLanceBombesPossede();
                             }
                             
                             break;
@@ -358,6 +387,7 @@ namespace StarBound_Legacy
                                 this.Fenetre.PointCredit -= PRIX_SOIN;
                                 this.Fenetre.TempsRechargement = 2;
                                 this.Fenetre.LimiteBalleParTir = 25;
+                                ActualisationMiniGunPossede();
                             }
                             break;
                         }
