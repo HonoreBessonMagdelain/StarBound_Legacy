@@ -335,6 +335,7 @@ namespace StarBound_Legacy
             Fill = Apparences.bouclierUtilise,
             Tag = "bouclierUtilise"
         };
+        private int musiqueBombe = 0;
 
         // EFFETS
 
@@ -389,7 +390,9 @@ namespace StarBound_Legacy
             UtilisationBombe(Canvas.GetTop(rectJoueur),rectJoueur.Height, Canvas.GetLeft(rectJoueur), rectJoueur.Width);
             UtilisationSoin();
             UtilisationBouclier();
-            
+            Musique musique = new Musique();
+            musique.Fenetre = this;
+
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
             rectJoueur.Width, rectJoueur.Height);
@@ -423,6 +426,7 @@ namespace StarBound_Legacy
                             // on vérifie la collision entre la balle du joueur et l'ennemi
                             if (balle.IntersectsWith(ennemi))
                             {
+                                musique.LanceMortEnnemi();
                                 // on ajoute la balle a la liste à supprimer et on incremente le score
                                 ElementsASupprimer.Add(x);
                                 ReplacerElement(y);
@@ -453,7 +457,10 @@ namespace StarBound_Legacy
                     {
                         ReplacerElement(x);
                         if (!utiliseBouclier)
+                        {
                             vieJoueur -= DEGAT_ENNEMI;
+                            musique.LanceDegatJoueur();
+                        }
                         else
                             score++;
                     }
@@ -477,7 +484,10 @@ namespace StarBound_Legacy
                     {
                         ReplacerElement(x);
                         if (!utiliseBouclier)
+                        {
                             vieJoueur -= DEGAT_ASTEROID;
+                            musique.LanceDegatJoueur();
+                        }
                         else
                             score++;
                     }
@@ -494,7 +504,11 @@ namespace StarBound_Legacy
                     {
                         ElementsASupprimer.Add(x);
                         if (!utiliseBouclier)
+                        {
                             vieJoueur -= DEGAT_TIR_ENNEMI;
+                            musique.LanceDegatJoueur();
+                        }
+                            
                     }
                 }
                 if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > -x.Width)
@@ -805,6 +819,8 @@ namespace StarBound_Legacy
         }
         private void CreationTirEnnemi(double y, double x)
         {
+            Musique musique = new Musique();
+            musique.Fenetre = this;
             // création des tirs ennemis tirant vers l'objet joueur
             // x et y position du tir
             Rectangle NouvelleBalleEnnemi = new Rectangle
@@ -818,6 +834,7 @@ namespace StarBound_Legacy
             Canvas.SetTop(NouvelleBalleEnnemi, y);
             Canvas.SetLeft(NouvelleBalleEnnemi, x);
             ElementsAAjouter.Add(NouvelleBalleEnnemi);
+            musique.LanceTirEnnemi();
         }
         private void MettreAJourStatDebug()
         {
@@ -1066,10 +1083,13 @@ namespace StarBound_Legacy
                 CreationAsteroids(tmpResetObstacle, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
                 utiliseBombe = false;
                 Bombes = Bombes - 1;
+                musiqueBombe = 0;
             }
         }
         private void AnimationBombe(object sender, EventArgs e)
         {
+            Musique musique = new Musique();
+            musique.Fenetre = this;
             if (Canvas.GetTop(rectBombeLancee) + rectBombeLancee.Height < Canva.Height)
             {
             Canvas.SetTop(rectBombeLancee, Canvas.GetTop(rectBombeLancee) + vitesseBombeLancee);
@@ -1082,6 +1102,11 @@ namespace StarBound_Legacy
             }
             else
             {
+                musiqueBombe++;
+                if (musiqueBombe == 1) 
+                {
+                    musique.LanceBombeNucleaire();
+                }
                 if(rectExplosionBombe.Height < 4000)
                 {
                     Canvas.SetTop(rectExplosionBombe, ordonneeExplosion);
@@ -1122,9 +1147,13 @@ namespace StarBound_Legacy
         {
             if (utiliseSoin && this.Soins > 0) 
             {
+                Musique musique = new Musique();
+                musique.Fenetre = this;
+                musique.LanceSoin();
                 this.Soins -= 1;
                 vieJoueur = this.VieJoueurDebutPartie * 2;
                 utiliseSoin = false;
+
             }  
             
         }
@@ -1132,12 +1161,19 @@ namespace StarBound_Legacy
         {
             if(utiliseBouclier && Boucliers > 0)
             {
+                Musique musique = new Musique();
+                musique.Fenetre = this;
                 if (!Canva.Children.Contains(rectBouclierUtilise) )
                 {
                     Canva.Children.Add(rectBouclierUtilise);
                 }
                 if (compteurDixSecondes < 300)
                 {
+                    if(compteurDixSecondes == 2)
+                    {
+                        Musique.musiqueGameplay.Stop();
+                        musique.LanceBouclier();
+                    }
                     compteurDixSecondes += 1;
                     Canvas.SetLeft(rectBouclierUtilise, Canvas.GetLeft(rectJoueur) - (rectBouclierUtilise.Width - rectJoueur.Width) / 2);
                     Canvas.SetTop(rectBouclierUtilise, Canvas.GetTop(rectJoueur) - (rectBouclierUtilise.Height - rectJoueur.Height) / 2);
@@ -1151,6 +1187,8 @@ namespace StarBound_Legacy
                     Boucliers -= 1;
                     Canvas.SetTop(rectBouclierUtilise, -160);
                     Canvas.SetLeft(rectBouclierUtilise, -160);
+                    Musique.bouclier.Stop();
+                    musique.LanceMusiqueGameplay();
                 }
             }
             else
