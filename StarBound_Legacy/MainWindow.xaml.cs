@@ -287,7 +287,7 @@ namespace StarBound_Legacy
 
         private DispatcherTimer minuterieBombe = new DispatcherTimer();
         private static readonly int TAILLE_BOMBE = 40;
-        private static readonly int TAILLE_BOUCLIER = 136;
+        private static readonly int TAILLE_BOUCLIER = 150;
         private int vitesseBombeLancee;
         private int comptageAcceleration = 1;
         private readonly int VITESSE_ACCELERATION_BOMBE = 8;
@@ -302,7 +302,7 @@ namespace StarBound_Legacy
         {
             Height = TAILLE_BOUCLIER,
             Width = TAILLE_BOUCLIER,
-            Fill = Apparences.imgCoeurVide,
+            Fill = Apparences.bouclierUtilise,
             Tag = "bouclierUtilise"
         };
 
@@ -348,7 +348,7 @@ namespace StarBound_Legacy
             CreationAsteroids(NB_ASTEROIDE_DEPART, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
             Canvas.SetTop(rectExplosionBombe, -50);
             Canvas.SetLeft(rectExplosionBombe,-50);
-            Canvas.SetTop(rectBouclierUtilise, -140);
+            Canvas.SetTop(rectBouclierUtilise, -160);
             Canvas.SetLeft(rectBouclierUtilise,-50);
         }
 
@@ -700,7 +700,7 @@ namespace StarBound_Legacy
                 #endif
                 utiliseBouclier = true;
             }
-            if (e.Key == Key.T && afficheDevbug)
+            if (e.Key == Key.T)
             {
                 this.PointCredit += 10000;
             }
@@ -746,18 +746,8 @@ namespace StarBound_Legacy
                 tirer = false;
                 balleParTir = 0;
             }
-            if (e.Key == Key.C)
-            {
-                utiliseBombe = false;
-            }
-            if (e.Key == Key.V)
-            {
-                utiliseSoin = false;
-            }
-            if(e.Key == Key.B)
-            {
-                utiliseBouclier = false;
-            }
+            
+            
         }
         private void CreationTirEnnemi(double y, double x)
         {
@@ -1076,15 +1066,28 @@ namespace StarBound_Legacy
         }
         private void UtilisationBouclier()
         {
-            if (utiliseBouclier && compteurDixSecondes < 300 && Boucliers >0)
+            if(utiliseBouclier && Boucliers > 0)
             {
-                compteurDixSecondes += 1;
-                
-            }
-            else
-            {
-                compteurDixSecondes = 0;
-                utiliseBouclier = false;
+                if (!Canva.Children.Contains(rectBouclierUtilise) )
+                {
+                    Canva.Children.Add(rectBouclierUtilise);
+                }
+                if (compteurDixSecondes < 300)
+                {
+                    compteurDixSecondes += 1;
+                    Canvas.SetLeft(rectBouclierUtilise, Canvas.GetLeft(rectJoueur) - (rectBouclierUtilise.Width - rectJoueur.Width) / 2);
+                    Canvas.SetTop(rectBouclierUtilise, Canvas.GetTop(rectJoueur) - (rectBouclierUtilise.Height - rectJoueur.Height) / 2);
+                    Canvas.SetZIndex(rectBouclierUtilise, 6);
+
+                }
+                else
+                {
+                    compteurDixSecondes = 0;
+                    utiliseBouclier = false;
+                    Boucliers -= 1;
+                    Canvas.SetTop(rectBouclierUtilise, -140);
+                    Canvas.SetLeft(rectBouclierUtilise, -50);
+                }
             }
         }
     }
