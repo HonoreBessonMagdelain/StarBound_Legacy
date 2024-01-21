@@ -256,17 +256,17 @@ namespace StarBound_Legacy
         private ImageBrush apparenceEnnemi = new ImageBrush();
         private ImageBrush apparenceAsteroid = new ImageBrush();
         private const int TAILLE_ENNEMI = 50;
-        private const int LONGUEUR_BALLE_ENNEMI = 40;
-        private const int HAUTEUR_BALLE_ENNEMI = 15;
+        private const int LONGUEUR_BALLE_ENNEMI = 30;
+        private const int HAUTEUR_BALLE_ENNEMI = 5;
         private const double ACCELERATION_VITESSE_ENNEMI = 0.2;
         private const double ACCELERATION_VITESSE_BALLE_ENNEMI = 0.3;
         private const double ACCELERATION_VITESSE_ASTEROID = 0.2;
         private const double RATIO_TAILLE_ASTEROID = 2.5;
         private const double RATIO_TAILLE_ENNEMI = 1.5;
         private const double VITESSE_VERTICALE_ENNEMI = 2;
-        private const double VIT_DEPART_ASTEROID = 5;
+        private const double VIT_DEPART_ASTEROID = 8;
         private const double VIT_DEPART_ENNEMI = 2;
-        private const double VIT_DEPART_BALLE_ENNEMI = 10;
+        private const double VIT_DEPART_BALLE_ENNEMI = 20;
 
         // timer tir et animation vaisseau
         private int timerTir = 0;
@@ -352,7 +352,7 @@ namespace StarBound_Legacy
             Canvas.SetTop(rectExplosionBombe, -50);
             Canvas.SetLeft(rectExplosionBombe,-50);
             Canvas.SetTop(rectBouclierUtilise, -160);
-            Canvas.SetLeft(rectBouclierUtilise,-50);
+            Canvas.SetLeft(rectBouclierUtilise,-160);
         }
 
         private void MoteurJeu(object sender, EventArgs e)
@@ -424,7 +424,8 @@ namespace StarBound_Legacy
                     if (player.IntersectsWith(ennemi))
                     {
                         ReplacerElement(x);
-                        vieJoueur -= DEGAT_ENNEMI;
+                        if (!utiliseBouclier)
+                            vieJoueur -= DEGAT_ENNEMI;
                     }
                     minuterieBalle -= 2;
                     if (minuterieBalle < 0)
@@ -445,7 +446,8 @@ namespace StarBound_Legacy
                     if (player.IntersectsWith(asteroid))
                     {
                         ReplacerElement(x);
-                        vieJoueur -= DEGAT_ASTEROID;
+                        if (!utiliseBouclier)
+                            vieJoueur -= DEGAT_ASTEROID;
                     }
                 }
                 if (x is Rectangle && (string)x.Tag == "balleEnnemi")
@@ -459,7 +461,8 @@ namespace StarBound_Legacy
                     if (balleEnnemi.IntersectsWith(player))
                     {
                         ElementsASupprimer.Add(x);
-                        vieJoueur -= DEGAT_TIR_ENNEMI;
+                        if (!utiliseBouclier)
+                            vieJoueur -= DEGAT_TIR_ENNEMI;
                     }
                 }
                 if (x is Rectangle && (string)x.Tag == "etoile" && Canvas.GetLeft(x) > -x.Width)
@@ -1093,9 +1096,13 @@ namespace StarBound_Legacy
                     compteurDixSecondes = 0;
                     utiliseBouclier = false;
                     Boucliers -= 1;
-                    Canvas.SetTop(rectBouclierUtilise, -140);
-                    Canvas.SetLeft(rectBouclierUtilise, -50);
+                    Canvas.SetTop(rectBouclierUtilise, -160);
+                    Canvas.SetLeft(rectBouclierUtilise, -160);
                 }
+            }
+            else
+            {
+                utiliseBouclier = false;
             }
         }
     }
