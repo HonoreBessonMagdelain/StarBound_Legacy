@@ -228,7 +228,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock x:Name="txtNombreBouclier" Height="50" Canvas.Left="410" TextWrapping="Wrap" Text="0" Canvas.Bottom="40" Width="70" FontFamily="ArcadeClassic" FontSize="60" Panel.ZIndex="7" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Rectangle x:Name="rectBouclier" Height="80" Canvas.Left="480" Canvas.Bottom="30" Width="80" HorizontalAlignment="Left"  VerticalAlignment="Top">
+        <Rectangle x:Name="rectBouclier" Height="80" Canvas.Left="480" Canvas.Bottom="30" Width="80" HorizontalAlignment="Left"  VerticalAlignment="Top" Panel.ZIndex="7">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Bouclier.png"/>
             </Rectangle.Fill>
