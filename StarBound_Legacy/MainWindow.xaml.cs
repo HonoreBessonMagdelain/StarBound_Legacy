@@ -354,6 +354,7 @@ namespace StarBound_Legacy
             MettreAJourStat();
             ActualisationStats();
             UtilisationBombe(Canvas.GetTop(rectJoueur),rectJoueur.Height, Canvas.GetLeft(rectJoueur), rectJoueur.Width);
+            UtilisationSoin();
             
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
@@ -1066,8 +1067,19 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(rectExplosionBombe, -50);
                     Canvas.SetTop(rectBombeLancee, -50);
                     Canvas.SetLeft(rectBombeLancee, -50);
+                    minuterieBombe.Stop();
+                    minuterie.Start();
                 }
             }
+        }
+        private void UtilisationSoin()
+        {
+            if (utiliseSoin && soins > 0) 
+            {
+                vieJoueur = this.vieJoueurDebutPartie * 2;
+                soins = soins - 1;
+            }  
+            
         }
     }
 }
