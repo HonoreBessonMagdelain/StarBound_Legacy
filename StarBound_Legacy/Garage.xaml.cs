@@ -300,26 +300,42 @@ namespace StarBound_Legacy
                         }
                     case "pistoletLaser":
                         {
-                            this.Fenetre.PistoletLaser  = true;
-                            this.Fenetre.MiniGun = false;
-                            this.Fenetre.Lancebombe = false;
-                            this.Fenetre.PointCredit -= PRIX_PISTOLET_LASER;
+                            if (!this.Fenetre.PistoletLaser)
+                            {
+                                this.Fenetre.PistoletLaser  = true;
+                                this.Fenetre.MiniGun = false;
+                                this.Fenetre.Lancebombe = false;
+                                this.Fenetre.PointCredit -= PRIX_PISTOLET_LASER;
+                                this.Fenetre.TempsRechargement = 0;
+                                this.Fenetre.LimiteBalleParTir = 50;
+                            }
                             break;
                         }
                     case "lanceBombe":
                         {
-                            this.Fenetre.Lancebombe = true;
-                            this.Fenetre.PistoletLaser  = false;
-                            this.Fenetre.MiniGun = false;
-                            this.Fenetre.PointCredit -= PRIX_LANCE_BOMBE;
+                            if (!this.Fenetre.Lancebombe)
+                            {
+                                this.Fenetre.Lancebombe = true;
+                                this.Fenetre.PistoletLaser  = false;
+                                this.Fenetre.MiniGun = false;
+                                this.Fenetre.PointCredit -= PRIX_LANCE_BOMBE;
+                                this.Fenetre.TempsRechargement = 8;
+                                this.Fenetre.LimiteBalleParTir = 3;
+                            }
+                            
                             break;
                         }
                     case "miniGun":
                         {
-                            this.Fenetre.MiniGun = true;
-                            this.Fenetre.PistoletLaser  = false;
-                            this.Fenetre.Lancebombe = false;
-                            this.Fenetre.PointCredit -= PRIX_SOIN;
+                            if (!this.Fenetre.MiniGun)
+                            {
+                                this.Fenetre.MiniGun = true;
+                                this.Fenetre.PistoletLaser  = false;
+                                this.Fenetre.Lancebombe = false;
+                                this.Fenetre.PointCredit -= PRIX_SOIN;
+                                this.Fenetre.TempsRechargement = 2;
+                                this.Fenetre.LimiteBalleParTir = 25;
+                            }
                             break;
                         }
                     case "vie":

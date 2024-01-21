@@ -620,8 +620,8 @@ namespace StarBound_Legacy
             {
                 #if DEBUG
                     Console.WriteLine("touche de tir appuyer !");
-#endif
-                timerTir = timerTirMax;
+                #endif
+                timerTir = TempsRechargement;
                 // on vide la liste des items
                 ElementsASupprimer.Clear();
                 balletirer = 0;
