@@ -47,5 +47,68 @@ namespace StarBound_Legacy
             this.Fenetre.musiqueMenu.Position = TimeSpan.Zero;
             this.Fenetre.musiqueMenu.Play();
         }
+        public void LanceTirJoueur()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/TirJoueur.wav"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceTirEnnemi()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/TirEnnemi.wav"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceBouclier()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Bouclier.mp3"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceDefaite()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Defaite.mp3"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceBombeNucleaire()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/BombeNucleaire.wav"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceDegatJoueur()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/DegatJoueur.wav"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceSoin()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Soin.wav"); // chemin d'acces pour la musique
+
+            this.Fenetre.musiqueMenu.Open(musique);
+            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSFXactuel;
+            this.Fenetre.musiqueMenu.Play(); // joue le fichier de la musique
+
+        }
     }
 }

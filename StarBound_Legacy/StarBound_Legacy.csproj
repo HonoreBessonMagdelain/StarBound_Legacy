@@ -14,12 +14,14 @@
     <None Remove="boutonRejouerRelache.png" />
     <None Remove="boutonRejouerRelache.png.png" />
     <None Remove="CreditsRelache.png" />
+    <None Remove="ExterieurCredits.png" />
     <None Remove="Fond.png" />
     <None Remove="FondDescriptionGarage.png" />
     <None Remove="FondSpecial.png" />
     <None Remove="FondVaisseauGarage.png" />
     <None Remove="GarageRelache.png" />
     <None Remove="GarageRelache1.png" />
+    <None Remove="InterieurCredits.png" />
     <None Remove="JouerRelache.png" />
     <None Remove="JouerRelache1.png" />
     <None Remove="LanceBombe.png" />
@@ -48,6 +50,7 @@
     <Resource Include="boutonRejouerRelache.png" />
     <Resource Include="boutonRejouerRelache.png.png" />
     <Resource Include="CreditsRelache.png" />
+    <Resource Include="ExterieurCredits.png" />
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -56,6 +59,7 @@
     <Resource Include="FondVaisseauGarage.png" />
     <Resource Include="GarageRelache.png" />
     <Resource Include="GarageRelache1.png" />
+    <Resource Include="InterieurCredits.png" />
     <Resource Include="JouerRelache.png" />
     <Resource Include="JouerRelache1.png" />
     <Resource Include="LanceBombe.png" />
@@ -75,6 +79,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Bruitages\BombeNucleaire.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\Bouclier.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\Defaite.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\DegatJoueur.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\MortEnnemi.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\Soin.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\TirEnnemi.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Bruitages\TirJoueur.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\Asteroids\Asteroid.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -88,6 +116,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\CreditsRelache.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\ExterieurCredits.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\FenetreReglages.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\FondDescriptionGarage.png">
@@ -106,6 +140,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\GarageRelache1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Boutons\InterieurCredits.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Boutons\JouerAppuye.png">
