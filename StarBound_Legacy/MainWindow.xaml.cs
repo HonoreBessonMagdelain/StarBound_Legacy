@@ -1005,8 +1005,12 @@ namespace StarBound_Legacy
                         ElementsASupprimer.Add(x);
                     }
                 }
-                CreationEnnemis(nbEnnemi);
-                CreationAsteroids(nbAsteroid, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
+                int tmpResetObstacle = nbEnnemi;
+                nbEnnemi = 0;
+                CreationEnnemis(tmpResetObstacle);
+                tmpResetObstacle = nbAsteroid;
+                nbAsteroid = 0;
+                CreationAsteroids(tmpResetObstacle, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
                 utiliseBombe = false;
                 Bombes = Bombes - 1;
             }
