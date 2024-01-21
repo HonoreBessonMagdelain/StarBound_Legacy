@@ -35,12 +35,12 @@ namespace StarBound_Legacy
 
         Rectangle[] barreVie;
 
-        private readonly int PRIX_SOIN = 100;
-        private readonly int PRIX_BOMBE = 500;
-        private readonly int PRIX_BOUCLIER = 50;
-        private readonly int PRIX_PISTOLET_LASER = 50;
-        private readonly int PRIX_LANCE_BOMBE = 50;
-        private readonly int PRIX_MINIGUN = 50;
+        private readonly int PRIX_SOIN = 150;
+        private readonly int PRIX_BOMBE = 250;
+        private readonly int PRIX_BOUCLIER = 100;
+        private readonly int PRIX_PISTOLET_LASER = 200;
+        private readonly int PRIX_LANCE_BOMBE = 75;
+        private readonly int PRIX_MINIGUN = 150;
         private readonly int PRIX_COEUR = 150;
 
         private const int MAX_SOIN = 5;
@@ -53,9 +53,9 @@ namespace StarBound_Legacy
         //constante pour pistolet laser
         private const int LARGEUR_BALLE_LASER = 30, HAUTEUR_BALLE_LASER = 3, TPS_RECHARGE_LASER = 1, BALLE_PAR_TIR_LASER = 30;
         private const int NUM_PISTOLET_LASER = 2;
-        private const int VIT_BALLE_LASER = 30;
+        private const int VIT_BALLE_LASER = 40;
         //constante pour lance-bombe
-        private const int LARGEUR_BALLE_LANCE_BOMBE = 15, HAUTEUR_BALLE_LANCE_BOMBE = 10, TPS_RECHARGE_LANCE_BOMBE = 6, BALLE_PAR_TIR_LANCE_BOMBE = 4;
+        private const int LARGEUR_BALLE_LANCE_BOMBE = 20, HAUTEUR_BALLE_LANCE_BOMBE = 15, TPS_RECHARGE_LANCE_BOMBE = 6, BALLE_PAR_TIR_LANCE_BOMBE = 4;
         private const int NUM_LANCE_BOMBE = 3;
         private const int VIT_BALLE_LANCE_BOMBE = 10;
         //cosntante pour minigun

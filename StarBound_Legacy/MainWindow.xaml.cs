@@ -45,14 +45,14 @@ namespace StarBound_Legacy
             }
         }
 
-        private double volumeSFXactuel;
+        private double volumeSFXactuel = 1;
         public double VolumeSFXactuel
         {
             get { return volumeSFXactuel; }
             set { volumeSFXactuel = value; }
         }
 
-        private double volumeMusiqueActuel;
+        private double volumeMusiqueActuel = 1;
         public double VolumeMusiqueActuel
         {
             get { return volumeMusiqueActuel; }
@@ -149,14 +149,13 @@ namespace StarBound_Legacy
         }
 
 
-        // creation des lecteurs de la musique
         
         
 
         Random aleatoire = new Random();
 
         // unite des points
-        public readonly String UNITE_PRIX = " pts";
+        public readonly String UNITE_PRIX = "pts";
         public readonly int MAX_VIE = 10;
         public readonly int MIN_VIE = 3;
         // liste des éléments rectangles
@@ -294,6 +293,7 @@ namespace StarBound_Legacy
         private const double VIT_DEPART_ASTEROID = 8;
         private const double VIT_DEPART_ENNEMI = 2;
         private const double VIT_DEPART_BALLE_ENNEMI = 20;
+        private const double MINUTERIE_BALLE_LIMITE = 600;
 
         // timer tir et animation vaisseau
         private int timerTir = 0;
@@ -301,7 +301,7 @@ namespace StarBound_Legacy
         private int animeVaisseau = 6;
         private int animeVaisseauMax = 6;
         private double minuterieBalle = 8;
-        private double minuterieBalleLimite = 800;
+        private double minuterieBalleLimite = 600;
 
         // les différents plans
         private int zIndexEnnemi = 6;
@@ -454,6 +454,8 @@ namespace StarBound_Legacy
                         ReplacerElement(x);
                         if (!utiliseBouclier)
                             vieJoueur -= DEGAT_ENNEMI;
+                        else
+                            score++;
                     }
                     minuterieBalle -= 2;
                     if (minuterieBalle < 0)
@@ -476,6 +478,8 @@ namespace StarBound_Legacy
                         ReplacerElement(x);
                         if (!utiliseBouclier)
                             vieJoueur -= DEGAT_ASTEROID;
+                        else
+                            score++;
                     }
                 }
                 if (x is Rectangle && (string)x.Tag == "balleEnnemi")
@@ -888,6 +892,7 @@ namespace StarBound_Legacy
                             palierActuel = 0;
                             nbEnnemi = 0;
                             nbAsteroid = 0;
+                            minuterieBalleLimite = MINUTERIE_BALLE_LIMITE;
                             barreVie = new Rectangle[10] { rectCoeur1, rectCoeur2, rectCoeur3, rectCoeur4, rectCoeur5, rectCoeur6, rectCoeur7, rectCoeur8, rectCoeur9, rectCoeur10 };
                             minuterie.Interval = TimeSpan.FromMilliseconds(16);
                             minuterie.Tick += MoteurJeu;
