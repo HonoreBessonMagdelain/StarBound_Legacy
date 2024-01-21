@@ -29,7 +29,7 @@ namespace StarBound_Legacy
         public static MediaPlayer bouclier = new MediaPlayer();
         public void LanceMusiqueMenu()
         {
-            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.mp3"); // chemin d'acces pour la musique
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueAccueil.wav"); // chemin d'acces pour la musique
 
             musiqueMenu.Open(musique);
             musiqueMenu.Volume = this.Fenetre.VolumeSons;
@@ -39,7 +39,7 @@ namespace StarBound_Legacy
         }
         public void LanceMusiqueGameplay()
         {
-            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueGamePlay.mp3"); // chemin d'acces pour la musique
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/MusiqueGamePlay.wav"); // chemin d'acces pour la musique
 
             musiqueGameplay.Open(musique);
             musiqueGameplay.Volume = this.Fenetre.VolumeSons;
@@ -76,7 +76,7 @@ namespace StarBound_Legacy
         }
         public void LanceBouclier()
         {
-            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Bouclier.mp3"); // chemin d'acces pour la musique
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Bouclier.wav"); // chemin d'acces pour la musique
 
             bouclier.Open(musique);
             bouclier.Volume = this.Fenetre.VolumeSFXactuel;
@@ -85,7 +85,7 @@ namespace StarBound_Legacy
         }
         public void LanceDefaite()
         {
-            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Defaite.mp3"); // chemin d'acces pour la musique
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/Defaite.wav"); // chemin d'acces pour la musique
 
             defaite.Open(musique);
             defaite.Volume = this.Fenetre.VolumeSFXactuel;
@@ -117,6 +117,15 @@ namespace StarBound_Legacy
             soin.Open(musique);
             soin.Volume = this.Fenetre.VolumeSFXactuel;
             soin.Play(); // joue le fichier de la musique
+
+        }
+        public void LanceMortEnnemi()
+        {
+            var musique = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Bruitages/MortEnnemi.wav"); // chemin d'acces pour la musique
+
+            mortEnnemi.Open(musique);
+            mortEnnemi.Volume = this.Fenetre.VolumeSFXactuel;
+            mortEnnemi.Play(); // joue le fichier de la musique
 
         }
     }
