@@ -35,13 +35,17 @@ namespace StarBound_Legacy
 
         Rectangle[] barreVie;
 
-        private readonly int PRIX_SOIN = 50;
-        private readonly int PRIX_BOMBE = 50;
+        private readonly int PRIX_SOIN = 100;
+        private readonly int PRIX_BOMBE = 500;
         private readonly int PRIX_BOUCLIER = 50;
         private readonly int PRIX_PISTOLET_LASER = 50;
         private readonly int PRIX_LANCE_BOMBE = 50;
         private readonly int PRIX_MINIGUN = 50;
-        private readonly int PRIX_COEUR = 50;
+        private readonly int PRIX_COEUR = 150;
+
+        private const int MAX_SOIN = 5;
+        private const int MAX_BOMBE = 1;
+        private const int MAX_BOUCLIER = 5;
 
         private String itemSelectionne;
 
@@ -269,20 +273,29 @@ namespace StarBound_Legacy
                 {
                     case "soin":
                         {
-                            this.Fenetre.Soins++;
-                            this.Fenetre.PointCredit -= PRIX_SOIN;
+                            if (this.Fenetre.Soins < MAX_SOIN)
+                            {
+                                this.Fenetre.Soins++;
+                                this.Fenetre.PointCredit -= PRIX_SOIN;
+                            }
                             break;
                         }
                     case "bombe":
                         {
-                            this.Fenetre.Bombes++;
-                            this.Fenetre.PointCredit -= PRIX_BOMBE;
+                            if (this.Fenetre.Bombes < MAX_BOMBE)
+                            {
+                                this.Fenetre.Bombes++;
+                                this.Fenetre.PointCredit -= PRIX_BOMBE;
+                            }
                             break;
                         }
                     case "bouclier":
                         {
-                            this.Fenetre.Boucliers++;
-                            this.Fenetre.PointCredit -= PRIX_BOUCLIER;
+                            if (this.Fenetre.Boucliers < MAX_BOUCLIER)
+                            {
+                                this.Fenetre.Boucliers++;
+                                this.Fenetre.PointCredit -= PRIX_BOUCLIER;
+                            }
                             break;
                         }
                     case "pistoletLaser":
@@ -311,8 +324,11 @@ namespace StarBound_Legacy
                         }
                     case "vie":
                         {
-                            this.Fenetre.VieJoueurDebutPartie++;
-                            this.Fenetre.PointCredit -= PRIX_COEUR;
+                            if (this.Fenetre.VieJoueurDebutPartie < this.Fenetre.MAX_VIE)
+                            {
+                                this.Fenetre.VieJoueurDebutPartie++;
+                                this.Fenetre.PointCredit -= PRIX_COEUR;
+                            }
                             break;
                         }
                 }

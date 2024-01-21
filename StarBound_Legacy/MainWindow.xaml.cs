@@ -163,11 +163,7 @@ namespace StarBound_Legacy
         private List<Rectangle> ElementsASupprimer = new List<Rectangle>();
         private List<Rectangle> ElementsAAjouter = new List<Rectangle>();
         
-
-
-
         // LIGNES POUR LE GAMEPLAY
-
 
         // FONCTIONNEMENT JEU
 
@@ -1003,8 +999,9 @@ namespace StarBound_Legacy
                 minuterieBombe.Start();
                 foreach (Rectangle x in Canva.Children.OfType<Rectangle>())
                 {
-                    if ((string)x.Tag == "ennemi" || (string)x.Tag == "asteroid" || (string)x.Tag == "bombelancee")
+                    if ((string)x.Tag == "ennemi" || (string)x.Tag == "asteroid")
                     {
+                        score++;
                         ElementsASupprimer.Add(x);
                     }
                 }
