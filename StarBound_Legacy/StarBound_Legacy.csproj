@@ -15,6 +15,7 @@
     <None Remove="boutonRejouerRelache.png.png" />
     <None Remove="CreditsRelache.png" />
     <None Remove="ExterieurCredits.png" />
+    <None Remove="FenetreReglages.png" />
     <None Remove="Fond.png" />
     <None Remove="FondDescriptionGarage.png" />
     <None Remove="FondSpecial.png" />
@@ -51,6 +52,7 @@
     <Resource Include="boutonRejouerRelache.png.png" />
     <Resource Include="CreditsRelache.png" />
     <Resource Include="ExterieurCredits.png" />
+    <Resource Include="FenetreReglages.png" />
     <Resource Include="Fond.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

@@ -41,13 +41,13 @@ namespace StarBound_Legacy
 
         private void VolumeSFX(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            this.Fenetre.VolumeSfx = (double)barreSFX.Value;
+            this.Fenetre.VolumeSFXactuel = (double)barreSFX.Value;
         }
 
         private void VolumeMusique(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             this.Fenetre.VolumeSons = (double)barreMusique.Value;
-            this.Fenetre.musiqueMenu.Volume = this.Fenetre.VolumeSons;
+            Musique.musiqueMenu.Volume = this.Fenetre.VolumeSons;
         }
 
         private void RetourEntreeSouris(object sender, MouseEventArgs e)

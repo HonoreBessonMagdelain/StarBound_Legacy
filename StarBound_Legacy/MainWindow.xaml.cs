@@ -365,7 +365,7 @@ namespace StarBound_Legacy
             apparenceEnnemi.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Ennemis/Ennemi.png"));
             apparenceAsteroid.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img/Asteroids/Asteroid.png"));
             rectJoueur.Fill = apparenceJoueur;
-            ControlFenetre();
+            ControleFenetre();
         }
         public void initialisationJeux()
         {
@@ -388,6 +388,7 @@ namespace StarBound_Legacy
             UtilisationBombe(Canvas.GetTop(rectJoueur),rectJoueur.Height, Canvas.GetLeft(rectJoueur), rectJoueur.Width);
             UtilisationSoin();
             UtilisationBouclier();
+            
             // création d’un rectangle joueur pour la détection de collision
             Rect player = new Rect(Canvas.GetLeft(rectJoueur), Canvas.GetTop(rectJoueur),
             rectJoueur.Width, rectJoueur.Height);
@@ -616,6 +617,8 @@ namespace StarBound_Legacy
         }
         private void ToucheEnfoncee(object sender, KeyEventArgs e)
         {
+            Musique musique = new Musique();
+            musique.Fenetre = this;
             // on gère les booléens gauche et droite en fonction de l’appui de la touche
             if (e.Key == Key.Left)
             {
@@ -683,6 +686,7 @@ namespace StarBound_Legacy
                     Canvas.SetLeft(nouvelleBalle, Canvas.GetLeft(rectJoueur) + rectJoueur.Width / 2);
                     // on place le tir dans le canvas
                     Canva.Children.Add(nouvelleBalle);
+                    musique.LanceTirJoueur();
                     balleParTir++;
                 }
             }
@@ -814,7 +818,7 @@ namespace StarBound_Legacy
             Canvas.SetTop(element, aleatoire.Next((int)element.Height, (int)Canva.Height - (int)element.Height));
         }
 
-        private void ControlFenetre()
+        private void ControleFenetre()
         {
             Musique musique = new Musique();
             musique.Fenetre = this;
@@ -1142,12 +1146,13 @@ namespace StarBound_Legacy
                 Musique musique = new Musique();
                 musique.Fenetre = this;
                 musique.LanceDefaite();
+                finMinuterieDefaite = true;
             }
             else
             {
                 minuterieDefaite.Tick -= MusiqueDefaite;
                 minuterieDefaite.Stop();
-                ControlFenetre();
+                ControleFenetre();
             }
         }
     }
