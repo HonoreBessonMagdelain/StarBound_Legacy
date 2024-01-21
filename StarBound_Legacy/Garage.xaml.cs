@@ -50,8 +50,18 @@ namespace StarBound_Legacy
         private String itemSelectionne;
         private readonly String OBJETS_POSSEDES = "Objets possedes : ";
 
-
-
+        //constante pour pistolet laser
+        private const int LARGEUR_BALLE_LASER = 30, HAUTEUR_BALLE_LASER = 3, TPS_RECHARGE_LASER = 1, BALLE_PAR_TIR_LASER = 30;
+        private const int NUM_PISTOLET_LASER = 2;
+        private const int VIT_BALLE_LASER = 30;
+        //constante pour lance-bombe
+        private const int LARGEUR_BALLE_LANCE_BOMBE = 15, HAUTEUR_BALLE_LANCE_BOMBE = 10, TPS_RECHARGE_LANCE_BOMBE = 6, BALLE_PAR_TIR_LANCE_BOMBE = 4;
+        private const int NUM_LANCE_BOMBE = 3;
+        private const int VIT_BALLE_LANCE_BOMBE = 10;
+        //cosntante pour minigun
+        private const int LARGEUR_BALLE_MINIGUN = 20, HAUTEUR_BALLE_MINIGUN = 5, TPS_RECHARGE_MINIGUN = 2, BALLE_PAR_TIR_MINIGUN = 25;
+        private const int NUM_MINIGUN = 4;
+        private const int VIT_BALLE_MINIGUN = 25;
 
         public Garage(MainWindow fenetre)
         {
@@ -356,8 +366,8 @@ namespace StarBound_Legacy
                                 this.Fenetre.MiniGun = false;
                                 this.Fenetre.Lancebombe = false;
                                 this.Fenetre.PointCredit -= PRIX_PISTOLET_LASER;
-                                this.Fenetre.TempsRechargement = 0;
-                                this.Fenetre.LimiteBalleParTir = 50;
+                                this.Fenetre.CanonActuel = NUM_PISTOLET_LASER;
+                                ChangeCaracteristiqueCanon(HAUTEUR_BALLE_LASER, LARGEUR_BALLE_LASER, TPS_RECHARGE_LASER, BALLE_PAR_TIR_LASER, VIT_BALLE_LASER);
                                 ActualisationPistoletLaserPossede();
                             }
                             break;
@@ -369,9 +379,9 @@ namespace StarBound_Legacy
                                 this.Fenetre.Lancebombe = true;
                                 this.Fenetre.PistoletLaser  = false;
                                 this.Fenetre.MiniGun = false;
+                                this.Fenetre.CanonActuel = NUM_LANCE_BOMBE;
                                 this.Fenetre.PointCredit -= PRIX_LANCE_BOMBE;
-                                this.Fenetre.TempsRechargement = 8;
-                                this.Fenetre.LimiteBalleParTir = 3;
+                                ChangeCaracteristiqueCanon(HAUTEUR_BALLE_LANCE_BOMBE, LARGEUR_BALLE_LANCE_BOMBE, TPS_RECHARGE_LANCE_BOMBE, BALLE_PAR_TIR_LANCE_BOMBE, VIT_BALLE_LANCE_BOMBE);
                                 ActualisationLanceBombesPossede();
                             }
                             
@@ -384,9 +394,9 @@ namespace StarBound_Legacy
                                 this.Fenetre.MiniGun = true;
                                 this.Fenetre.PistoletLaser  = false;
                                 this.Fenetre.Lancebombe = false;
+                                this.Fenetre.CanonActuel = NUM_MINIGUN;
                                 this.Fenetre.PointCredit -= PRIX_SOIN;
-                                this.Fenetre.TempsRechargement = 2;
-                                this.Fenetre.LimiteBalleParTir = 25;
+                                ChangeCaracteristiqueCanon(HAUTEUR_BALLE_MINIGUN, LARGEUR_BALLE_MINIGUN, TPS_RECHARGE_MINIGUN, BALLE_PAR_TIR_MINIGUN, VIT_BALLE_MINIGUN);
                                 ActualisationMiniGunPossede();
                             }
                             break;
@@ -416,6 +426,14 @@ namespace StarBound_Legacy
         {
             if (txtPrix.Foreground != null)
                 rectPrix.Fill = Apparences.prixAppuye;
+        }
+        private void ChangeCaracteristiqueCanon(int hauteur, int largeur, int tps_recharge, int limiteParTir, int vitesseBalle)
+        {
+            this.Fenetre.HauteurBalleJoueur = hauteur;
+            this.Fenetre.LargeurBalleJoueur = largeur;
+            this.Fenetre.TempsRechargement = tps_recharge;
+            this.Fenetre.LimiteBalleParTir = limiteParTir;
+            this.Fenetre.VitesseBalle = vitesseBalle;
         }
 
     }

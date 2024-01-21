@@ -206,6 +206,23 @@ namespace StarBound_Legacy
 
         // JOUEUR
 
+        private int hauteurBalleJoueur = 5;
+
+        public int HauteurBalleJoueur
+        {
+            get { return hauteurBalleJoueur; }
+            set { hauteurBalleJoueur = value; }
+        }
+        private int largeurBalleJoueur = 20;
+
+        public int LargeurBalleJoueur
+        {
+            get { return largeurBalleJoueur; }
+            set { largeurBalleJoueur = value; }
+        }
+
+
+
         private bool tirer = false;
         // classe de pinceau d'image que nous utiliserons comme image du joueur appelée skin du joueur
         private ImageBrush apparenceJoueur = new ImageBrush();
@@ -213,6 +230,13 @@ namespace StarBound_Legacy
         private int vitesseJoueur = 10;
         private int vieJoueur;
         private int vitesseBalle = 20;
+
+        public int VitesseBalle
+        {
+            get { return vitesseBalle = 20; }
+            set { vitesseBalle = value; }
+        }
+
 
         //pour changer le temps de rechargement (cooldown)
         private int tempsRechargement = 5;
@@ -648,8 +672,8 @@ namespace StarBound_Legacy
                     {
                         Tag = "balleJoueur"
                     , //permet de tagger les rectangles
-                        Height = 5,
-                        Width = 20,
+                        Height = HauteurBalleJoueur,
+                        Width = LargeurBalleJoueur,
                         Fill = Brushes.White,
                         Stroke = Brushes.Red
                     };
