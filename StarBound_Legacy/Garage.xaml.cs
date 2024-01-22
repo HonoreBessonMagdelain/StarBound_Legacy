@@ -39,7 +39,7 @@ namespace StarBound_Legacy
         private readonly int PRIX_BOMBE = 250;
         private readonly int PRIX_BOUCLIER = 100;
         private readonly int PRIX_PISTOLET_LASER = 200;
-        private readonly int PRIX_LANCE_BOMBE = 75;
+        private readonly int PRIX_LANCE_BOMBE = 100;
         private readonly int PRIX_MINIGUN = 150;
         private readonly int PRIX_COEUR = 150;
 
