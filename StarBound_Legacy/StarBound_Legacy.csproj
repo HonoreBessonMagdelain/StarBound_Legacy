@@ -5,6 +5,8 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageIcon>Vaisseau1canon1.png</PackageIcon>
+    <Title>StarBound Legacy</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -392,6 +394,8 @@
     </None>
     <None Update="img\Vaisseaux\Vaisseau1canon1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
     <None Update="img\Vaisseaux\Vaisseau1canon2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
