@@ -271,6 +271,7 @@ namespace StarBound_Legacy
         private const int DEGAT_ASTEROID = 3;
         private const int DEGAT_TIR_ENNEMI = 1;
         private const int DEGAT_ENNEMI = 2;
+        private const int MINUTERIE_BALLE_LIMITE_MIN = 100;
 
         // ENNEMIS
 
@@ -278,6 +279,9 @@ namespace StarBound_Legacy
         private double vitesseBalleEnnemi = 10;
         private double vitesseEnnemi = 2;
         private double vitesseAsteroid = 5;
+        private const double VIT_MAX_BALLE_ENNEMI = 30;
+        private const double VIT_MAX_ENNEMI = 10;
+        private const double VIT_MAX_ASTEROID = 30;
         private const int TAILLE_MIN_ASTEROID = 25, TAILLE_MAX_ASTEROID = 100;
         private ImageBrush apparenceEnnemi = new ImageBrush();
         private ImageBrush apparenceAsteroid = new ImageBrush();
@@ -289,6 +293,8 @@ namespace StarBound_Legacy
         private const double ACCELERATION_VITESSE_ASTEROID = 0.2;
         private const double RATIO_TAILLE_ASTEROID = 2.5;
         private const double RATIO_TAILLE_ENNEMI = 1.5;
+        private double vitesseVerticalEnemi = 2;
+        private const double VITESSE_VERTICALE_MAX = 6;
         private const double VITESSE_VERTICALE_ENNEMI = 2;
         private const double VIT_DEPART_ASTEROID = 8;
         private const double VIT_DEPART_ENNEMI = 2;
@@ -431,7 +437,8 @@ namespace StarBound_Legacy
                                 ElementsASupprimer.Add(x);
                                 ReplacerElement(y);
                                 score++;
-                                minuterieBalleLimite--;
+                                if (minuterieBalleLimite > MINUTERIE_BALLE_LIMITE_MIN)
+                                    minuterieBalleLimite--;
                             }
                         }
                     }
@@ -452,7 +459,7 @@ namespace StarBound_Legacy
                     }
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemi);
                     Rect ennemi = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                    Canvas.SetTop(x, Canvas.GetTop(x) + AttaquerJoueur(rectJoueur, x));
+                    Canvas.SetTop(x, Canvas.GetTop(x) + AttaquerJoueur(rectJoueur, x, vitesseVerticalEnemi));
                     if (player.IntersectsWith(ennemi))
                     {
                         ReplacerElement(x);
@@ -768,7 +775,7 @@ namespace StarBound_Legacy
                 #endif
                 utiliseBouclier = true;
             }
-            if (e.Key == Key.T)
+            if (e.Key == Key.T && afficheDevbug)
             {
                 this.PointCredit += 10000;
             }
@@ -967,7 +974,7 @@ namespace StarBound_Legacy
             }
         }
 
-        private static double AttaquerJoueur(Rectangle joueur, Rectangle ennemi)
+        private static double AttaquerJoueur(Rectangle joueur, Rectangle ennemi, double vitesseVertical)
         {
             double direction = Canvas.GetTop(joueur) - Canvas.GetTop(ennemi);
             double stopAttaque = Canvas.GetLeft(joueur) - Canvas.GetLeft(ennemi);
@@ -978,11 +985,11 @@ namespace StarBound_Legacy
 
             if (direction < -5)
             {
-                return -VITESSE_VERTICALE_ENNEMI;
+                return -vitesseVertical;
             }
             else if (direction > 5)
             {
-                return VITESSE_VERTICALE_ENNEMI;
+                return vitesseVertical;
             }
             else
             {
@@ -1003,10 +1010,15 @@ namespace StarBound_Legacy
                 {
                     CreationAsteroids(1, TAILLE_MIN_ASTEROID, TAILLE_MAX_ASTEROID);
                 }
+                if (vitesseVerticalEnemi > VITESSE_VERTICALE_MAX)
+                    vitesseVerticalEnemi += 0.1;
                 palierActuel = score / 10;
-                vitesseEnnemi += ACCELERATION_VITESSE_ENNEMI;
-                vitesseBalleEnnemi += ACCELERATION_VITESSE_BALLE_ENNEMI;
-                vitesseAsteroid += ACCELERATION_VITESSE_ASTEROID;
+                if(vitesseEnnemi < VIT_MAX_ENNEMI)
+                    vitesseEnnemi += ACCELERATION_VITESSE_ENNEMI;
+                if (vitesseBalleEnnemi < VIT_MAX_BALLE_ENNEMI)
+                    vitesseBalleEnnemi += ACCELERATION_VITESSE_BALLE_ENNEMI;
+                if (vitesseAsteroid < VIT_MAX_ASTEROID)
+                    vitesseAsteroid += ACCELERATION_VITESSE_ASTEROID;
 
                 passpalier = false;
             }
@@ -1035,10 +1047,12 @@ namespace StarBound_Legacy
             vitesseAsteroid = VIT_DEPART_ASTEROID;
             vitesseBalleEnnemi = VIT_DEPART_BALLE_ENNEMI;
             vitesseEnnemi = VIT_DEPART_ENNEMI;
+            vitesseVerticalEnemi = VITESSE_VERTICALE_ENNEMI;
             vaADroite = false;
             vaAGauche = false;
             vaEnBas = false;
             vaEnHaut = false;
+            ActualisationStats();
             minuterieDefaite.Interval = TimeSpan.FromSeconds(4);
             minuterieDefaite.Tick += MusiqueDefaite;
             minuterieDefaite.Start();
